@@ -1,5 +1,5 @@
 """
-Day Two Content - Conditional Statements, Logical Operators, Code Blocks and Scope
+Day Three Content - Conditional Statements, Logical Operators, Code Blocks and Scope
 
 Looks like we'll be making Choose Your Own Adventure Game
 """
