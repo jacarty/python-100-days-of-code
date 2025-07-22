@@ -1,3 +1,9 @@
+"""
+Day One Content - String Manipulation and Variables
+
+Looks like we'll be making a Band Generator for the Task
+"""
+
 # Example print statements
 print("Hello World")
 
