@@ -89,3 +89,13 @@ print(friends[position])
 
 # Instructor Option 2
 print(random.choice(friends))
+
+# dirty_dozen = ["Strawberries", "Spinach", "Kale", "Grapes", "Peaches", "Cherries", 
+#               "Nectarines", "Pears", "Apples", "Blackberries", "Blueberries", "Potatoes"]
+
+fruits = ["Strawberries", "Grapes", "Peaches", "Cherries", "Nectarines", "Pears", "Apples", "Blackberries", "Blueberries"]
+vegetables = ["Spinach", "Kale", "Potatoes"]
+
+dirty_dozen = [fruits,vegetables]
+     
+print(dirty_dozen[1][1]) # would return Kale. List 1, place 1
