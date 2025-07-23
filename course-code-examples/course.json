@@ -1,0 +1,1520 @@
+{
+  "course_version" : 9,
+  "environment" : "unittest",
+  "summary" : "The companion to the best-selling 100 Days of Code - The Complete Python Pro Bootcamp by Angela Yu on Udemy\n\nLink to full course:\nhttps://www.udemy.com/course/100-days-of-code/",
+  "title" : "100 Days of Code - The Complete Python Pro Bootcamp",
+  "programming_language_id" : "Python",
+  "language" : "en",
+  "course_type" : "Marketplace",
+  "vendor" : {
+    "name" : "Dr. Angela Yu"
+  },
+  "items" : [
+    {
+      "title" : "Day 1",
+      "task_list" : [
+        {
+          "id" : 625529494,
+          "name" : "Printing",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "Use what you learnt to print out the words \"Hello world!\" with Python code.\n\nThen click the run button to execute your code. \n\n<div class=\"hint\">\n Remember that this is the format to print things in Python:\n<code>print(\"some text\")</code>\n</div>\n\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1730117572,
+          "name" : "String Manipulation",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "Learn to use string concatenation and the new line escape sequence to format strings in Python.\n\n### PAUSE 1. Use `\\n` to add another line of \"Hello world\".\n\nSo the resulting output looks like this:\n\nHello world!\n\nHello world!\n\nHello world!\n\n### PAUSE 2. Add a space between the strings\n\nSo there is a space between the string `Hello` and `Angela` when the print statement runs.\n\nThe output should look like this:\n\nHello Angela",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 283125148,
+          "name" : "Inputs",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "Learn to use the Python `input()` function to collect user input and use it within your code.\n\n**PAUSE 1. Update the code to add an exclamation mark**\nUsing what you have learnt in this lesson and previous, can you figure out how take user input and slot it in between 2 strings?\n\nYou are looking to print a sentence like this:\n\nHello Name!\n\ne.g. Hello Angela!",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 636283032,
+          "name" : "Variables",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "Learn to store values in containers for later use. Variables is a concept in programming that allows us to give a label to a piece of data so that we can refer or reference that data using the chosen variable name. We will see in this lesson how to create variables and how to use the variables to access the contained value.\n\n### PAUSE 1. Check the length of the user input\nUsing what you have learnt about the `len()` function and the `input()` function. Try to print out the number of characters in the user input.\nWrite everything in just 1 line of code.\n\n### PAUSE 2. Split everything into variables.\nSplit each step in the previous exercise into a separate variable. One variable called username and one called length. \nUse the variable username in the len calculation.\n\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1179865809,
+          "name" : "Variable Naming",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "Learn the rules of variable naming in Python.\n\n## Rules\n\n1. Make sure your variable names are descriptive\n2. Don't have spaces between words\n3. Don't start with numbers\n4. Don't use special words like print or input\n5. Choose simple words that are less likely to become typos\n6. Check the company style guidelines if you start work at a company",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1521411200,
+          "name" : "Band Name Generator Project",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "1. Create a greeting for your program.\n2. Ask the user for the city that they grew up in and store it in a variable.\n3. Ask the user for the name of a pet and store it in a variable.\n4. Combine the name of their city and pet and show them their band name.\n<div class=\"hint\">\n  You can use String Concatenation to combine strings with variables too!\n  e.g. \n\n<code>\nprint(\"My name is \" + name)\n</code>\n</div>\n\n5. Make sure the input cursor shows on a new line:\n\n<div class=\"hint\">\n  Think about how you used \\n to add a new line to a string. Try putting it in some different places in your code until it does what you expect. Note, when you click into the output area you will be able to click on the end of the line as well as the new line. See the video solution for how it looks on my system.\n</div>\n\n\n## Demo:\n[Try it out first here](https://appbrewery.github.io/python-day1-demo/)\n\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        }
+      ],
+      "type" : "framework",
+      "id" : 1783099172
+    },
+    {
+      "id" : 644805369,
+      "title" : "Day 2",
+      "task_list" : [
+        {
+          "id" : 1112857690,
+          "name" : "Data Types",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "Learn about the primitive data types in Python.\n\n1. Strings\n2. Integers\n3. Floats\n4. Booleans",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 526466484,
+          "name" : "Type Error, Checking and Conversion",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "### TypeError\nThese errors occur when you are using the wrong data type.\ne.g. `len(12345)`\n\nBecause you can only give the `len()` function Strings, it will refuse to work and give you a TypeError if you give it a number (Integer).\n\n\n#### PAUSE 1. Fix the `len()` function so it has no more warnings or errors.\n\n### Type Checking\nYou can check the data type of any value or variable in python using the `type()` function.\n\n`print(type(\"abc\")) #will give you <class 'str'>`\n\n#### PAUSE 2. Write out 4 type checks to print all 4 data types\nUsing the `type()` and `print()` functions to print out 4 lines into the output area so we get the full collection of data types that we learnt about. `<class 'str'> <class 'int'> <class 'float'> and <class 'bool'>`\n\n### Type Conversion\nYou can convert data into different data types using special functions.\ne.g.\n\n`float()` \n\n`int()`\n\n`str()`\n\n#### PAUSE 3. Make this line of code run without errors\n`print(\"Number of letters in your name: \" + len(input(\"Enter your name\")))`",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1791388063,
+          "name" : "Mathematical Operations",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "## Basic Operators\n\nLearn to use the basic mathematical operators, +, -, *, /, // and **\n\n## PEMDAS\nParentheses, Exponents, Multiplication/Division, Addition/Subtraction\n\n### PAUSE 1. What is the output of this code? \n`print(3 * 3 + 3 / 3 - 3)`\n\n### PAUSE 2. Change the code so it outputs 3?\n`print(3 * 3 + 3 / 3 - 3)`",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 997111556,
+          "name" : "Number Manipulation",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "### Flooring a Number\nYou can floor a number or remove all decimal places using the `int()` function which converts a floating point number (with decimal places) into an integer (whole number).\n\n`int(3.738492) # Becomes 3` \n\n### Rounding a Number\nHowever, if you want to round a decimal number to the nearest whole number using the traditional mathematical way, where anything over .5 rounds up and anything below rounds down. Then you can use the python `round()` function.\n\n`round(3.738492) # Becomes 4`\n\n`round(3.14159) # Becomes 3`\n\n`round(3.14159, 2) # Becomes 3.14`\n\n### Assignment Operators\nAssignment operators such as the addition assignment operator `+=` will add the number on the right to the original value of the variable on the left and assign the new value to the variable.\n\n`+=`\n\n`-=`\n\n`*=`\n\n`/=`\n\n### f-Strings\nIn Python, we can use f-strings to insert a variable or an expression into a string.\n\n`age = 12`\n\n`print(f\"I am {age} years old\")`\n\n`# Will output I am 12 years old.`",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1606163007,
+          "name" : "Tip Calculator Project",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "We're going to build a tip calculator.\n\nIf the bill was $150.00, split between 5 people, with 12% tip. \n\nEach person should pay:\n\n`(150.00 / 5) * 1.12 = 33.6`\n\nAfter formatting the result to 2 decimal places = `33.60`\n\n## Demo\nhttps://appbrewery.github.io/python-day2-demo/\n\n### Very Optional Reading: Floating Point Arithmetic\nhttps://docs.python.org/3/tutorial/floatingpoint.html",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        }
+      ],
+      "type" : "lesson"
+    },
+    {
+      "id" : 1235620065,
+      "title" : "Day 3",
+      "task_list" : [
+        {
+          "id" : 284492507,
+          "name" : "If Else",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "### Condition Check\nLearn to use conditionals in Python to check a conditions and tell the computer what to do in each case. \ne.g.\n\n`if <this condition is true>:`\n\n&nbsp;&nbsp;&nbsp;&nbsp;`<then execute this line of code>`\n\n### What if the condition is false?\nThe else keyword is used to define a block of code that will execute if the condition checked in the if statement is false.\n\n`if pigs can fly:`\n\n&nbsp;&nbsp;&nbsp;&nbsp;`<Some code that will never execute>`\n\n`else:`\n\n&nbsp;&nbsp;&nbsp;&nbsp;`print(\"This is real life\")`\n\n### Python Indentation\nUnderstand the importance of indentation in Python as a way to make certain lines of code subsidaries of other lines of code.\n\ne.g.\n\n`if 5 > 2: #This is a parent line of code`\n\n&nbsp;&nbsp;&nbsp;&nbsp;`print(\"yes\") #this is a child line of code`\n\n### Comparator Operators\n* `>` Greater than\n* `<` Less than\n* `>=` Greater than or equal to\n* `<=` Less than or equal to\n* `==` Equal to\n* `!=` Not equal to",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1592611158,
+          "name" : "Modulo",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "The modulo operator gives you the remainder of a division.\n\n`6 % 2 #will be 0`\n\n`6 % 5 #will be 1`\n\n`6 % 4 #will be 2`\n\n### PAUSE 1 - What is 10 % 3?\nWhat do you think this will output?\n\n`print(10 % 3)`\n\n### PAUSE 2 - Check Odd or Even\nWrite some code using what you have learnt about the modulo operator and conditional checks in Python to check if the number in he input area is odd or even.\nIf it's odd print out the word \"Odd\" otherwise printout \"Even\".\n\n<div class=\"hint\">\n1. First get the user input using the input() function.\n<br/>2. Next, convert the input into an int using the int() function.\n<br/>3. Now store the number in a variable. \n<br/>4. Use the modulo (%) to check if the user input number can be divided cleanly by 2. \n<br>5. Use if/else to check if the result of the modulo check in step 4 is equal to 0 then that input number is even, otherwise it's odd. \n</div>\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1639961942,
+          "name" : "Nesting and Elif",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "### Nested conditionals\nYou can put if/else statements inside other if/else statements. This is known as nesting.\ne.g.\n\n```\nif maths_score >= 90:\n    if english_score >= 90:\n        print(\"You're good at everything\")\n    else:\n        print(\"You're good at maths\")\nif english_score >= 90:\n    print(\"You're good at english)\n```\n\nIn this case only when a student has over 90 on maths and english, do they get \"You are good at everything\".\n\nNote: You can also have if statements that don't have a paired else statement.\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 417849496,
+          "name" : "Multiple Ifs",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "You can write as many if statements as you need to check for different conditions that are unrelated to each other.\nCompare the code blocks below:\n```\n# If/elif/else\nif <condition 1 is true>\n    <do A>\nelif <condition 2 is true>\n    <do B>\nelse\n    <do C>\n```\n```\n# Nested if statements\nif <condition 1 is true>\n    <do A>\n    if <condition 2 is true>\n        <do B>\n        if <condition 3 is true>\n            <do C>\n```\n\n```\n# Multiple if statements\nif <condition 1 is true>\n    <do A>\nif <condition 2 is true>\n    <do B>\nif <condition 3 is true>\n    <do C>\n```\n\nIn the if/elif/else block, only one of A, B, or C can happen, because if/elif/else are mutually exclusive. The first condition has to fail to go into the elif and the elif (or multiple elif) have to fail to go into the else. Condition 2 is only checked if condition 1 is false.\n\nIn the nested if statements, A, B and C can all happen, but conditions 1, 2 and 3 must all be true. The computer will only check condition 2 if condition 1 is true.\n\nIn the multiple if statements, A, B, and C can all happen. But they are completely independent of each other. C can happen even if A and B don't. Every condition is checked, no matter the result of the others.\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 540859013,
+          "name" : "Python Pizza",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "tests/test_task.py" : {
+              "name" : "tests/test_task.py",
+              "placeholders" : [ ],
+              "is_visible" : false,
+              "is_binary" : false
+            },
+            "__init__.py" : {
+              "name" : "__init__.py",
+              "placeholders" : [ ],
+              "is_visible" : false,
+              "is_binary" : false
+            },
+            "tests/__init__.py" : {
+              "name" : "tests/__init__.py",
+              "placeholders" : [ ],
+              "is_visible" : false,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "\n### Write a Pizza Delivery Program\n\nCongratulations, you've got a job at Python Pizza! Your first job is to build an automatic pizza order program.\n\nBased on a user's order, work out their final bill. Use the `input()` function to get a user's preferences and then add up the total for their order and tell them how much they have to pay.\n\nSmall pizza (S): $15\n\nMedium pizza (M): $20\n\nLarge pizza (L): $25\n\nAdd pepperoni for small pizza (Y or N): +$2\n\nAdd pepperoni for medium or large pizza (Y or N): +$3\n\nAdd extra cheese for any size pizza (Y or N): +$1\n\n##### Example Interaction\n\n```\nWelcome to Python Pizza Deliveries!\nWhat size pizza do you want? S, M or L: L\nDo you want pepperoni on your pizza? Y or N: Y\nDo you want extra cheese? Y or N: N\nYour final bill is: $28.\n```\n\n<div class=\"hint\">\n  Don't change any of the starting code and make sure that the final sentence says \"Your final bill is: $<bill amount>.\" including the full stop and the same wording. Otherwise, the tests will not pass.\n</div>\n",
+          "description_format" : "MD",
+          "task_type" : "edu"
+        },
+        {
+          "id" : 342841397,
+          "name" : "Logical Operators",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "You can combine different conditions using logical operators.\n\n```\nA and B #Both conditions need to be true\nC or D #Only one condition needs to be true\nnot E #The condition must be false\n\n```\n\n### PAUSE 1 - Age 45 to 55 Modifier\nUpdate the code so that people age 45 to 55 (inclusive of both ages) ride for free.\nUse logical operators to check that the age is greater than 45, and it's also less than 55.\n\nNOTE: The warning for simplification is just a suggestion. You can consider it and chose it, or you can ignore it. In this lesson I wanted to show you the `and`, `or` and `not` logical operators. So I recommend keeping the original code in case you come back to this lesson for review.\n\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 199568011,
+          "name" : "Treasure Island Project",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "Your goal today is to build a \"Chose your own adventure game\".\nUsing what you have learnt in the lessons today you will be building a very simple version of this type of text game. \n\nUse the flow chart [linked here](https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Treasure%20Island%20Conditional.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1oDe4ehjWZipYRsVfeAx2HyB7LCQ8_Fvi%26export%3Ddownload) to create the game logic. \n\nOnce you've completed the project, you can always extend the game and make it more interesting!\n\n<div class=\"hint\">\n  You can use the lower() function to turn any string into all lower case. \nhttps://www.w3schools.com/python/ref_string_lower.asp\n\nAlternatively you can also use the logical operator \"or\" to check for other spellings of user choice. e.g. Right, right or RIGHT.\n</div>\n\n\n### Demo\nhttps://appbrewery.github.io/python-day3-demo/",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        }
+      ],
+      "type" : "lesson"
+    },
+    {
+      "id" : 740423759,
+      "title" : "Day 4",
+      "task_list" : [
+        {
+          "id" : 17794004,
+          "name" : "Random Module",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "### Pseudorandom Number Generators\nComputers are not random, because they are built with circuits and switches. But randomness is very important when building software, especially games. It would be really boring if every move in a video game was pre-determined.\n\nSo, some computer scientists invented pseudorandom number generators. e.g. https://en.wikipedia.org/wiki/Mersenne_Twister\n\nIf you want to learn more about pseudorandom number generators, I recommend watching this video by Khan Academy: https://www.youtube.com/watch?v=GtOt7EBNEwQ&ab_channel=KhanAcademyLabs\n\n### The Random module in Python\nRead the docs here:\nhttps://docs.python.org/3/library/random.html\n\nTo use it you need to first import it:\n\n`import random`\n\n### Random Whole Numbers Within a Range\n\n```\nimport random\nrand_num = random.randint(1, 10)\n\n#This will produce a random whole number between 1 and 10 (inclusive).\n```\n### Modules in Python\nPython allows us to put code into different files and import that code if needed. This means that we can better organise and modularise our code. \n\nYou can create a new module simply by creating a new `.py` file, and then you can import variables or functions from that file just by using the `import` keyword.\n\n### Random Floats\nYou can generate a random number between 0.0 (inclusive) and 1.0 (not inclusive) using the following code from the random module:\n\n```\nimport random\nrand_num_0_to_1 = random.random()\n```\nIt can also be represented like this\n\n`0.0 <= random.random() < 1.0`\n\nYou can expand the range of random numbers generated by this method using multiplication.\n\ne.g. `random.random() * 5`\n\nWill generate a random number between 0 and 5. \n\nAnother way to generate random floating point numbers is to use the `uniform()` function.\n\n```\nimport random\nrandom_float = random.uniform(1, 10)\n#This will generate a random floating point number between 1 and 10. \n```\nThis method may or may not include the upper bound depending on the rounding of the floating point number.\nSo it's best represented as:\n\n`a <= random.uniform(a,b) <= b`\n\nSo depending on if you want the upper bound included you will choose whether to use `random.random()` or `random.uniform()`.\n\n### PAUSE 1 - Heads or Tails\nCreate a coin flip program using what you have learnt about randomisation in Python. It should randomly print \"Heads\" or \"Tails\" everytime it is run. \n\n<div class=\"hint\">\n  You'll need to think about what you have learnt about conditional statements in Python.\n</div>",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 17794003,
+          "name" : "Lists",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "You can create a simple collection of ordered items using a Python list. e.g.\n\n`fruits = [\"Cherry\", \"Apple\", \"Pear\"]`\n\nor\n\n`states_of_america = [\"Delaware\", \"Pennsylvania\", \"New Jersey\", \"Georgia\", \"Connecticut\", \"Massachusetts\", \"Maryland\", \"South Carolina\", \"New Hampshire\", \"Virginia\", \"New York\", \"North Carolina\", \"Rhode Island\", \"Vermont\", \"Kentucky\", \"Tennessee\", \"Ohio\", \"Louisiana\", \"Indiana\", \"Mississippi\", \"Illinois\", \"Alabama\", \"Maine\", \"Missouri\", \"Arkansas\", \"Michigan\", \"Florida\", \"Texas\", \"Iowa\", \"Wisconsin\", \"California\", \"Minnesota\", \"Oregon\", \"Kansas\", \"West Virginia\", \"Nevada\", \"Nebraska\", \"Colorado\", \"North Dakota\", \"South Dakota\", \"Montana\", \"Washington\", \"Idaho\", \"Wyoming\", \"Utah\", \"Oklahoma\", \"New Mexico\", \"Arizona\", \"Alaska\", \"Hawaii\"]`\n\n### Accessing Items in Lists\n\nYou can provide the name of the list then a square bracket and then the item index that you want. e.g.\n\n`states_of_america[0]`\n\nwill give you \"Delaware\".\n\nRemember that everything computer related, the first number we count with is 0 and never 1. 0, 1, 2, 3 instead of 1, 2, 3 4.\n\n### Negative Indices\n\nYou can access items in the list counting from the end of the list by using negative whole numbers. e.g.\n```\nfruits = [\"Cherry\", \"Apple\", \"Pear\"]\nfruits[-1] #this will be \"Pear\"\n```\n\n### Modifying Items\nYou can use the same syntax to get hold of items in a List to modify it. e.g.\n```\nfruits = [\"Cherry\", \"Apple\", \"Pear\"]\nfruits[0] = \"Orange\"\n# fruits will now become [\"Orange\", \"Apple\", \"Pear\"]\n```\n\n### Adding Items\nYou can add items to the end of a List using the `append()` function. e.g.\n```\nfruits = [\"Cherry\", \"Apple\", \"Pear\"]\nfruits.append(\"Orange\")\n# fruits will now become [\"Cherry\", \"Apple\", \"Pear\", \"Orange\"]\n```\n\n### Lists Documentation\nYou can find the documentation for Python Lists and other List related functions here: https://docs.python.org/3/tutorial/datastructures.html",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 17794001,
+          "name" : "Banker Roulette",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "Figure out how to pick a random name from the list of `friends`.\n\n<div class=\"hint\">\n  There are two ways of doing this and they are equally valid. \n</div>\n\n<div class=\"hint\">\n  Think about how you can generate random number to use an index to pick out items from the List.\n</div>\n\n<div class=\"hint\">\n  Alternatively think about using the documentation to figure out how to get a random item from a List in Python.\n</div>\n\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 17794002,
+          "name" : "IndexError",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "### Length of List\nYou can get the length of a list (number of items in the list) or the length of a string (number characters in the string) by using the `len()` function. https://docs.python.org/3/library/functions.html#len\n\n### IndexError\nWhen you try to access an item that is not in the range of the List, you will get an IndexError. e.g.\n\n```\nfruits = [\"Cherry\", \"Apple\", \"Pear\"]\nprint(fruits[3]) #This will be an IndexError\n```\n\n### Nested Lists\nYou can put Lists inside other Lists, this becomes something called a \"Nested List\" or a \"2D List\". e.g.\n\n```\nfruits = [\"Cherry\", \"Apple\", \"Pear\"]\nveg = [\"Cucumber\", \"Kale\", \"Spinnach\"]\nfruits_and_veg = [fruits, veg]\n#The list would look like this: [[\"Cherry\", \"Apple\", \"Pear\"], [\"Cucumber\", \"Kale\", \"Spinnach\"]]\n```\nYou could also represent the list in 2D format like this:\n```\n[\"Cherry\", \"Apple\", \"Pear\"]\n[\"Cucumber\", \"Kale\", \"Spinnach\"]\n```\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 17794005,
+          "name" : "Rock Paper Scissors",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "You are going to build a Rock, Paper, Scissors game. You will need to use what you have learnt about randomisation and Lists to achieve this.\n\n### Demo\nhttps://appbrewery.github.io/python-day4-demo/\n\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        }
+      ],
+      "type" : "lesson"
+    },
+    {
+      "id" : 373790071,
+      "title" : "Day 5",
+      "task_list" : [
+        {
+          "id" : 17794007,
+          "name" : "For Loops",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "Loops allow us to tell the computer to repeat actions without having to write repeated code. If we wanted the computer to print out 1 through to 100, it would very painful to type a print statement for every number, or even just typing out all the numbers 1 through to 100. Loops allow us to create a rule and the computer can follow it to do a repeated action.\n\n### Syntax\n\n```\nfor <variable name of each item> in <a List>:\n    <do something>\n    <do something else> \n```\n\n### PAUSE 1 - Be a Computer\nPredict what will be printed from the code below:\n\n```\nfruits = [\"Apple\", \"Peach\", \"Pear\"]\nfor fruit in fruits:\n    print(fruit)\n    print(fruit + \" pie\")\n```\n\n### Indentation\nIndentation is very important in Python programming. Every time you see the `:` symbol used, you need to be careful about the indentation that comes afterwards.\n\ne.g. This code will behave very differently\n\n```\nfruits = [\"Apple\", \"Peach\", \"Pear\"]\nfor fruit in fruits:\n    print(fruit)\n    print(\"Hello\")\n```\n\nfrom this code:\n\n```\nfruits = [\"Apple\", \"Peach\", \"Pear\"]\nfor fruit in fruits:\n    print(fruit)\nprint(\"Hello\")\n```",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 367561985,
+          "name" : "Highest Score",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "### Sum\nPython has lots of built-in functions to help us work with numbers. One of them helps us calculate the sum (the total).\ne.g.\n```\nstudent_scores = [180, 124, 165, 173, 189, 169, 146]\ntotal_score = sum(student_scores) \n```\nBut how does `sum()` work behind the scenes? The code is written by the people who developed Python and it might look something like this:\n\n```\nstudent_scores = [180, 124, 165]\n\nsum = 0\nfor score in student_scores:\n    sum += score\n    \nprint(sum)\n```\n\n\n\n### PAUSE 1 - Max\nThere are also a built-in Python methods called `max()` and `min()`, which allow you to pass in a List of numbers, and it will give you the highest number or the lowest number.\n\nYour job is to figure out how the Python programmers might have built this functionality using loops and conditionals.\n\n## COMPLETE THIS CHALLENGE WITHOUT USING max()\n\nYou are given a list of exam scores, and you have to print out the highest score from the List.\nYou will need to use what you have learnt about Lists, For Loops and Conditionals to print out the highest score in the list of student_scores.\nFor example, if the scores were:\n```\n8 65 89 86 55 91 64 89\n```\nYour code should print\n```\n91\n```\n\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1517941988,
+          "name" : "For Loops with Range",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "The combination of the `range()` function with the Python For Loop allows us to run a loop for as many times as we wish. Instead of looping through each item in a List, we can loop through a range of numbers.\n\n### Range Function\n\n`range(1, 10)`\n\nThis code doesn't do anything by itself. For example, if you tried to print it, it would not give you individual numbers.\n\nBut it can be used in conjunction with For Loops. e.g.\n\n```\nfor number in range(1, 10):\n    print(number)\n```\n\nThis will print out each of the numbers 1 - 9. So the range can also be expressed like this:\n\n`a <= range(a, b) < b`\n\nWhere the range of numbers is inclusive of the lower bound but not inclusive of the upper bound.\n\n### PAUSE 1 - The Gauss Challenge\nWork out the total of the numbers between 1 and 100, inclusive of both 1 and 100.\n\n\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1820122666,
+          "name" : "Password Generator Project",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "The program will ask:\n```\nHow many letters would you like in your password?\nHow many symbols would you like?\nHow many numbers would you like?\n```\nThe objective is to take the inputs from the user to these questions and then generate a random password. Use your knowledge about Python lists and loops to complete the challenge.\n\n### Demo\nhttps://appbrewery.github.io/python-day5-demo/\n\n### Easy Version\nGenerate the password in sequence. Letters, then symbols, then numbers. If the user wants\n\n4 letters\n2 symbols and\n3 numbers\nthen the password might look like this:\n\n`fgdx$*924`\n\nYou can see that all the letters are together. All the symbols are together and all the numbers follow each other as well. Try to solve this problem first.\n\n<div class=\"hint\">\n  Remember you can use the random.choice() function to get a random item from a List! But you need to import the random module first.\n</div>\n\n\n### Hard Version\nWhen you've completed the easy version, you're ready to tackle the hard version. In the advanced version of this project the final password does not follow a pattern. So the example above might look like this:\n\n`x$d24g*f9`\n\nAnd every time you generate a password, the positions of the symbols, numbers, and letters are different. This will make the password more difficult for hackers to crack.\n\nThe essential skill of a good programmer is using Google to find what you need. Your brain is for thinking, not memorising functions! You will need to Google to solve this project on the hard level. If you get stuck, check the hint below for what to Google.\n\n<div class=\"hint\">\n  Try googling: \"How to shuffle items in a List in Python\"\n</div>\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        }
+      ],
+      "type" : "lesson"
+    },
+    {
+      "id" : 1178211071,
+      "title" : "Day 6",
+      "task_list" : [
+        {
+          "id" : 17794006,
+          "name" : "Functions",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "A function in its simplest form is just a wrapper name for a block of code. You give it name and then when you call the function by that name, all the code within the function block will be executed. It can help us save time and reduce repeated code.\n\n### Defining a new Function\n```\ndef <function name>():\n    print(\"Hello\")\n    # Do something else\n    # Do something else ...\n```\n\n### Calling a Function\nCalling a function just means triggering the function. We can call a function at any point in our code in Python. \n\n```\n<function name>()\n```\n\nPutting everything together e.g.\n```\n#Creating the function\ndef get_user_name():\n    name = input(\"What is your name? \")\n    print(\"Hello, \" + name)\n    # Inside the function\n\n#Outside the function\nprint(\"Hello\")\nget_user_name() # Calling the function\n```\n\nThis code will result in the following sequence of output:\n```\nHello\nWhat is your name? #I type Angela\nHello\nAngela\n```",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        }
+      ],
+      "type" : "lesson"
+    },
+    {
+      "title" : "Day 7",
+      "task_list" : [
+        {
+          "id" : 392892348,
+          "name" : "Step 1",
+          "files" : {
+            "main.py" : {
+              "name" : "main.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "__init__.py" : {
+              "name" : "__init__.py",
+              "placeholders" : [ ],
+              "is_visible" : false,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "Your goal is to build a [Hangman game](https://en.wikipedia.org/wiki/Hangman_(game)) using everything you have learnt about Python programming.\n\n### Demo Final Project\nhttps://appbrewery.github.io/python-day7-demo/\n\n\nThe project is split into 5 major steps. In each step, there will be multiple TODOs. Your goal is to go through each todo in order and complete them.\n\nYou can view all the todos easily in PyCharm by going to View -> Tool Windows -> TODOs\n\n### TODO-1 \nRandomly choose a word from the word_list and assign it to a variable called `chosen_word`. Then print it.\n\n### TODO-2 \nAsk the user to guess a letter and assign their answer to a variable called `guess`. Make the String stored in `guess` lowercase.\n\n<div class=\"hint\">\n  Search Google for the lower() function in Python.\n</div>\n\n\n### TODO-3 \nCheck if the letter the user guessed `guess` is one of the letters in the `chosen_word`. Loop through each of the letters in the `chosen_word`  and print \"Right\" if the letter is a match, \"Wrong\" if it's not.\n\n<div class=\"hint\">\n  You can loop through Strings the same way you can loop through Lists - by using the `for in` loop.\n    Try Googling: \"Loop through strings python\"\n</div>\n\n\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1206289300,
+          "name" : "Step 2",
+          "files" : {
+            "main.py" : {
+              "name" : "main.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "__init__.py" : {
+              "name" : "__init__.py",
+              "placeholders" : [ ],
+              "is_visible" : false,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "### TODO-1\n- Create an empty String called `placeholder`.\n- For each letter in the chosen_word, add a `_` to `placeholder`.\n- So if the `chosen_word` was \"apple\", `placeholder` should be `_ _ _ _ _` with 5 `\"_\"` representing each letter to guess.\n- Print out `hint`.\n\n<div class=\"hint\">\n  Remember you can use the range() function inside a loop to carry out an action for a particular number of times. \n</div>\n\n\n### TODO-2\n- Create an empty string called \"display\".\n- Loop through each letter in the `chosen_word`\n- If the letter at that position matches `guess` then reveal that letter in the `display` at that position.\n- e.g. If the user guessed \"p\" and the chosen word was \"apple\", then `display` should be `_ p p _ _`.\n- Print `display` and you should see the guessed letter in the correct position.\n- But every letter that is not a match is represented with a \"_\".\n\n<div class=\"hint\">\n  Remember that the for loop will go through each letter in the chosen_word in order. You can use that fact to create a new string, appending the letter or an \"_\".\n</div>\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1044169934,
+          "name" : "Step 3",
+          "files" : {
+            "main.py" : {
+              "name" : "main.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "__init__.py" : {
+              "name" : "__init__.py",
+              "placeholders" : [ ],
+              "is_visible" : false,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "### TODO-1\n- Use a while loop to let the user guess again. \n- The loop should only stop once the user has guessed all the letters in the chosen_word.\n- At that point `display` has no more blanks (\"_\"). Then you can tell the user they've won.\n\n<div class=\"hint\">\n  You can use the in keyword to check if a String or List contains a particular item. \n\ne.g. Google: check if a letter is present in a string python \n</div>\n\n### TODO-2\n- Update the for loop so that previous guesses are added to the `display` String.\n- At the moment, when the user makes a new guess, the previous guess gets replaced by a \"_\". We need to fix that by updating the for loop.\n\n<div class=\"hint\">\n  Think about how you can store the matched letters and use an elif to check if a letter has been matched before.\n</div>\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 627596553,
+          "name" : "Step 4",
+          "files" : {
+            "main.py" : {
+              "name" : "main.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "__init__.py" : {
+              "name" : "__init__.py",
+              "placeholders" : [ ],
+              "is_visible" : false,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "### TODO-1: \n- Create a variable called `lives` to keep track of the number of lives left.\n- Set `lives` to equal `6`.\n\n\n### TODO-2: \n- If `guess` is not a letter in the `chosen_word`, Then reduce `lives` by `1`. \n- If `lives` goes down to `0` then the game should end, and it should print \"You lose.\"\n\n<div class=\"hint\">\n  The not in keywords will be your friend in this todo. You can check if something exists in the chosen_word completely separately from the rest of the code.\n</div>\n\n\n### TODO-3: \n- print the ASCII art from the list `stages` that corresponds to the current number of `lives` the user has remaining.\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1199998776,
+          "name" : "Step 5",
+          "files" : {
+            "main.py" : {
+              "name" : "main.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "__init__.py" : {
+              "name" : "__init__.py",
+              "placeholders" : [ ],
+              "is_visible" : false,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "hangman_art.py" : {
+              "name" : "hangman_art.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "hangman_words.py" : {
+              "name" : "hangman_words.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "### TODO-1: \n- Update the word list to use the `word_list` from hangman_words.py\n\n### TODO-2: \n- Update the code to use the `stages` from the file hangman_art.py\n\n### TODO-3: \n- Import the `logo` from hangman_art.py and print it at the start of the game.\n\n### TODO-4: \n- If the user has entered a letter they've already guessed, print the letter and let them know.\n- We should not deduct a life for this.\n- e.g. You've already guessed a\n\n### TODO-5: \n- If the letter is not in the chosen_word, print out the letter and let them know it's not in the word.\n- e.g. You guessed d, that's not in the word. You lose a life.\n\n### TODO-6: \n- Update the code below to tell the user how many lives they have left.\n```print(\"****************************<???>/6 LIVES LEFT****************************\")```\n\n### TODO 7: \n- Update the print statement to give the user the correct word they were trying to guess.\n- e.g. `IT WAS <Correct Word>! YOU LOSE`",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        }
+      ],
+      "type" : "framework",
+      "id" : 1500767241
+    },
+    {
+      "id" : 881809023,
+      "title" : "Day 8",
+      "task_list" : [
+        {
+          "id" : 1825435284,
+          "name" : "Functions with Inputs",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "Previously, we've seen that functions allow us to package code into a named block which can be used repeatedly at a later point.\n\n### PAUSE 1 - Review\n- Create a function called `greet()`.\n- Write 3 `print` statements inside the function.\n- Call the `greet()` function and run your code.\n\n### Inputs\nBy adding a variable name inside the parentheses when we create (define) a new function, it allows that function to take inputs when called. \n\nThat means we can modify how the function behaves each time by passing in different inputs.\n\n```\n# Creating the function\ndef myFunction(input):\n    print(f\"Hey! {input}\")\n```\n```\n# Using the function\nmyFunction(\"Tommy\") \n# Will output \"Hey! Tommy\"\n```\n\n### Inputs are Variables\nWhen you create a function with inputs, you are defining a variable name that will be given to the data that is passed in.\n\nThe name of the input variable, e.g. `name` in this code here: `def greet(name):` is called the parameter.\n\nThe value of the value of the input variable, e.g. `Angela` when you call the previous `greet` function: `greet(\"Angela\")` is called the argument. ",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 195716625,
+          "name" : "Positional vs Keyword Arguments",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "### Multiple Inputs\nYou can have multiple inputs in functions. All you need to do is separate them with a comma `,`.\n\n### PAUSE 1 \nCreate a function with multiple inputs\n\n<div class=\"hint\">\n  <code>\ndef greet(name, greeting):\n\n    ____print(f\"{greeting} {name}\")\n    \ngreet(\"Angela\", \"Yo!\")\n</code>\n</div>\n\n### PAUSE 2\nModify the function so that it prints the expected values.\n```\ndef greet_with(name, location)\n    Hello name\n    What is it like in location\n```\n\n### Positional Arguments\nBy default, when you create a function in Python, it will keep the order of arguments in the function definition.\n\ne.g. In the function below, the first argument that goes in will always be printed before the second one. `a = 2, b = 1`\n\n```\ndef my_function(a, b)\n  print(a)\n  print(b)\n  \n my_function(2, 1)\n #It will print:\n # 2\n # 1\n```\n\n### Keyword Arguments\nYou can use keywords when you provide the arguments when you call a function so that there is less confusion which value is assigned to which input parameter.\n\n### PAUSE 3 \nCall the `greet_with()` function using keyword arguments.\n\n<div class=\"hint\">\n  <code>\ngreet_with(location=\"London\", name=\"Angela\")\n</code>\n</div>\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 2019991323,
+          "name" : "Caesar Cipher 1",
+          "files" : {
+            "main.py" : {
+              "name" : "main.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "You are going to build an encryption and decryption program using the [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher).\n\n### Demo\nhttps://appbrewery.github.io/python-day8-demo/\n\n### TODO-1: \nCreate a function called `encrypt()` that takes `original_text` and `shift_amount` as 2 inputs.\n\n### TODO-2: \nInside the 'encrypt' function, shift each letter of the `original_text` forwards in the alphabet by the `shift_amount` and print the encrypted text.\n\nYou can use the built-in Python `index()` function to find out the position of an item in a list. e.g.\n```\nfruits = [\"Apple\", \"Pear\", \"Orange\"]\nfruits.index(\"Pear\") #1\n```\n\ne.g. If we have following values:\n```\nplain_text = \"hello\"\nshift_amount = 1\n```\nThe final encrypted output should be:\n\n`Here is the encoded result: ifmmp`\n\nWhere each of the letters of 'hello' is shifted up by 1. \n\n<div class=\"hint\">\nLet's breakdown the problem:\n\n  1. You need a for loop to loop through each of the letters in the plain_text. \n  2. Find the position of each letter in the alphabet List\n3. Add the user desired shift_amount to the position to get the position of the encoded letter.\n4. Find the corresponding letter for that position.\n5. Add each encoded letter to a new string and print it out after the loop ends.\n\n</div>\n\n\n### TODO-3: \nCall the `encrypt()` function and pass in the user inputs. You should be able to test the code and encrypt a message.\n\n\n### TODO-4: \nWhat happens if you try to shift the letter 'z' forwards by 9? Can you fix the code?\n\n<div class=\"hint\">\n  There are many approaches to do this.\n1. You can add more than 1 set of the alphabet into the List of alphabet letters.\n2. You can shift the shift_amount so that it is always within 0 - 25 and fits in the List.\n3. You can use the modulo to get the remainder.\n</div>\n\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 915669702,
+          "name" : "Caesar Cipher 2",
+          "files" : {
+            "main.py" : {
+              "name" : "main.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "### TODO-1: \nCreate a function called `decrypt()` that takes `original_text` and `shift_amount` as 2 inputs.\n\n### TODO-2: \nInside the `decrypt()` function, shift each letter of the `original_text` forwards in the alphabet *backwards* by the `shift_amount` and print the decrypted text.\n\n<div class=\"hint\">\n  You can multiply any number by -1 to make it a negative number.\n</div>\n\n\n### TODO-3: \n- Combine the `encrypt()` and `decrypt()` functions into a single function called `caesar()`. \n- Use the value of the user chosen `direction` variable to determine which functionality to use. \n- call the caesar function instead of encrypt/decrypt and pass in all three variables `direction`/`text`/`shift`.\n\n<div class=\"hint\">\n  Remember that when you multiply a number by -1 it will reverse its sign.\ne.g. <code>3 + ( 5 * -1) </code> is the same as <code>3 - 5</code>.\n</div>\n\n\n<div class=\"hint\">\nIt should say:  \n\n<code>Here is the encoded result: XXX</code>\n\nor\n\n<code>Here is the decoded result: XXX</code> \n\n</div>\n\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 900654030,
+          "name" : "Caesar Cipher 3",
+          "files" : {
+            "main.py" : {
+              "name" : "main.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "art.py" : {
+              "name" : "art.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "### TODO-1: \nImport and print the logo from art.py when the program starts.\n\n### TODO-2: \nWhat happens if the user enters a number/symbol/space that's not in the List `alphabet`?\n\nCan you fix the code to keep the number/symbol/space when the text is encoded/decoded?\n\ne.g. \n```\noriginal_text = \"meet me at 3!\"\ncipher_text = \"XXXX XX XX 3!\"\n```\n\n<div class=\"hint\">\n  If it's not a letter in the List alphabet, maybe you can just add it to the end of cipher_text as the unmodified character?\n</div>\n\n\n### TODO-3: \n\nCan you figure out a way to restart the cipher program?\n\ne.g. \n\n`Type 'yes' if you want to go again. Otherwise, type 'no'.`\n\nIf they type 'yes' then ask them for the direction/text/shift again and call the `caesar()` function again.\n\n<div class=\"hint\">\n  Try creating a while loop that continues to execute the program if the user types 'yes'.\n</div>\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        }
+      ],
+      "type" : "lesson"
+    },
+    {
+      "id" : 1835831684,
+      "title" : "Day 9",
+      "task_list" : [
+        {
+          "id" : 566117749,
+          "name" : "Dictionaries",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "A dictionary in Python functions similarly to a dictionary in real life. It's a data structure that allows us to associate a key to a value and pair the two pieces of data together.\n\nThis is how you create a dictionary in Python:\n```\n# An example dictionary\ncolours = {\n    \"apple\": \"red\", \n    \"pear\": \"green\", \n    \"banana\": \"yellow\"\n}\n\n```\n\nThis is how you retrieve items from a dictionary:\n```\nprint(colours[\"pear\"])\n#Will print \"green\"\n```\n\nThis is how to create an empty dictionary:\n```\nmy_empty_dictionary = {}\n```\n\nThis is how you can add new items to an existing dictionary:\n\n```\ncolours[\"peach\"] = \"pink\"\n```\n\nThis is also how you can edit an existing value in a dictionary:\n```\ncolours[\"apple\"] = \"green\"\n```\n\nThis is how to loop through a dictionary and print all the keys:\n```\nfor key in colours:\n    print(key)\n```\n\nThis is how to loop through a dictionary and print all the values:\n```\nfor key in colours:\n    print(colours[key])\n```",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 925561270,
+          "name" : "Nested Lists and Dictionaries",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "You can mix and match various data types to achieve your desired structure.\n\n### Nesting a List inside a Dictionary\nInstead of a String value assigned to a key, we can replace it with a List. You can nest a List in a Dictionary like this:\n\n```\nmy_dictionary = {\n    key1: [List],\n    key2: Value,\n}\n```\n\n### PAUSE 1\nSee if you can figure out how to print out \"Lille\" from the nested List called `travel_log`.\n```\ntravel_log = {\n    \"France\": [\"Paris\", \"Lille\", \"Dijon\"],\n    \"Germany\": [\"Stuttgart\", \"Berlin\"],\n}\n```\n<div class=\"hint\">\n  To get this part: <code>[\"Paris\", \"Lille\", \"Dijon\"]</code>\nYou would need: <code>travel_log[\"France\"]</code>\n\nTherefore to get Lille, you need:\n<code>travel_log[\"France\"][1]</code>\n</div>\n\n### Nesting Lists inside other Lists\n\nWe've previously seen Nested Lists:\n\n```\nnested_list = [\"A\", \"B\", [\"C\", \"D\"]]\n```\n\n### PAUSE 2\nDo you remember how to get items that are nested deeply in a list? Try to print \"D\" from the list `nested_list`.\n\n<div class=\"hint\">\n  To get this list: [\"C\", \"D\"] we need the code:\n\n<code>nested_list[2]</code>\n\nTherefore, to get \"D\" we need:\n\n<code>nested_list[2][1]</code>\n</div>\n\n\n### Nesting a Dictionary inside a Dictionary\nYou can also nest a dictionary in a dictionary:\n\n```\nmy_dictionary = {\n    key1: Value,\n    key2: {Key: Value, Key: Value},\n}\n```\n\n### PAUSE 3\nFigure out how to print out \"Stuttgart\" from the following list:\n```\ntravel_log = {\n  \"France\": {\n    \"cities_visited\": [\"Paris\", \"Lille\", \"Dijon\"], \n    \"total_visits\": 12\n   },\n  \"Germany\": {\n    \"cities_visited\": [\"Berlin\", \"Hamburg\", \"Stuttgart\"], \n    \"total_visits\": 5\n   },\n}\n```",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1977144334,
+          "name" : "Blind Auction Project",
+          "files" : {
+            "main.py" : {
+              "name" : "main.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "art.py" : {
+              "name" : "art.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "The goal is to build a blind auction program. \n\n### Demo\nhttps://appbrewery.github.io/python-day9-demo/\n\n### Clearing the Output\nThere are several ways of clearing the output. The easiest is to simply print `\"\\n\"` many times so that the output scrolls down many lines.\n\ne.g.\n```\n# This will add 20 new lines to the output\nprint(\"\\n\" * 20)\n```\n\n\n### Functionality\n- Each person writes their name and bid.\n- The program asks if there are others who need to bid. If so, then the computer clears the output (prints several blank lines) then loops back to asking name and bid.\n- Each person's name and bid are saved to a dictionary.\n- Once all participants have placed their bid, the program works out who has the highest bid and prints it.\n\n<div class=\"hint\">\n  Try writing out a flowchart to plan your program.\n</div>\n\n<div class=\"hint\">\n  The values that come from the input() function are Strings, you'll need to use the int() function to convert it to a number.\n</div>\n\n\n### Flowchart\n\nIf you want to see my flowchart, you can download it [here](https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=Blind%20Auction%20Flow%20Chart#R3VnbcpswEP0aPzYDCLB5tHNrZ9pMpu6kzaMMilEDiBHyLV%2FfFYirHMdp7JD4JUGrXV3Ont2V5AE6j9fXHKfhDxaQaGAZwXqALgaWZRqmAf%2BkZFNIHM8qBHNOA6VUC6b0iZSWSrqgAclaioKxSNC0LfRZkhBftGSYc7Zqqz2wqD1riudEE0x9HOnS3zQQoZK6jl13fCV0HpZTm65X9MS41FZbyUIcsFVDhC4H6JwzJoqveH1OIoleCUxhd%2FVMb7UyThKxj8Hs4R5fx%2BMlu%2F52dxPepdM7H31BxShLHC3UjtVixaaEgASAiGoyLkI2ZwmOLmvphLNFEhA5jQGtWuc7YykITRD%2BJUJslHvxQjAQhSKOVG8xp5zo2b0pUcYW3Cc7NlSSBPM5ETv0rMoDwF3CYiL4Buw4ibCgy%2FY6sCLRvNKrYYYPhfQrUDc11Ke%2Fxj9%2FadDXwEqUViEVZJrifP8riLdtIC4JF2S9G0Z928rAHimuqmi1VXNVU99TorBBemQcCSfn1Nhp7clOu092Wjo7Q0hclhEBcDKJchbn6VWcpZsPx1mvZ84OT42z9p6cdfvkrK2hPs4e84LP4e8NjokcIUkXon%2FCOk6LsKajM9a0t1DWPhZlvVOjrLsnZUd9UtbdSdkJ2FrGLaew0Y%2FG2OpI2xtjTf0E9ckp%2B1YqKtNbRmHmynOO1fYcGnU8UoSIsuo4pVrG%2F%2FtppHM8COqEjJOgojqsQB4usLwsUl9QcESOAKwUIjmU6o9kUxnlQ54NLBfHkvDJLEsrh%2FQZKmh41gmWLQcSc%2BjoweIcLVhGfcQGWVPxR5nL7%2FuG%2FGLd6LjYlI0EdpubAISqed%2Fsq83yVml3wCg00Z6VwxweIl7HnONNQyGVcZg9H872yGxxy%2B5e%2BTv6yHN26cNHsYKDxnwFdi90Mxt0Uzw6CcI1noz6eLDQ34mKwwp9KLIzz9N5%2FpfJ5kCu141gR5MZNNy5%2FFpkhMtsvgplpl%2FhnKp51p%2FJEtBN3SGLZ4usp7RdVcqX0na3oh4Oc%2F2AeE8yDSbYtGjjgSM6T%2BDbh82DJ9BEQkN9HI1VR0yDoIg6ktEnPMuHksRW%2BQfGdSYD50KOBYGWFTF3IKiRZ7dzkmFrQG87S1pHw9nrtTxWOeo1BbKVrerk9Q75arhnvnrrC9b2gmZ1HnvQcL%2Fz7GsLbbdwOvbuQttd12v1zeE7FGZTf5o6jwjm1fk68zkhiZ6I3%2FkMjZzOK%2FSWVLztSe9ot80y9TSAu6L5LaTALYQ1kEyUdQyuMlVX%2ByqT2wTEj4pKCSpx%2B4azokkii2fPHnCGL3vA9LYUQ%2FdoLrA0F9ywT18LXdTB2dBxRoephdCsf2osMkr9iy26%2FAc%3D#%7B%22pageId%22%3A%22fezw1VAINj_9lBO2EaiH%22%7D).\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        }
+      ],
+      "type" : "lesson"
+    },
+    {
+      "id" : 2083621760,
+      "title" : "Day 10",
+      "task_list" : [
+        {
+          "id" : 796392606,
+          "name" : "Functions with Outputs",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "We've seen functions with only an execution body, functions with inputs that allow for variation in execution of the function body and now we'll see the final form of functions. Functions that can have outputs.\n\n### PAUSE 1\nCreate a function called `format_name()` that takes two inputs: `f_name` and `l_name'.\n\n### PAUSE 2\nUse the `title()` function to modify the `f_name` and `l_name` parameters into Title Case.\n\n### Syntax\nYou can create a function with a body, input and output like this:\n\n```\ndef function_name(input_parameter):\n    <body of function that uses input_argument>\n    return output\n```\n\n### Print vs. Output\nReturn vs. Display: The return statement is used to give back a value from a function, which can be used later, while print is used to display a value to the console only for the programmer to see.\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1336938375,
+          "name" : "Multiple Return Values",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "Functions terminate at the `return` keyword. If you write code below the return statement that code will not be executed.\n\nHowever, you can have multiple return statements in one function. So how does that work?\n\n### Conditional Returns\n\nWhen we have control flow, as in the code will behave differently (go down different execution paths) depending on certain conditional checks, we can end up with multiple endings (returns).\n\ne.g.\n```\ndef canBuyAlcohol(age):\n    if age >= 18:\n        return True\n    else:\n        return False\n```\n\n### Empty Returns\nYou can also write return without anything afterwards, and this just tells the function to exit.\n\ne.g.\n```\ndef canBuyAlcohol(age):\n    # If the data type of the age input is not a int, then exit.\n    if type(age) != int:\n        return\n\n    if age >= 18:\n        return True\n    else:\n        return False\n```",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 2088487643,
+          "name" : "Docstrings",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "You can use docstrings to write multiline comments that document your code.\n\n### Syntax\nJust enclose your text inside a pair of three double quotes.\n\ne.g.\n```\n\"\"\"\nMy\nMultiline\nComment\n\"\"\"\n\n```\n\n### Documenting Functions\nA neat feature of docstrings is you can use it just below the definition of a function and that text will be displayed when you hover over a function call. It's a good way to remind yourself what a self-created function does.\n\ne.g.\n```\ndef my_function(num):\n    \"\"\"Multiplies a number by itself.\"\"\"\n    return num * num\n```",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 216408927,
+          "name" : "Calculator Project",
+          "files" : {
+            "main.py" : {
+              "name" : "main.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "art.py" : {
+              "name" : "art.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "The goal is to build a calculator program.\n\n### Demo\nhttps://appbrewery.github.io/python-day10-demo/\n\n\n### Storing Functions as a Variable Value\nYou can store a reference to a function as a value to a variable.\ne.g.\n```\ndef add(n1, n2):\n    return n1 + n2\n    \n    \nmy_favourite_calculation = add\nmy_favourite_calculation(3, 5)  # Will return 8\n```\nIn the starting file, you'll see a dictionary that references each of the mathematical calculations that can be performed by our calculator. Try it out and see if you can get it to perform addition, subtraction, multiplication and division.\n\n### PAUSE 1 \nTODO: Write out the other 3 functions - subtract, multiply and divide.\n\n### PAUSE 2\nTODO: Add these 4 functions into a dictionary as the values. Keys = \"`+`\", \"`-`\", \"`*`\", \"`/`\"\n\n### PAUSE 3\nTODO: Use the dictionary operations to perform the calculations. Multiply 4 * 8 using the dictionary.\n\n\n### Functionality\n- Program asks the user to type the first number.\n- Program asks the user to type a mathematical operator (a choice of \"`+`\", \"`-`\", \"`*`\" or \"`/`\")\n- Program asks the user to type the second number.\n- Program works out the result based on the chosen mathematical operator.\n- Program asks if the user wants to continue working with the previous result.\n- If yes, program loops to use the previous result as the first number and then repeats the calculation process.\n- If no, program asks the user for the fist number again and wipes all memory of previous calculations.\n- Add the logo from art.py\n\n<div class=\"hint\">\n  Try writing out a flowchart to plan your program.\n</div>\n\n<div class=\"hint\">\n    To call multiplication from the operations dictionary, you would write your code like this:\n\n<code>result = operations[\"*\"](n1= 5, n2= 3)</code>\n\nresult would then be equal to 15.\n</div>\n\n\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        }
+      ],
+      "type" : "lesson"
+    },
+    {
+      "title" : "Day 11",
+      "task_list" : [
+        {
+          "id" : 476425553,
+          "name" : "Blackjack Project",
+          "files" : {
+            "main.py" : {
+              "name" : "main.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "art.py" : {
+              "name" : "art.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "### Chose your difficulty\n- **Normal** 😎: Use all Hints below to complete the project.\n- **Hard** 🤔: Use only Hints 1, 2, 3 to complete the project.\n- **Extra Hard** 😭: Only use Hints 1 & 2 to complete the project.\n- **Expert** 🤯: Only use Hint 1 to complete the project.\n\n### Our Blackjack Game House Rules\n\n- The deck is unlimited in size. \n- There are no jokers. \n- The Jack/Queen/King all count as 10.\n- The Ace can count as 11 or 1.\n- Use the following list as the deck of cards:\n\n`cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]`\n- The cards in the list have equal probability of being drawn.\n- Cards are not removed from the deck as they are drawn.\n- The computer is the dealer.\n\n\n<div class=\"hint\" title=\"Hint 1\">\n  Go to this website and try out the Blackjack game: \n\nhttps://games.washingtonpost.com/games/blackjack/\n\nThen try out the completed Blackjack project here: \n\nhttps://appbrewery.github.io/python-day11-demo/\n</div>\n\n<div class=\"hint\" title=\"Hint 2\">\nRead this breakdown of program requirements: \n\nhttp://listmoz.com/view/6h34DJpvJBFVRlZfJvxF\n\nThen try to create your own flowchart for the program.\n\n</div>\n\n<div class=\"hint\" title=\"Hint 3\">\n  Download and read this flow chart I've created:\n\nhttps://drive.google.com/uc?export=download&id=1rDkiHCrhaf9eX7u7yjM1qwSuyEk-rPnt\n\n</div>\n\n\n<div class=\"hint\" title=\"Hint 4\">\n  Create a <code>deal_card()</code> function that uses the List below to return a random card.\n\n<code>cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]</code>\n\nRemember that 11 is the Ace.\n</div>\n\n<div class=\"hint\" title=\"Hint 5\">\n  Deal the user and computer 2 cards each using <code>deal_card()</code> and <code>append()</code>.\n\n<code>user_cards = []</code>\n\n<code>computer_cards = []</code>\n</div>\n\n<div class=\"hint\" title=\"Hint 6\">\n  Create a function called <code>calculate_score()</code> that takes a List of cards as input \nand returns the sum of all the cards in the List as the score. \nGoogle the <code>sum()</code> function to help you do this.\n</div>\n\n\n<div class=\"hint\" title=\"Hint 7\">\nInside <code>calculate_score()</code> check for a blackjack (a hand with only 2 cards: ace + 10) and return <code>0</code> instead of the actual score. <code>0</code> will represent a blackjack in our game.\n</div>\n\n\n<div class=\"hint\" title=\"Hint 8\">\n  Inside <code>calculate_score()</code> check for an 11 (ace). If the score is already over 21, remove the 11 and replace it with a 1. You might need to Google to find the documentation on the Python built-in functions <code>append()</code> and <code>remove()</code>.\n\nhttps://developers.google.com/edu/python/lists#list-methods\n</div>\n\n<div class=\"hint\" title=\"Hint 9\">\n  Call the function<code>calculate_score()</code>. If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.\n</div>\n\n<div class=\"hint\" title=\"Hint 10\">\n  If the game has not ended, ask the user if they want to draw another card. If yes, then use the <code>deal_card()</code> function to add another card to the <code>user_cards</code> List. If no, then the game has ended.\n</div>\n\n<div class=\"hint\" title=\"Hint 11\">\n  The score will need to be rechecked with every new card drawn and the checks in Hint 9 need to be repeated until the game ends.\n</div>\n\n<div class=\"hint\" title=\"Hint 12\">\n  Once the user is done, it's time to let the computer play. The computer should keep drawing cards as long as it has a score less than 17.\n</div>\n\n<div class=\"hint\" title=\"Hint 13\">\n  Create a function called <code>compare()</code> and pass in the <code>user_score</code> and <code>computer_score</code>. \n\n- If the computer and user both have the same score, then it's a draw.\n- If the computer has a blackjack (0), then the user loses. \n- If the user has a blackjack (0), then the user wins. \n- If the <code>user_score</code> is over 21, then the user loses. \n- If the <code>computer_score</code> is over 21, then the computer loses. \n- If none of the above, then the player with the highest score wins.\n</div>\n\n<div class=\"hint\" title=\"Hint 14\">\n  Ask the user if they want to restart the game. If they answer yes, clear the console and start a new game of blackjack and show the logo from art.py.\n</div>\n\n\n\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        }
+      ],
+      "type" : "framework",
+      "id" : 1322657598
+    },
+    {
+      "id" : 1407599981,
+      "title" : "Day 12",
+      "task_list" : [
+        {
+          "id" : 1902731480,
+          "name" : "Namespaces and Scope",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "### Local Scope\nVariables (or functions) declared inside functions have local scope (also called function scope). They are only seen by other code within the same block of code.\n\ne.g.\n```\ndef my_function():\n    my_local_var = 2\n    \n# This will cause a NameErrorr\nprint(my_local_var) \n```\n\n### Global Scope\nVariables or functions declared at the top level (unindented) of a code file have global scope. It is accessible anywhere in the code file.\n\ne.g.\n\n```\nmy_global_var = 3\n\ndef my_function():\n    # This works no problems\n    print(my_global_var)\n```",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1277708657,
+          "name" : "Block Scope",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "Python is a bit different from other programming languages in that it does not have block scope.\n\nThis means that variables created nested in other blocks of code e.g. for loops, if statements, while loops etc. don't get local scope. They are given function scope if they are within a function or global scope if they are not.\n\ne.g.\n\n```\n# Accessible anywhere\nmy_global_var = 1\n\ndef my_function():\n    # Only accessible within my_function()\n    my_local_var = 2\n    \nfor _ in range(10):\n    # Accessible anywhere\n    my_block_var = 3\n\n```",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 2107013760,
+          "name" : "Global Vars",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "You can force the code allow you to modify something with global if you use the global keyword before you use it.\n\ne.g. This will give you an error\n\n```\na = 1\ndef my_function():\n    a += 1\n    print(a)\n```\n\nBut this will work\n```\na = 1\ndef my_function():\n    global a\n    a += 1\n    print(a)\n```",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 481990002,
+          "name" : "Global Constants",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "You can define global constants in your code file for easy access. Their job is meant to be \"set and forget\" so you can use their values but never need to mofy them. \n\n### Naming Convention\nGlobal constants are normally declared in ALL_CAPS with a underscore in between.\n\ne.g.\n\n```\nPI = 3.14159\nGOOGLE_URL = \"https://www.google.com\"\n```",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 653216157,
+          "name" : "Number Guessing Project",
+          "files" : {
+            "main.py" : {
+              "name" : "main.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "art.py" : {
+              "name" : "art.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "The goal is to build a guess the number game.\n\n### Demo\nhttps://appbrewery.github.io/python-day12-demo/\n\n\n### ASCII Art\nYou can get hold of ASCII art using the link below:\nhttps://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20\n\n\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        }
+      ],
+      "type" : "lesson"
+    },
+    {
+      "id" : 671285232,
+      "title" : "Day 13",
+      "task_list" : [
+        {
+          "id" : 1720631818,
+          "name" : "Describe the Problem",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "The first step of solving a problem is being able to describe the problem.\n\n### PAUSE 1 \nLook at the code in task.py and answer the following questions:\n1. What is the for loop doing?\n2. When is the function meant to print \"You got it\"?\n3. What are your assumptions about the value of `i`?\n\n### PAUSE 2\nFix the code so that the print statement executes.",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 785894060,
+          "name" : "Reproduce the Bug",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "Some bugs are sneaky, they only occur under certain conditions. In order to debug them, we need to be able to reliably reproduce the bug and diagnose our problem to figure out which conditions trigger the bug.\n\n### PAUSE 1\nChange the code so that it always produces the occasional error.\n\n### PAUSE 2\nFix the code and remove the bug.",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1923669322,
+          "name" : "Play Computer",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "Playing computer is an important skill in debugging. You need to be able to go through your code line by line as if you were the computer to help you figure out what is going wrong. \n\n### PAUSE 1\nPlay computer and go through the code line by line as if you were executing the code to figure out why 1994 does not work as expected. Then go ahead and fix the code.",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1298813328,
+          "name" : "Fix the Errors",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "Fix any errors (red underlines) that show up in the editor before you run your code. The warnings (yellow) are optional fixes, sometimes it will cause a problem down the line other times it's fine and the editor just doesn't understand what you are trying to do.\n\n### Catching Exceptions\nYou can use a try/except block in Python to catch any exceptions that might occur. For example if you imagine there could be a chance of user error. You can prevent it crashing your code by anticipating it. You trap the dangerous code inside a try block and use an except block to catch any potential errors. Then you define what should happen when that error occurs instead of simply just crashing and stopping the code.\n\ne.g.\n\n```\ntry:\n    print(6 > \"five\")\nexcept TypeError:\n    print(\"You can't mix integers and strings in a comparison\")\n```\n\n### PAUSE 1 \nFix the bug so that the print statement displays the correct value of age in the output area.",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1566856357,
+          "name" : "Use Print",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "`print()` is your friend. It can help expose hidden values while your code is running. In a for loop, the loop will follow some rules to perform a repeated block of code. But during the loop it's difficult to see the intermediate values, that's a perfect example of how you can use print to expose those intermediate values and help you debug your code.\n\n### PAUSE 1\nThe code is supposed to calculate the total number of words given the number pages and the word per page. But it's not currently giving any output.\nDiagnose the problem using `print()` statements.\n\n### PAUSE 2\nFix the code.",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        },
+        {
+          "id" : 1307993871,
+          "name" : "Use a Debugger",
+          "files" : {
+            "task.py" : {
+              "name" : "task.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "maths.py" : {
+              "name" : "maths.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "Most IDEs (Intelligent Development Environments) such as PyCharm will have built-in tools for debugging. This is normally known as the debugger. In many ways, they are like print statements on steroids.\n\nDebuggers allows us to peek into our code during execution and pause on chosen lines to figure out what is the inner mechanism and where it's going wrong. \n\nThere are a couple of things that are the same in most IDEs which you should be familiar with:\n\n1. **Breakpoint** - You can set a breakpoint by clicking on a line in the gutter of the code (where the line numbers are). This line will be where the program pauses during debug run.\n\n2. **Step Over** - This button will go through the execution of your code line by line and allow you to view the intermediate values of your variables. \n3. **Step Into** - This will enter into any other modules that your code references. e.g. If you use a function from the random module it will show you the original code for that function so you can better understand its functionality and how it relates to your problems.\n4. **Step Into My Code** - This does the same thing as Step Into, but it limits the scope to your own project code and ignores library code such as random.\n\n\n### PAUSE 1\nUse the PyCharm debugger to figure out what is the issue in the starting code and fix it.",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        }
+      ],
+      "type" : "lesson"
+    },
+    {
+      "id" : 2038477174,
+      "title" : "Day 14",
+      "task_list" : [
+        {
+          "id" : 1719245063,
+          "name" : "Higher or Lower Project",
+          "files" : {
+            "main.py" : {
+              "name" : "main.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "art.py" : {
+              "name" : "art.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "game_data.py" : {
+              "name" : "game_data.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "The goal is to build a game that asks the user to guess who has more followers on Instagram.\n\n### Original Higher Lower Game\nhttps://www.higherlowergame.com/\n\n### Demo of Final Project\nhttps://appbrewery.github.io/python-day14-demo/\n\n\n",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        }
+      ],
+      "type" : "lesson"
+    },
+    {
+      "id" : 424097809,
+      "title" : "Day 15",
+      "task_list" : [
+        {
+          "id" : 1744300585,
+          "name" : "Coffee Machine Project",
+          "files" : {
+            "main.py" : {
+              "name" : "main.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "solution.py" : {
+              "name" : "solution.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "The goal is to build the program for a coffee machine. \n\n### Program Requirements\nDownload the PDF for the program requirements here:\nhttps://drive.google.com/uc?export=download&id=1eIZt2TeFGVrk4nXkx8E_5Slw2coEcOUo\n\n### Demo Project\nIf you right-click on [solution.py](course://Day 15/Coffee Machine Project/solution.py) in the file navigator, you can \"Run solution\" without opening the file. You'll be able to test out the functionality in the output area and refer to the PDF to confirm all the functionality.",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        }
+      ],
+      "type" : "lesson"
+    },
+    {
+      "id" : 1893623829,
+      "title" : "Day 16-100",
+      "task_list" : [
+        {
+          "id" : 1304427684,
+          "name" : "Where are the rest of the days",
+          "files" : {
+            "main.py" : {
+              "name" : "main.py",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "is_binary" : false
+            },
+            "__init__.py" : {
+              "name" : "__init__.py",
+              "placeholders" : [ ],
+              "is_visible" : false,
+              "is_binary" : false
+            }
+          },
+          "description_text" : "#### From Day 16 onwards, you will be creating your own PyCharm projects from scratch. \n#### Instead of using templates that I have created for you. \n#### It will be another step in your journey as a developer!\n#### But don't worry, I will explain how to do everything in the video tutorials on Udemy.",
+          "description_format" : "MD",
+          "task_type" : "theory"
+        }
+      ],
+      "type" : "lesson"
+    }
+  ],
+  "id" : 25212,
+  "generated_edu_id" : "100 Days of Code - The Complete Python Pro Bootcamp_Dr. Angela Yu_Python",
+  "additional_files" : [
+    {
+      "name" : ".idea/inspectionProfiles/Default.xml",
+      "is_visible" : true,
+      "is_binary" : false
+    },
+    {
+      "name" : ".idea/inspectionProfiles/Project_Default.xml",
+      "is_visible" : true,
+      "is_binary" : false
+    },
+    {
+      "name" : ".idea/inspectionProfiles/profiles_settings.xml",
+      "is_visible" : true,
+      "is_binary" : false
+    },
+    {
+      "name" : "Day 3/__init__.py",
+      "is_visible" : true,
+      "is_binary" : false
+    }
+  ],
+  "version" : 19,
+  "edu_plugin_version" : "2024.11-2024.3-558"
+}
