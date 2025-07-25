@@ -1,8 +1,10 @@
 import random
-import day_7_hangman_art
-import day_7_hangman_words
+from day_7_hangman_art import logo, stages
+# import day_7_hangman_art
+from day_7_hangman_words import word_list
+# import day_7_hangman_words
 
-print(day_7_hangman_art.logo)
+print(logo)
 
 # old word list for building
 # word_list = ["aardvark", "baboon", "camel", "dog", "elephant"]
@@ -10,7 +12,7 @@ print(day_7_hangman_art.logo)
 # select work from word list
 # chosen_word = random.choice(word_list)
 # use random to pick a random word from the list that is imported from hangman_words
-chosen_word = random.choice(day_7_hangman_words.word_list)
+chosen_word = random.choice(word_list)
 # print(chosen_word)
 
 ## placeholder = "_" * len(chosen_word) <---- This is the most pythonic way to do the loop below
