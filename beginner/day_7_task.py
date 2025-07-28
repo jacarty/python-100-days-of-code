@@ -37,7 +37,7 @@ while not game_over:
     # checks if they already guessed that letter
     if guess in guessed_letters:
         # return current game_status to the user
-        print(day_7_hangman_art.stages[lives])
+        print(stages[lives])
         print(f"You already guessed {guess} - try again :)")
         print(''.join(word_status))
         continue
@@ -55,27 +55,27 @@ while not game_over:
                 word_status[index] = guess
         # return current game_status to the user
         # lookup the ascii stage in the list based on current lives
-        print(day_7_hangman_art.stages[lives])
+        print(stages[lives])
         print(f"Correct, {guess} is in the word.")
         print(''.join(word_status))
     # reduce lives if not in word
     else:
         lives -= 1
         # return current game_status to the user
-        print(day_7_hangman_art.stages[lives])
+        print(stages[lives])
         print(f"You guessed incorrectly, {guess} is not in the word.")
         print(''.join(word_status))
     
     # end game if lives run out
     if lives == 0:
-        print(day_7_hangman_art.stages[lives])
+        print(stages[lives])
         print(''.join(word_status))
         print("GAME OVER")
         print(f"The word was: {chosen_word}")
         game_over = True
     # loop until there are no _ in word_status 
     elif "_" not in word_status:
-        print(day_7_hangman_art.stages[lives])
+        print(stages[lives])
         print(''.join(word_status))
         print("Congratulations - you win!")
         game_over = True
