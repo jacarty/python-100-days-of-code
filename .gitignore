@@ -8,6 +8,9 @@
 ehthumbs.db
 Thumbs.db
 
+# Setup notes
+setup.md
+
 # IDE specific files
 .claude/*
 .vscode/
