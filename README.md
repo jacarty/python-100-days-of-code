@@ -1,12 +1,12 @@
-# 100 Days of Python Bootcamp 🐍
+# 100 Days of Python Course 🐍
 
-This repository contains my code, projects, and learning progress as I work through the **100 Days of Code Complete Professional Python Bootcamp** by App Brewery. I'm taking this comprehensive course to continue my learning journey in application development and strengthen my Python programming skills.
+This repository contains my code, projects, and learning progress as I work through the **100 Days of Code Complete Professional Python Course** by App Brewery. I'm taking this comprehensive course to continue my learning journey in application development and strengthen my Python programming skills.
 
 Given my work commitments and other projects that I'm building, I expect it to take longer than 100 days to complete. I'm approaching this from a continuous learning mindset, focusing on consistent progress rather than speed, and applying the concepts to real-world scenarios as I advance through the curriculum.
 
 ## Course Overview
 
-The bootcamp is structured into four main sections, progressively building from fundamental concepts to advanced professional development:
+The course is structured into four main sections, progressively building from fundamental concepts to advanced professional development:
 
 ### 🌱 Beginner Python
 - **Core Fundamentals**: Variables, data types, string manipulation
@@ -48,7 +48,7 @@ Throughout the course, I'll be building real-world applications including:
 
 ## Learning Goals
 
-My primary objectives for this bootcamp are to:
+My primary objectives for this course are to:
 
 1. **Strengthen Programming Fundamentals** - Build a solid foundation in Python syntax and best practices
 2. **Master Application Development** - Learn to create both web and desktop applications
@@ -59,14 +59,15 @@ My primary objectives for this bootcamp are to:
 ## Repository Structure
 
 ```
-├── beginner/           # Days 1-15: Python fundamentals
-├── intermediate/       # Days 16-31: OOP and external libraries
-├── intermediate-plus/  # Days 32-58: APIs, web scraping, Flask
-├── advanced/          # Days 59-81: Data science and analysis
-├── portfolio-projects/ # Days 82-100: Professional portfolio builds
-├── course-documents/   # Syllabus and reference materials
-└── README.md          # This file
-```
+├── beginner/              # Days 1-15: Python fundamentals
+├── intermediate/          # Days 16-31: OOP and external libraries
+├── intermediate-plus/     # Days 32-58: APIs, web scraping, Flask
+├── advanced/              # Days 59-81: Data science and analysis
+├── portfolio-projects/    # Days 82-100: Professional portfolio builds
+├── course-code-examples/  # Instructor notes and example solutions
+├── course-documents/      # Syllabus and reference materials
+└── README.md              # This file
+``` 
 
 ## Progress Tracking
 
@@ -80,7 +81,7 @@ My primary objectives for this bootcamp are to:
 
 This course covers a comprehensive tech stack including:
 
-- **Core**: Python 3, PyCharm IDE
+- **Core**: Python 3, VScode IDE
 - **Web Development**: Flask, HTML, CSS, Jinja2
 - **Data Science**: Pandas, NumPy, Matplotlib, Plotly, Seaborn
 - **Databases**: SQLite, CSV handling
