@@ -51,15 +51,17 @@ def new_line_of_dots(num_dots, space):
     dave.right(90)
     dave.pendown()
     
-def draw_painting(dot_size, num_dots, num_rows, space):
+def draw_painting(dot_size, space, num_dots, num_rows):
     dave.penup()
-    dave.setposition(-225, -225)
+    start_x = 22.5 * num_dots
+    start_y = 22.5 * num_dots
+    dave.setposition(-start_x, -start_y)
     dave.pendown()
 
     for i in range(num_rows):
         draw_line_of_dots(num_dots, dot_size, space)
         new_line_of_dots(num_dots, space)
 
-draw_painting(dot_size=20, num_dots=10, num_rows=10, space=50)
+draw_painting(dot_size=20, space=50, num_dots=10, num_rows=10)
 
 screen.exitonclick()
