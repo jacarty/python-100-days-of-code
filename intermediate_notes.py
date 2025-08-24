@@ -1,5 +1,5 @@
 """
-Consolidated Notes from Intermediate Section (Days 16-21)
+Consolidated Notes from Intermediate Section (Days 16-26)
 This file contains a copy of all notes.py files from the intermediate folder.
 """
 
@@ -910,3 +910,386 @@ piano_tuple = ("do", "re", "mi", "fa", "so", "la", "ti")
 print(piano_tuple[:5])
 
 # returns 'do', 're', 'mi', 'fa', 'so'
+
+
+# =============================================================================
+# DAY 22 - Making Pong
+# =============================================================================
+
+"""
+Making Pong
+
+1. Set up the Main Screen
+
+2. Create a Paddle that responds to Key Presses
+
+3. Write the Paddle Class and Create the Second Paddle
+
+4. Write the Ball Class and Make the Ball Move
+
+5. Add the Ball Bouncing Logic
+
+6. How to Detect Collisions with the Paddle
+
+7. How to Detect when the Ball goes Out of Bounds
+
+8. Score Keeping and Changing the Ball Speed
+
+"""
+
+
+# =============================================================================
+# DAY 24 - Working with local files and directories
+# =============================================================================
+
+"""
+Working with local files and directories
+"""
+
+# Open, read and close a file
+# You need to rememeber to close to free up memory
+file = open("my_file.txt")
+contents = file.read()
+print(contents)
+file.close()
+
+# Using with method closes files when you've finished with it
+with open("my_file.txt") as f:
+    contents = f.read()
+    print(contents)
+
+# Writing to a file; w overwrites the content
+with open("my_file.txt", mode="w") as f:
+    contents = f.write("My text.")
+
+# Writing to a file; a appends
+with open("my_file.txt", mode="a") as f:
+    contents = f.write("\nAdditional text.")
+    print(contents)
+
+# Writing to a file that doesn't exist, creates it.
+with open("new_file.txt", mode="a") as f:
+    contents = f.write("Hello, this is a new file with text.")
+    print(contents)
+
+# Related to files
+# import OS
+import os
+# Show current working directory
+print("Current working directory:", os.getcwd())
+# List files in current directory
+print("Files in current directory:", os.listdir())
+
+
+"""
+Instructor Mail Merge
+"""
+
+with open("./Input/Names/invited_names.txt") as names_file:
+    names = names_file.readlines()
+
+with open("./Input/Letters/starting_letter.txt") as letter_file:
+    letter_contents = letter_file.read()
+    for name in names:
+        stripped_name = name.strip()
+        new_letter = letter_contents.replace(PLACEHOLDER, stripped_name)
+        with open(f"./Output/ReadyToSend/letter_for_{stripped_name}.txt", mode="w") as completed_letter:
+            completed_letter.write(new_letter)
+
+
+# =============================================================================
+# DAY 25 - Working with CSV files and analysing data with Pandas
+# =============================================================================
+
+"""
+Working with CSV files and analysing data with Pandas
+"""
+
+# open CSV and add to list
+# results in a a messy list though
+
+with open("./weather_data.csv") as file:
+    data = file.readlines()
+    print(data)
+    # ['day,temp,condition\n', 'Monday,12,Sunny\n', 'Tuesday,14,Rain\n', 'Wednesday,15,Rain\n', 'Thursday,14,Cloudy\n', 'Friday,21,Sunny\n', 'Saturday,22,Sunny\n', 'Sunday,24,Sunny']
+
+######
+# use the python csv module
+######
+
+import csv
+
+with open("./weather_data.csv") as file:
+    data = csv.reader(file)
+    print(data)
+    # create object
+    # <_csv.reader object at 0x10510d2a0> 
+    for row in data:
+        print(row)
+        """
+        ['day', 'temp', 'condition']
+        ['Monday', '12', 'Sunny']
+        ['Tuesday', '14', 'Rain']
+        ['Wednesday', '15', 'Rain']
+        ['Thursday', '14', 'Cloudy']
+        ['Friday', '21', 'Sunny']
+        ['Saturday', '22', 'Sunny']
+        ['Sunday', '24', 'Sunny']
+        """
+
+# add just the temperatures to the list temp
+# no heading
+# add as integer
+import csv
+
+with open("./weather_data.csv") as file:
+    data = csv.reader(file)
+    temperatures = []
+    for row in data:
+        if row[1] != "temp":
+            temperatures.append(int(row[1]))
+    print(temperatures)
+
+import pandas
+
+data = pandas.read_csv("./weather_data.csv")
+print(data)
+"""
+         day  temp condition
+0     Monday    12     Sunny
+1    Tuesday    14      Rain
+2  Wednesday    15      Rain
+3   Thursday    14    Cloudy
+4     Friday    21     Sunny
+5   Saturday    22     Sunny
+6     Sunday    24     Sunny
+"""
+
+data = pandas.read_csv("./weather_data.csv")
+print(data["temp"])
+
+"""
+0    12
+1    14
+2    15
+3    14
+4    21
+5    22
+6    24
+"""
+
+######
+# Check data type
+######
+data = pandas.read_csv("./weather_data.csv")
+print(type(data))
+# <class 'pandas.core.frame.DataFrame'>
+
+######
+# Check data type
+######
+data = pandas.read_csv("./weather_data.csv")
+print(type(data["temp"]))
+# <class 'pandas.core.series.Series'>
+
+"""
+The two primary data structures of pandas, Series (1-dimensional) and DataFrame (2-dimensional), handle the vast majority of typical use cases in finance, statistics, social science, and many areas of engineering. For R users, DataFrame provides everything that R's data.frame provides and much more. pandas is built on top of NumPy and is intended to integrate well within a scientific computing environment with many other 3rd party libraries.
+"""
+
+######
+# Open Data
+######
+data = pandas.read_csv("./weather_data.csv")
+
+######
+# Pandas DataFrame (workbook) To_Dictionary
+######
+data_dict = data.to_dict()
+print(data_dict)
+
+######
+# # Pandas Series (column) To_List
+######
+temp_list = data["temp"].to_list()
+print(temp_list)
+
+
+######
+# calculate the average temperature
+# manual way
+######
+
+import pandas
+
+# Open Data
+data = pandas.read_csv("./weather_data.csv")
+
+total = 0 
+
+# Pandas Series (column) To_List
+for temperature in data["temp"].to_list():
+    total += temperature
+
+average = total / len(data["temp"].to_list())
+print(average)
+
+######
+# calculate the average temperature
+# with statistics
+######
+
+import pandas
+import statistics
+
+# Open Data
+data = pandas.read_csv("./weather_data.csv")
+
+temperatures = data["temp"].to_list()
+statistics.mean(temperatures)
+
+######
+# calculate the average temperature
+# with pandas
+######
+
+import pandas
+
+# Open Data
+data = pandas.read_csv("./weather_data.csv")
+
+print(data["temp"].mean())
+
+######
+# find the maximum temperature
+######
+
+import pandas
+
+# Open Data
+data = pandas.read_csv("./weather_data.csv")
+
+print(data["temp"].max())
+
+"""
+Get temp column
+data["temp"]
+
+Another way to call a column is simply
+data.temp
+"""
+
+print(data.temp)
+
+######
+# return a row of data, e.g. Monday
+######
+
+print(data[data.day == "Monday"])
+
+######
+# return the row with highest temp of week
+######
+
+max_temp = data.temp.max()
+print(data[data.temp == max_temp])
+
+######
+# alternative
+######
+
+print(data[data.temp == data.temp.max()])
+
+######
+# tapping in to a row
+######
+
+monday = data[data.day == "Monday"]
+print(monday.condition)
+
+monday = data[data.day == "Monday"]
+print(monday.temp)
+
+
+######
+# get temp and convert to Fahrenheit
+######
+
+import pandas
+
+# Open Data
+data = pandas.read_csv("./weather_data.csv")
+
+monday = data[data.day == "Monday"]
+fahrenheit = (monday.temp[0] * (9/5)) + 32
+print(fahrenheit)
+
+"""
+Create a Dataframe
+"""
+
+import pandas
+
+data_dict = {
+    "students": ["Amy", "James", "Angela"],
+    "scores": [76, 56, 65]
+}
+
+data = pandas.DataFrame(data_dict)
+print(data)
+
+#####
+# output to CSV
+#####
+
+data.to_csv("new_data.csv")
+
+
+"""
+https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw/about_data
+
+Count Squirrels By Fur Colour
+
+Gray
+Cinnamon
+Black
+"""
+
+import pandas
+data = pandas.read_csv("./squirrel_data.csv")
+# print(data["Primary Fur Color"])
+
+values = data["Primary Fur Color"].value_counts()
+print(values)
+values.to_csv("squirrel_count.csv")
+
+
+########
+# Instructor making dataframe and exporting
+# Central Park Squirrel Data Analysis
+########
+import pandas
+
+data = pandas.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
+grey_squirrels_count = len(data[data["Primary Fur Color"] == "Gray"])
+red_squirrels_count = len(data[data["Primary Fur Color"] == "Cinnamon"])
+black_squirrels_count = len(data[data["Primary Fur Color"] == "Black"])
+print(grey_squirrels_count)
+print(red_squirrels_count)
+print(black_squirrels_count)
+
+data_dict = {
+    "Fur Color": ["Gray", "Cinnamon", "Black"],
+    "Count": [grey_squirrels_count, red_squirrels_count, black_squirrels_count]
+}
+
+df = pandas.DataFrame(data_dict)
+df.to_csv("squirrel_count.csv")
+
+
+# =============================================================================
+# DAY 26 - Lists and Dictionary Comprehensions
+# =============================================================================
+
+"""
+Lists and Dictionary Comprehensions
+"""
