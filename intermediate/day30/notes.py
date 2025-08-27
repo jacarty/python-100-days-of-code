@@ -146,3 +146,32 @@ while True:
     else:
         print(output_list)
         break
+
+""""
+JSON
+"""
+
+########
+# JSON file to read
+########
+# dict = dictionary to pass in (serialise)
+# file_name is output
+# indent=4 is number spaces to add (for readability)
+json.dump(dict, file_names, indent=4)
+
+########
+# JSON file name to load
+########
+# outputs back to dictionary (deserialise)
+json.load(file_name)
+
+########
+# update a JSON file
+########
+# read old data from file
+data = json.load(data_file)
+# update old data with new data
+json.update(dict)
+# write file back
+json.dump(data, file_name, indent=4)
+
