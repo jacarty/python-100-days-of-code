@@ -1293,3 +1293,1091 @@ df.to_csv("squirrel_count.csv")
 """
 Lists and Dictionary Comprehensions
 """
+
+
+# =============================================================================
+# DAY 27 - GUI with Tkinter and Functional Arguments
+# =============================================================================
+
+"""
+GUI with Tkinter and Functional Arguments
+"""
+# import
+import tkinter
+
+#### Windows
+
+# create a window
+window = tkinter.Tk()
+
+# title window
+window.title("My GUI Program")
+# minimum size (autoscales by default)
+window.minsize(width=500, height=300)
+
+#### Labels
+my_label = tkinter.Label(text="I am a label", font=("courier", 11, "bold"))
+my_label.pack(side="left")
+
+# keep window on screen; has to be at the bottom of program
+window.mainloop()
+
+"""
+##### Keyword arguments
+"""
+
+def my_function(a, b, c):
+    # Do this with a
+    # Then do this with b
+    # Finally do this with c
+    pass
+
+my_function(a=1, b=2, c=2)    
+
+#### Arguments with default values
+def my_function(a=1, b=2, c=3):
+    # Do this with a
+    # Then do this with b
+    # Finally do this with c
+    pass
+
+my_function()    
+
+#### Overwrite one value
+def my_function(a=1, b=2, c=3):
+    # Do this with a
+    # Then do this with b
+    # Finally do this with c
+    pass
+
+my_function(b=4)    
+
+"""
+##### Unlimited positional arguments
+
+They get passed in as a Tuple
+
+"""
+
+#print them
+def add(*args):
+    for n in args:
+        print(n)
+
+add(1, 2, 6, 10)
+
+### add them
+def add(*args):
+    return(sum(args))
+
+print(add(1, 2, 6, 10))
+
+# get one value
+def add(*args):
+    print(args[1])
+
+add(1, 2, 6, 10)
+
+"""
+##### Unlimited positional keyword arguments
+
+They get passed in as a Dictionary
+
+"""
+### kwargs
+def calculate(**kwargs):
+    for key, value in kwargs.items():
+        print(key)
+        print(value)
+    
+    print(kwargs["add"])
+
+calculate(add=3, multiply=8)
+
+### with a value and kwargs
+def calculate(n, **kwargs):
+    n += kwargs["add"]
+    print(n)
+    n *= kwargs["multiply"]
+    print(n)
+    
+calculate(2, add=3, multiply=8)
+
+### create Class with kwargs (kw)
+class Car:
+
+    def __init__(self, **kw):
+        self.make = kw["make"]
+        self.model = kw["model"]
+
+my_car = Car(make="Bugait", model="Veyron")
+print(my_car.model)
+
+### using get is the way for Classes with optional inputs
+### if the value is empty it just returns none
+### the key lookup would cause an error if not passed
+class Car:
+
+    def __init__(self, **kw):
+        self.make = kw.get("make")
+        self.model = kw.get("model")
+        self.colour = kw.get("colour")
+
+my_car = Car(make="Bugait", model="Veyron")
+print(my_car.colour)
+
+
+### you can mix all three
+def all_aboard(a, *args, **kw): 
+    print(a, args, kw)
+    # 4 (7, 3, 0) {'x': 10, 'y': 64}
+    
+all_aboard(4, 7, 3, 0, x=10, y=64)
+
+
+"""
+Examples of widgets
+
+"""
+
+from tkinter import *
+
+def center_window(window, min_width=500, min_height=500):
+    """Center window with minimum size but allow growth for content"""
+    
+    # Get required size for content
+    req_width = window.winfo_reqwidth()
+    req_height = window.winfo_reqheight()
+    
+    # Use larger of minimum or required
+    width = max(min_width, req_width)
+    height = max(min_height, req_height)
+    
+    # Get screen dimensions
+    screen_width = window.winfo_screenwidth()
+    screen_height = window.winfo_screenheight()
+    
+    # Calculate position
+    x = (screen_width - width) // 2
+    y = (screen_height - height) // 2
+    
+    window.geometry(f"{width}x{height}+{x}+{y}")
+
+my_window = Tk()
+# show all available methods
+# print(dir(my_window))
+# give window a title
+my_window.title("Distance Converter")
+# function to set size and centre on screen
+center_window(my_window)
+
+
+
+# on screen label
+my_label = Label(text="I am a label")
+# lots of element can be configured with .config or individually
+my_label.config(font=("courier", 12))
+# pack always needed to position on screen
+my_label.pack()
+
+
+def button_clicked():
+    print("I got clicked")
+    # update the label text
+    # my_label.config(text="Button was clicked")
+    # use the input window text
+    my_label.config(text=my_entry.get())
+
+# on screen button
+# command defines what happens when clicked; it calls the name of a function
+my_button = Button(text="Click me", command=button_clicked)
+# pack always needed to position on screen
+my_button.pack()
+
+
+# on screen Entry box
+my_entry = Entry()
+my_entry.pack()
+my_entry.config(width=20)
+# default text
+my_entry.insert(END, string="enter email")
+
+
+# multi line Text entry
+my_text_entry = Text()
+# box size
+my_text_entry.config(width=30, height=10)
+# start cursor in this box
+my_text_entry.focus()
+my_text_entry.insert(END, "Some starting text in the box")
+print(my_text_entry.get(1.0, END))
+my_text_entry.pack()
+
+
+# spinbox 
+def spinbox_used():
+    print(my_spinbox.get())
+
+my_spinbox = Spinbox()
+my_spinbox.config(from_=0, to=10, width=5, command=spinbox_used)
+my_spinbox.pack()
+
+
+# scale / scroll to set number
+def scale_used(value):
+    print(value)
+
+# scale / scroll to set number
+my_scale = Scale()
+my_scale.config(from_=0, to=100, command=scale_used)
+my_scale.pack()
+
+# checkbutton
+def checkbutton_used():
+    # prints 1 in clicked otherwise 0
+    print(checked_state.get())
+
+checked_state = IntVar()
+my_checkbutton = Checkbutton()
+my_checkbutton.config(text="Is On?", variable=checked_state, command=checkbutton_used)
+my_checkbutton.pack()
+
+# radio button 
+def radio_used():
+    print(radio_state.get())
+
+radio_state = IntVar()
+my_radiobutton1 = Radiobutton()
+my_radiobutton2 = Radiobutton()
+my_radiobutton1.config(text="Option1", value=1, variable=radio_state, command=radio_used)
+my_radiobutton2.config(text="Option2", value=2, variable=radio_state, command=radio_used)
+my_radiobutton1.pack()
+my_radiobutton2.pack()
+
+# listbox
+def listbox_used(event):
+    # gets current selection from listbox
+    print(my_listbox.get(my_listbox.curselection()))
+
+my_listbox = Listbox()
+my_listbox.config(height=4)
+fruits = ["Apple", "Orange", "Pineapple", "Strawberry"]
+for item in fruits:
+    my_listbox.insert(fruits.index(item), item)
+my_listbox.bind("<<ListboxSelect>>", listbox_used)
+my_listbox.pack()
+
+# keep window open; last line
+my_window.mainloop()
+
+
+"""
+can't mix pack and grid in same program
+
+let Tk order and place on window
+my_label.pack()
+
+specific places on window
+my_label.place(x=50, y=50)
+
+using grid to divide the window and place
+my_label.grid(column=0, row=0)
+"""
+
+from tkinter import *
+
+def center_window(window, min_width=0, min_height=0):
+    """Center window with minimum size but allow growth for content"""
+    # Update to calculate widget sizes
+    window.update_idletasks()
+    # get required size for content
+    req_width = window.winfo_reqwidth()
+    req_height = window.winfo_reqheight()
+    # use larger of minimum or required
+    width = max(min_width, req_width)
+    height = max(min_height, req_height)
+    # get screen dimensions
+    screen_width = window.winfo_screenwidth()
+    screen_height = window.winfo_screenheight()
+    # calculate position
+    x = (screen_width - width) // 2
+    y = (screen_height - height) // 2
+    # set screen location
+    window.geometry(f"{width}x{height}+{x}+{y}")
+
+def button_clicked():
+    """Create a button"""
+    print("I got clicked")
+    label.config(text=entry.get())
+
+# create Window and centre in screen
+window = Tk()
+window.title("Distance Converter")
+center_window(window)
+
+# label
+label = Label(text="I am a label")
+#label.config(font=("courier", 12), padx=20, pady=20)
+label.grid(column=0, row=0)
+
+# button one
+button = Button(text="Click me", command=button_clicked)
+button.grid(column=1, row=1)
+
+# button two
+button_2 = Button(text="Button 2")
+button_2.grid(column=2, row=0)
+
+# entry box
+entry = Entry()
+entry.config(width=20)
+entry.insert(END, string="enter email")
+entry.grid(column=3, row=3)
+
+# centre window
+center_window(window, min_width=0, min_height=0)
+# keep alive
+window.mainloop()
+
+#######################
+# miles to KM converter
+#######################
+
+from tkinter import *
+
+def center_window(window, min_width=0, min_height=0):
+    """Center window with minimum size but allow growth for content"""
+    # Update to calculate widget sizes
+    window.update_idletasks()
+    # get required size for content
+    req_width = window.winfo_reqwidth()
+    req_height = window.winfo_reqheight()
+    # use larger of minimum or required
+    width = max(min_width, req_width)
+    height = max(min_height, req_height)
+    # get screen dimensions
+    screen_width = window.winfo_screenwidth()
+    screen_height = window.winfo_screenheight()
+    # calculate position
+    x = (screen_width - width) // 2
+    y = (screen_height - height) // 2
+    # set screen location
+    window.geometry(f"{width}x{height}+{x}+{y}")
+
+def button_clicked():
+    """Create a button"""
+    print("I got clicked")
+    calc = round((float(miles_entry.get()) * 1.609), 2)
+    calc_label.config(text=calc)
+
+# create Window and centre in screen
+window = Tk()
+window.title("Distance Converter")
+center_window(window)
+window.config(padx=10, pady=10)
+
+# entry box
+miles_entry = Entry()
+miles_entry.config(width=10)
+miles_entry.insert(END,string="0")
+miles_entry.grid(column=1, row=0)
+
+# miles label
+miles_label = Label(text="Miles")
+miles_label.config(font=("courier", 12))
+miles_label.grid(column=2, row=0)
+
+# equals to label
+equals_label = Label(text="Is equal to")
+equals_label.config(font=("courier", 12))
+equals_label.grid(column=0, row=1)
+
+# km label
+calc_label = Label(text="0")
+calc_label.config(font=("courier", 12))
+calc_label.grid(column=1, row=1)
+
+# label4
+km_label = Label(text="KM")
+km_label.config(font=("courier", 12))
+km_label.grid(column=2, row=1)
+
+# button
+calc_button = Button(text="Calculate", command=button_clicked)
+calc_button.config(font=("courier", 12))
+calc_button.grid(column=1, row=2)
+
+# centre window
+center_window(window)
+# keep alive
+window.mainloop()
+
+
+# =============================================================================
+# DAY 28 - Building a Pomodoro App with Tkinter
+# =============================================================================
+
+"""
+Building a Pomodoro App with Tkinter
+
+The Pomodoro Technique
+A time management method that breaks work into focused intervals, traditionally 25 minutes long, separated by short breaks.
+
+Basic Flow:
+Work (25 min) → Break (5 min) → Work (25 min) → Break (5 min) → 
+Work (25 min) → Break (5 min) → Work (25 min) → Long Break (15-30 min)
+
+Key Steps:
+-- Choose a task to work on
+-- Set timer for 25 minutes
+-- Work with full focus until timer rings
+-- Take a short break (5 minutes)
+
+Repeat - After 4 pomodoros, take a longer break
+
+The technique helps maintain focus, prevents burnout, and makes large tasks feel more manageable by breaking them into smaller, timed chunks.
+
+"""
+
+# https://colorhunt.co/
+
+
+#######################################################################
+#
+# Dynamic Datatyping
+# We're changing the Variable from Int to Str
+# This isn't possible in all languages 
+#
+# https://stackoverflow.com/questions/11328920/is-python-strongly-typed
+#
+#######################################################################
+
+def count_down(count):
+    # timer function; 1s (1000ms)
+
+    count_min = math.floor(count / 60)
+    count_sec = count % 60
+
+    if count_sec < 10:
+        count_sec == f"0{count_sec}"
+
+    canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
+    if count > 0:
+        window.after(1000, count_down, count - 1)
+
+
+
+"""
+
+Pomodoro Application
+
+"""
+
+from tkinter import *
+import math
+
+# ---------------------------- CONSTANTS ------------------------------- #
+PINK = "#e2979c"
+RED = "#e7305b"
+GREEN = "#9bdeac"
+YELLOW = "#f7f5dd"
+FONT_NAME = "Courier"
+WORK_MIN = 25
+SHORT_BREAK_MIN = 5
+LONG_BREAK_MIN = 20
+
+reps = 0
+timer = None
+
+# ---------------------------- TIMER RESET ------------------------------- # 
+
+def reset_timer():
+    window.after_cancel(timer)
+    canvas.itemconfig(timer_text, text="00:00")
+    timer_label.config(text="Timer")
+    checkmarks.config(text="")
+    global reps
+    reps = 0
+
+# ---------------------------- TIMER MECHANISM ------------------------------- # 
+
+def start_timer():
+    global reps
+
+    reps += 1
+
+    long_break = LONG_BREAK_MIN * 60
+    short_break = SHORT_BREAK_MIN * 60
+    work_min = WORK_MIN * 60
+
+    # 8th round
+    if reps % 8 == 0:
+        count_down(long_break)
+        timer_label.config(text="Break", fg=RED)
+    # 2nd, 4th and 6th round
+    elif reps % 2 == 0:
+        count_down(short_break)
+        timer_label.config(text="Break", fg=PINK)
+    # 1st, 3rd, 5th, 7th round
+    else:
+        count_down(work_min)
+        timer_label.config(text="Work", fg=GREEN)
+
+# ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
+
+def count_down(count):
+    # timer function; 1s (1000ms)
+
+    count_min = math.floor(count / 60)
+    count_sec = count % 60
+
+    canvas.itemconfig(timer_text, text=f"{count_min:02d}:{count_sec:02d}")
+    if count > 0:
+        global timer
+        timer = window.after(1000, count_down, count - 1)
+    else:
+        start_timer()
+        marks = ""
+        work_sessions = math.floor(reps/2)
+        for _ in range(work_sessions):
+            marks += "✓"
+        checkmarks.config(text=marks)
+
+# ---------------------------- UI SETUP ------------------------------- #
+
+def center_window(window, min_width=200, min_height=200):
+    """Center window with minimum size but allow growth for content"""
+    # Update to calculate widget sizes
+    window.update_idletasks()
+    # get required size for content
+    req_width = window.winfo_reqwidth()
+    req_height = window.winfo_reqheight()
+    # use larger of minimum or required
+    width = max(min_width, req_width)
+    height = max(min_height, req_height)
+    # get screen dimensions
+    screen_width = window.winfo_screenwidth()
+    screen_height = window.winfo_screenheight()
+    # calculate position
+    x = (screen_width - width) // 2
+    y = (screen_height - height) // 2
+    # set screen location
+    window.geometry(f"{width}x{height}+{x}+{y}")
+
+window = Tk()
+window.title("Pomodoro")
+window.config(padx=100, pady=50, bg=YELLOW)
+
+timer_label = Label(text="Timer")
+timer_label.config(bg=YELLOW, fg=GREEN, font=("FONT_NAME", 30, "bold"))
+timer_label.grid(column=1, row=0)
+
+start_button = Button(text="Start", command=start_timer)
+start_button.config(
+    bg=YELLOW, 
+    activebackground=YELLOW,
+    highlightbackground=YELLOW,
+    highlightcolor=YELLOW
+)
+start_button.grid(column=0, row=2)
+
+reset_button = Button(text="Reset", command=reset_timer)
+reset_button.config(
+    bg=YELLOW, 
+    activebackground=YELLOW,
+    highlightbackground=YELLOW,
+    highlightcolor=YELLOW
+)
+reset_button.grid(column=2, row=2)
+
+checkmarks = Label()
+checkmarks.config(bg=YELLOW, fg=GREEN, font=("FONT_NAME", 16, "bold"))
+checkmarks.grid(column=1, row=3)
+
+canvas = Canvas(width=220, height=250, bg=YELLOW, highlightthickness=0)
+bg_image = PhotoImage(file="tomato.png")
+canvas.create_image(110, 125, image=bg_image)
+timer_text = canvas.create_text(110, 140, text="00:00", fill="white", font=("FONT_NAME", 16, "bold"))
+canvas.grid(column=1, row=1)
+
+center_window(window)
+window.mainloop()
+
+
+# =============================================================================
+# DAY 29 - Building a Password Generator with Tkinter
+# =============================================================================
+
+"""
+
+Building a Password Generator with Tkinter
+
+File output format
+website | email | password
+
+"""
+
+from tkinter import *
+from tkinter import messagebox # need to import message box
+import string # used to get letters, digits and punctuation
+import pyperclip
+import random
+
+FONT = "courier"
+FONT_SIZE = 11
+
+# ---------------------------- PASSWORD GENERATOR ------------------------------- #
+
+def generate_password():
+    all_characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(all_characters) for _ in range(16))
+    password_entry.delete(0, END)
+    password_entry.insert(0, password)
+    pyperclip.copy()
+
+# ---------------------------- SAVE PASSWORD ------------------------------- #
+
+def save_password():
+
+    website = website_entry.get()
+    email = email_entry.get()
+    password = password_entry.get()
+
+    if len(website) == 0 or len(email) == 0 or len(password) == 0:
+        messagebox.showinfo(title="Oops", message="Please don't leave any fields empty")
+
+    else:
+        is_ok = messagebox.askokcancel(title="Website", message=f"""These are the details entered: \n
+                                Website: {website}\n
+                                Email: {email}\n
+                                Password: {password}\n
+                                Is it okay to save?""")
+
+        if is_ok:
+            with open("./passwords.txt", "a") as f:
+                f.write(f"{website} | {email} | {password}\n")
+            website_entry.delete(0, END)
+            password_entry.delete(0, END)
+
+# ---------------------------- UI SETUP ------------------------------- #
+
+def centre_window(window, min_width=0, min_height=0):
+    """Centre window with minimum size but allow growth for content"""
+    # Update to calculate widget sizes
+    window.update_idletasks()
+    # get required size for content
+    req_width = window.winfo_reqwidth()
+    req_height = window.winfo_reqheight()
+    # use larger of minimum or required
+    width = max(min_width, req_width)
+    height = max(min_height, req_height)
+    # get screen dimensions
+    screen_width = window.winfo_screenwidth()
+    screen_height = window.winfo_screenheight()
+    # calculate position
+    x = (screen_width - width) // 2
+    y = (screen_height - height) // 2
+    # set screen location
+    window.geometry(f"{width}x{height}+{x}+{y}")
+
+window = Tk()
+window.title("Password Manager")
+window.config(padx=20, pady=20)
+
+canvas = Canvas(width=200, height=200)
+bg_image = PhotoImage(file="logo.png")
+canvas.create_image(127, 100, image=bg_image)
+canvas.grid(column=1, row=0)
+
+website_label = Label()
+website_label.config(text="Website:", font=(FONT, FONT_SIZE))
+website_label.grid(column=0, row=1)
+
+website_entry = Entry()
+website_entry.config(width=42)
+website_entry.focus() # default cursor to this box
+website_entry.grid(column=1, columnspan=2, row=1)
+
+email_label = Label()
+email_label.config(text="Email/Username:", font=(FONT, FONT_SIZE))
+email_label.grid(column=0, row=2)
+
+email_entry = Entry()
+email_entry.config(width=42)
+email_entry.insert(0, "test@email.com") # default text
+email_entry.grid(column=1, columnspan=2, row=2)
+
+password_label = Label()
+password_label.config(text="Password:", font=(FONT, FONT_SIZE))
+password_label.grid(column=0, row=3)
+
+password_entry = Entry()
+password_entry.config(width=21)
+password_entry.grid(column=1, row=3)
+
+password_button = Button(command=generate_password)
+password_button.config(text="Generate Password", font=(FONT, FONT_SIZE))
+password_button.grid(column=2, row=3)
+
+add_button = Button(command=save_password)
+add_button.config(text="Add", width=40, font=(FONT, FONT_SIZE))
+add_button.grid(column=1, columnspan=2, row=4)
+
+#centre_window(window)
+window.mainloop()
+
+
+# =============================================================================
+# DAY 30 - Errors, Exceptions and Saving JSON Data
+# =============================================================================
+
+"""
+Errors, Exceptions and Saving JSON Data
+
+try:
+
+except:
+
+else:
+
+finallly:
+
+"""
+
+######
+# File Example
+######
+
+# would fail if file doesn't exist
+# with open("a_file.txt") as f:
+#     f.read()
+
+# try this
+try:
+    f = open("a_file.txt")
+    a_dict = {"key" : "value"}
+    print(a_dict["ads"])
+# error specific
+except FileNotFoundError:
+    print("There was an error opening, creating file")
+    f = open("a_file.txt", "w")
+    f.write("Hello")
+# error specific that's captured
+except KeyError as error_message:
+    print(f"The key {error_message} doesn't exist.")
+# run if the try succeeds
+else:
+    content = f.read()
+    print(content)
+# happens regardless if the code succeeds or fails
+finally:
+    f.close()
+    print("The file was closed.")
+
+    # allows you to raise an error and message
+    raise TypeError("This is an error I made up.")
+
+######
+# Realk Example
+# Valid code but nonsense result
+######
+
+height = float(input("Height: "))
+weight = float(input("Weight: "))
+
+if height > 3:
+    raise ValueError("Human height should not be over 3 meters")
+
+bmi = weight / height ** 2
+print(bmi)
+
+"""
+IndexError Handling
+
+Issue 
+
+We've got some buggy code. Try running the code. The code will crash and give you an IndexError.
+This is because we're looking through the list of fruits for an index that is out of range. 
+
+
+Objective 
+
+Use what you've learnt about exception handling to prevent the program from crashing. If the user enters something that is out of range just print a default output of "Fruit pie". 
+
+
+IMPORTANT: The exception handling should NOT allow each fruit to be printed when there is an exception. e.g. it should not print out Apple pie, Pear pie and Orange pie, when there is an exception it should only print "Fruit pie".  
+"""
+
+fruits = ["Apple", "Pear", "Orange"]
+     
+# Catch the exception and make sure the code runs without crashing.
+def make_pie(index):
+    try:
+        fruit = fruits[index]
+    except IndexError:
+        print("Fruit pie")
+    else:
+        print(fruit + " pie")
+     
+make_pie(4)
+
+
+
+"""
+KeyError Handling
+
+We've got some buggy code, try running the code. The code will crash and give you a KeyError.
+This is because some of the posts in the facebook_posts don't have any "Likes". 
+
+Objective 
+Use what you've learnt about exception handling to prevent the program from crashing.
+"""
+
+facebook_posts = [
+    {'Likes': 21, 'Comments': 2},
+    {'Likes': 13, 'Comments': 2, 'Shares': 1},
+    {'Likes': 33, 'Comments': 8, 'Shares': 3},
+    {'Comments': 4, 'Shares': 2},
+    {'Comments': 1, 'Shares': 1},
+    {'Likes': 19, 'Comments': 3}
+]
+
+
+def count_likes(posts):
+ 
+    total_likes = 0
+    for post in posts:
+      try:
+        total_likes = total_likes + post['Likes']
+      except KeyError:
+        pass 
+    
+    return total_likes
+ 
+ 
+count_likes(facebook_posts)
+
+
+
+############
+# Mine
+############
+
+import pandas
+
+data = pandas.read_csv("nato_phonetic_alphabet.csv")
+phonetic_dict = {row.letter: row.code for (index, row) in data.iterrows()}
+print(phonetic_dict)
+
+while True:
+    word = input("Enter a word: ").upper()
+    try:
+        output_list = [phonetic_dict[letter] for letter in word]
+    except KeyError:
+        print("Sorry, please only enter letters of the alphabet.")
+        continue
+    else:
+        print(output_list)
+        break
+
+""""
+JSON
+"""
+
+########
+# JSON file to read
+########
+# dict = dictionary to pass in (serialise)
+# file_name is output
+# indent=4 is number spaces to add (for readability)
+json.dump(dict, file_names, indent=4)
+
+########
+# JSON file name to load
+########
+# outputs back to dictionary (deserialise)
+json.load(file_name)
+
+########
+# update a JSON file
+########
+# read old data from file
+data = json.load(data_file)
+# update old data with new data
+json.update(dict)
+# write file back
+json.dump(data, file_name, indent=4)
+
+"""
+
+Update Password Generator
+
+File output format JSON
+
+"""
+
+from tkinter import *
+from tkinter import messagebox # need to import message box
+import string # used to get letters, digits and punctuation
+import pyperclip
+import random
+import json
+
+FONT = "courier"
+FONT_SIZE = 11
+
+# ---------------------------- PASSWORD GENERATOR ------------------------------- #
+
+def generate_password():
+    all_characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(all_characters) for _ in range(16))
+    password_entry.delete(0, END)
+    password_entry.insert(0, password)
+    pyperclip.copy(password)
+
+# ---------------------------- SAVE PASSWORD ------------------------------- #
+
+def save_password():
+
+    website = website_entry.get()
+    email = email_entry.get()
+    password = password_entry.get()
+    new_data = {
+        website: {
+            "email": email,
+            "password" : password,
+        }
+    }
+
+    if len(website) == 0 or len(email) == 0 or len(password) == 0:
+        messagebox.showinfo(title="Oops", message="Please don't leave any fields empty")
+
+    else:
+        is_ok = messagebox.askokcancel(title="Website", message=f"""These are the details entered: \n
+                                       Website: {website}\n
+                                       Email: {email}\n
+                                       Password: {password}\n
+                                       Is it okay to save?""")
+
+####################
+# we could avoid except / else repitition with a function
+# being left like this for future readability
+####################
+
+        if is_ok:
+            try:
+                with open("data.json", "r") as file:
+                    # read data file
+                    data = json.load(file)
+
+            except FileNotFoundError:
+                print("File not found. Needs to be created.")
+                with open("data.json", "w") as file:
+                    # saving updated data
+                    json.dump(new_data, file, indent=4)
+
+            else:
+                # update old data with new data
+                data.update(new_data)
+
+                with open("data.json", "w") as file:
+                    # saving updated data
+                    json.dump(data, file, indent=4)
+                
+            finally:
+                website_entry.delete(0, END)
+                password_entry.delete(0, END)
+
+# ---------------------------- SEARCH PASSWORD ------------------------------- #
+
+def search_password():
+    # print("search")
+    website = website_entry.get()
+
+    try:
+        with open("data.json", "r") as file:
+            data = json.load(file)
+
+        email_lookup = data[website]["email"]
+        pw_lookup = data[website]["password"]
+
+    except FileNotFoundError:
+        messagebox.showinfo(title=f"{website}", message="No data file found.")
+
+    except KeyError:
+        messagebox.showinfo(title=f"{website}", message="No details exist for the website.")
+
+    else:
+        messagebox.showinfo(title=f"{website}", message=f"""Email: {email_lookup}\n
+                                                        Password: {pw_lookup}""")
+
+# ---------------------------- UI SETUP ------------------------------- #
+
+def centre_window(window, min_width=0, min_height=0):
+    """Centre window with minimum size but allow growth for content"""
+    # Update to calculate widget sizes
+    window.update_idletasks()
+    # get required size for content
+    req_width = window.winfo_reqwidth()
+    req_height = window.winfo_reqheight()
+    # use larger of minimum or required
+    width = max(min_width, req_width)
+    height = max(min_height, req_height)
+    # get screen dimensions
+    screen_width = window.winfo_screenwidth()
+    screen_height = window.winfo_screenheight()
+    # calculate position
+    x = (screen_width - width) // 2
+    y = (screen_height - height) // 2
+    # set screen location
+    window.geometry(f"{width}x{height}+{x}+{y}")
+
+window = Tk()
+window.title("Password Manager")
+window.config(padx=20, pady=20)
+
+canvas = Canvas(width=200, height=200)
+bg_image = PhotoImage(file="logo.png")
+canvas.create_image(127, 100, image=bg_image)
+canvas.grid(column=1, row=0)
+
+website_label = Label()
+website_label.config(text="Website:", font=(FONT, FONT_SIZE))
+website_label.grid(column=0, row=1)
+
+website_entry = Entry()
+website_entry.config(width=21)
+website_entry.focus() # default cursor to this box
+website_entry.grid(column=1, row=1)
+
+search_button = Button(command=search_password)
+search_button.config(text="Search Password", width=17, font=(FONT, FONT_SIZE))
+search_button.grid(column=2, row=1)
+
+email_label = Label()
+email_label.config(text="Email/Username:", font=(FONT, FONT_SIZE))
+email_label.grid(column=0, row=2)
+
+email_entry = Entry()
+email_entry.config(width=42)
+email_entry.insert(0, "test@email.com") # default text
+email_entry.grid(column=1, columnspan=2, row=2)
+
+password_label = Label()
+password_label.config(text="Password:", font=(FONT, FONT_SIZE))
+password_label.grid(column=0, row=3)
+
+password_entry = Entry()
+password_entry.config(width=21)
+password_entry.grid(column=1, row=3)
+
+password_button = Button(command=generate_password)
+password_button.config(text="Generate Password", font=(FONT, FONT_SIZE))
+password_button.grid(column=2, row=3)
+
+add_button = Button(command=save_password)
+add_button.config(text="Add", width=40, font=(FONT, FONT_SIZE))
+add_button.grid(column=1, columnspan=2, row=4)
+
+#centre_window(window)
+window.mainloop()
