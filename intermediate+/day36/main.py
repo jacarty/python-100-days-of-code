@@ -2,15 +2,26 @@ from dotenv import load_dotenv
 import os
 import requests
 
-load_dotenv("../../.env")
+###########################
+# Read API Keys
+###########################
 
+load_dotenv("../../.env")
 ALPHA_API_KEY = os.getenv("ALPHA_API_KEY")
 NEWS_API = os.getenv("NEWS_API")
+
+###########################
+# Global Vars
+###########################
 
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 ALPHA_URL = "https://www.alphavantage.co/query"
 NEWS_URL = "https://newsapi.org/v2/everything"
+
+###########################
+# Get Stock Data & Trim
+###########################
 
 alpha_parameters = {
     "function": "TIME_SERIES_DAILY",
@@ -19,24 +30,30 @@ alpha_parameters = {
     "apikey": ALPHA_API_KEY
 }
 
+# Get API data
 data = requests.get(url=ALPHA_URL, params=alpha_parameters)
+# Check for error response
 data.raise_for_status()
+# Trim data for Daily information
 tsla_stock_data = data.json()["Time Series (Daily)"]
-# print(tsla_stock_data)
+print(tsla_stock_data)
 
-closing_prices = {
-    date: float(data["4. close"]) 
-    for date, data in tsla_stock_data.items()
-}
+# List comporehension to just get values by day
+values = [value for (key, value) in tsla_stock_data.items()]
+print(values)
 
-values = list(closing_prices.values())
-close = values[0]   # 333.87
-previous_close = values[1]  # 345.98
+# Trim to get the Closing prices as float
+close = float(values[0]["4. close"])   # 333.87
+previous_close = float(values[1]["4. close"])  # 345.98
 percentage_change = ((close - previous_close) / previous_close) * 100
 
-# When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
-# Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
-if abs(percentage_change) > 5:
+###########################
+# Get News If Needed
+# Return First 3 Articles
+###########################
+
+if abs(percentage_change) > 1: # If + or - 1%
+    up_down = "🔺" if percentage_change > 0 else "🔻"
     print(f"Get News - Stock moved {percentage_change:+.1f}%")
 
     news_parameters = {
@@ -49,17 +66,15 @@ if abs(percentage_change) > 5:
     news_articles = news.json()["articles"][:3]
     print(news_articles)
 
+    formatted_articles = [f"""{STOCK}: {up_down}{percentage_change}%
+                          \nHeadline: {article['title']}. 
+                          \nBrief: {article['description']}
+                          \nLink: {article['url']}""" 
+                          for article in news_articles]
+    print(formatted_articles)
 
-## STEP 3: Use https://www.twilio.com
-# Send a seperate message with the percentage change and each article's title and description to your phone number. 
+###########################
+# Send SMS Message with AWS
+###########################
+
 #Optional: Format the SMS message like this: 
-"""
-TSLA: 🔺2%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
-Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
-or
-"TSLA: 🔻5%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
-Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
-"""
-
