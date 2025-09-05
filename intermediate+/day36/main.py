@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 import os
 import requests
+import boto3
 
 ###########################
 # Read API Keys
@@ -45,7 +46,7 @@ print(values)
 # Trim to get the Closing prices as float
 close = float(values[0]["4. close"])   # 333.87
 previous_close = float(values[1]["4. close"])  # 345.98
-percentage_change = ((close - previous_close) / previous_close) * 100
+percentage_change = round((((close - previous_close) / previous_close) * 100), 2)
 
 ###########################
 # Get News If Needed
@@ -66,15 +67,46 @@ if abs(percentage_change) > 1: # If + or - 1%
     news_articles = news.json()["articles"][:3]
     print(news_articles)
 
-    formatted_articles = [f"""{STOCK}: {up_down}{percentage_change}%
-                          \nHeadline: {article['title']}. 
-                          \nBrief: {article['description']}
-                          \nLink: {article['url']}""" 
-                          for article in news_articles]
-    print(formatted_articles)
+formatted_articles = [f"""Headline: {article['title'][:50]}{'...' if len(article['title']) > 50 else ''}
+                      \nLink: {article['url']}""" 
+                      for article in news_articles]
+print(formatted_articles)
 
 ###########################
 # Send SMS Message with AWS
 ###########################
 
-#Optional: Format the SMS message like this: 
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+AWS_DEFAULT_REGION = os.getenv('AWS_DEFAULT_REGION')
+AWS_SENDER_ID= os.getenv('AWS_SENDER_ID')
+PHONE_NUMBER = os.getenv('PHONE_NUMBER')
+
+# Create SNS client
+sns = boto3.client(
+    'sns',
+    region_name=AWS_DEFAULT_REGION,
+    aws_access_key_id=AWS_ACCESS_KEY_ID,
+    aws_secret_access_key=AWS_SECRET_ACCESS_KEY
+)
+
+# Create concise SMS message
+sms_message = f"{STOCK}: {up_down}{percentage_change}%\n\n" + "\n---\n".join(formatted_articles[:3])
+
+# Send SMS
+response = sns.publish(
+    PhoneNumber=PHONE_NUMBER,
+    MessageAttributes={
+        'AWS.SNS.SMS.SenderID': {
+            'DataType': 'String',
+            'StringValue': AWS_SENDER_ID
+        },
+        'AWS.SNS.SMS.SMSType': {
+            'DataType': 'String',
+            'StringValue': 'Transactional'
+        }
+    },
+    Message=sms_message
+)
+
+print(f"Message sent! MessageId: {response['MessageId']}")
