@@ -337,3 +337,495 @@ while True:
             to_addrs=MY_EMAIL,
             msg="Subject:Look Up👆\n\nThe ISS is above you in the sky."
         )
+
+
+##############################################################################
+# DAY 34 - Trivia API and GUI Quiz App
+##############################################################################
+
+"""
+Trivia API and The Quizzler App
+
+"""
+
+##################################################
+# HTML Entities
+# https://www.w3schools.com/html/html_entities.asp
+##################################################
+
+import html
+
+text = html.unescape("Q.1: Valve&#039;s &quot;Portal&quot; and &quot;Half-Life&quot; " \
+                    "franchises exist within the same in-game universe.")
+print(text)
+
+# Q.1: Valve&#039;s &quot;Portal&quot; and &quot;Half-Life&quot; franchises exist within the same in-game universe. (True/False): 
+# Q.1: Valve's "Portal" and "Half-Life" franchises exist within the same in-game universe.
+
+###################
+# Type Hints
+###################
+
+# sets what the input type should be, and also what the returned data type will be
+
+def greeting(name: str) -> str:
+    return 'Hello ' + name
+
+
+###########################
+# Quiz Game Updates
+#
+# Uses API to get questions
+#
+# Has GUI to display quiz
+#
+# Read UI.py 
+# Read Data.py
+# Read Quiz_Brain.py
+###########################
+
+
+##############################################################################
+# DAY 35 - API Keys, Authentication, Environment Variables and SMS
+##############################################################################
+
+"""
+API Keys, Authentication, Environment Variables and Sending SMS
+
+Build a rain alert App
+
+Used mailgun and email rather than Twillio
+
+"""
+import os
+from dotenv import load_dotenv
+import requests
+
+load_dotenv("../../.env")
+
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+MAILGUN_API_KEY = os.getenv("MAILGUN_API_KEY")
+MAILGUN_DOMAIN = os.getenv("MAILGUN_DOMAIN")
+RECIPIENT = os.getenv("RECIPIENT")
+
+latitude = "50.827778" 
+longitude = "-0.152778"
+
+# Google Weather APIs
+current = "https://weather.googleapis.com/v1/currentConditions:lookup"
+hourly = "https://weather.googleapis.com/v1/forecast/hours:lookup" # up to 240 hours
+daily = "https://weather.googleapis.com/v1/forecast/days:lookup" # up to 10 days
+
+current_parameters = {
+    "key": GOOGLE_API_KEY,
+    "location.latitude": latitude,
+    "location.longitude": longitude
+}
+
+hourly_parameters = {
+    "key": GOOGLE_API_KEY,
+    "location.latitude": latitude,
+    "location.longitude": longitude,
+    "hours": "12"   
+}
+
+daily_parameters = {
+    "key": GOOGLE_API_KEY,
+    "location.latitude": latitude,
+    "location.longitude": longitude,
+    "days": "3"
+}
+
+response = requests.get(url=hourly, params=hourly_parameters)
+response.raise_for_status()
+forecast_hours = response.json()["forecastHours"]
+# print(forecast_hours)
+
+rain_probability = [hours["precipitation"]["probability"]["percent"] for hours in forecast_hours]
+print(rain_probability)
+
+if any(n > 25 for n in rain_probability):
+    print("Umbrella needed")
+
+    response = requests.post(
+        f"https://api.eu.mailgun.net/v3/{MAILGUN_DOMAIN}/messages",
+        auth=("api", MAILGUN_API_KEY),
+        data={
+            "from": f"James <mailgun@{MAILGUN_DOMAIN}>",
+            "to": [RECIPIENT],
+            "subject": "Weather Alert",
+            "text": "Don't forget your umbrella today! Rain probability is high."
+        }
+    )
+
+    if response.status_code == 200:
+        print("Email sent successfully!")
+    else:
+        print(f"Error: {response.status_code}")
+        print(response.json())
+
+
+##############################################################################
+# DAY 36 - Stock Trading News Alert
+##############################################################################
+
+"""
+Stock News Monitoring Project
+
+Skipped Twilio; will use AWS later
+
+"""
+
+from dotenv import load_dotenv
+import os
+import requests
+import boto3
+
+###########################
+# Read API Keys
+###########################
+
+load_dotenv("../../.env")
+ALPHA_API_KEY = os.getenv("ALPHA_API_KEY")
+NEWS_API = os.getenv("NEWS_API")
+
+###########################
+# Global Vars
+###########################
+
+STOCK = "TSLA"
+COMPANY_NAME = "Tesla Inc"
+ALPHA_URL = "https://www.alphavantage.co/query"
+NEWS_URL = "https://newsapi.org/v2/everything"
+
+###########################
+# Get Stock Data & Trim
+###########################
+
+alpha_parameters = {
+    "function": "TIME_SERIES_DAILY",
+    "symbol": STOCK,
+    "outputsize": "compact",
+    "apikey": ALPHA_API_KEY
+}
+
+# Get API data
+data = requests.get(url=ALPHA_URL, params=alpha_parameters)
+# Check for error response
+data.raise_for_status()
+# Trim data for Daily information
+tsla_stock_data = data.json()["Time Series (Daily)"]
+print(tsla_stock_data)
+
+# List comporehension to just get values by day
+values = [value for (key, value) in tsla_stock_data.items()]
+print(values)
+
+# Trim to get the Closing prices as float
+close = float(values[0]["4. close"])   # 333.87
+previous_close = float(values[1]["4. close"])  # 345.98
+percentage_change = ((close - previous_close) / previous_close) * 100
+
+###########################
+# Get News If Needed
+# Return First 3 Articles
+###########################
+
+if abs(percentage_change) > 1: # If + or - 1%
+    up_down = "🔺" if percentage_change > 0 else "🔻"
+    print(f"Get News - Stock moved {percentage_change:+.1f}%")
+
+    news_parameters = {
+        "qInTitle": COMPANY_NAME,
+        "apiKey": NEWS_API
+    }
+
+    news = requests.get(url=NEWS_URL, params=news_parameters)
+    news.raise_for_status()
+    news_articles = news.json()["articles"][:3]
+    print(news_articles)
+
+formatted_articles = [f"""Headline: {article['title'][:50]}{'...' if len(article['title']) > 50 else ''}
+                      \nLink: {article['url']}""" 
+                      for article in news_articles]
+print(formatted_articles)
+
+###########################
+# Send SMS Message with AWS
+###########################
+
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+AWS_DEFAULT_REGION = os.getenv('AWS_DEFAULT_REGION')
+AWS_SENDER_ID= os.getenv('AWS_SENDER_ID')
+PHONE_NUMBER = os.getenv('PHONE_NUMBER')
+
+# Create SNS client
+sns = boto3.client(
+    'sns',
+    region_name=AWS_DEFAULT_REGION,
+    aws_access_key_id=AWS_ACCESS_KEY_ID,
+    aws_secret_access_key=AWS_SECRET_ACCESS_KEY
+)
+
+# Create concise SMS message
+sms_message = f"{STOCK}: {up_down}{percentage_change}%\n\n" + "\n---\n".join(formatted_articles[:3])
+
+# Send SMS
+response = sns.publish(
+    PhoneNumber=PHONE_NUMBER,
+    MessageAttributes={
+        'AWS.SNS.SMS.SenderID': {
+            'DataType': 'String',
+            'StringValue': AWS_SENDER_ID
+        },
+        'AWS.SNS.SMS.SMSType': {
+            'DataType': 'String',
+            'StringValue': 'Transactional'
+        }
+    },
+    Message=sms_message
+)
+
+print(f"Message sent! MessageId: {response['MessageId']}")
+
+
+##############################################################################
+# DAY 37 - Advanced Authentication with POST/PUT/DELETE
+##############################################################################
+
+"""
+Advanced Authentication and POST / PUT / DELETE Requests
+
+Build a Habit Tracker with Pixela
+"""
+
+import requests
+
+# requests.get() - Fetching/Reading data
+"""
+     CLIENT                    SERVER
+        │                         │
+        │  GET /api/users ────────>
+        │                         │
+        │<──────── 200 OK         │
+        │   [{"id":1,"name":..}]  │
+        │                         │
+    📥 GETTING                 📚 DATA
+"""
+
+# requests.post() - Creating new data
+"""
+     CLIENT                    SERVER
+        │                         │
+        │  POST /api/users ──────>
+        │  {"name":"John"}        │
+        │                         │
+        │<──────── 201 Created    │
+        │   {"id":2,"name":"John"}│
+        │                         │
+    📤 SENDING                 ➕ CREATING
+"""
+
+# requests.put() - Updating/Replacing data
+"""
+     CLIENT                    SERVER
+        │                         │
+        │  PUT /api/users/2 ─────>
+        │  {"name":"Jane"}        │
+        │                         │
+        │<──────── 200 OK         │
+        │   {"id":2,"name":"Jane"}│
+        │                         │
+    ✏️ UPDATING               🔄 REPLACING
+"""
+
+# requests.delete() - Removing data
+"""
+     CLIENT                    SERVER
+        │                         │
+        │  DELETE /api/users/2 ──>
+        │                         │
+        │<──────── 204 No Content │
+        │                         │
+        │                         │
+    🗑️ DELETING               ❌ REMOVED
+"""
+
+import requests
+from dotenv import load_dotenv
+import os
+from datetime import datetime
+
+load_dotenv("../../.env")
+PIXELA_API = os.getenv("PIXELA_API")
+USERNAME = "j1m"
+GRAPH_ID = "g1"
+
+#####################
+# Create User
+#####################
+
+# user endpoint
+pixela_endpoint = "https://pixe.la/v1/users"
+
+user_params = {
+    "token": PIXELA_API, 
+    "username": USERNAME, 
+    "agreeTermsOfService": "yes", 
+    "notMinor": "yes"
+}
+
+# response = requests.post(url=pixela_endpoint, json=user_params)
+# print(response.text)
+
+#####################
+# Create Graph
+#####################
+
+# graph endpoint
+graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
+
+# send token in header
+headers = {
+    "X-USER-TOKEN": PIXELA_API
+}
+
+# new graph config
+graph_config = {
+    "id": GRAPH_ID,
+    "name": "Pages Read",
+    "unit": "Pages",
+    "type": "int",
+    "color": "sora"
+}
+
+# response = requests.post(headers=headers, url=graph_endpoint, json=graph_config)
+# print(response.text)
+
+# result
+# https://pixe.la/v1/users/j1m/graphs/g1.html
+
+#####################
+# Post Pixel
+#####################
+
+# Get todays date
+today = datetime.now()
+# Format date with strftime
+today_formatted = today.strftime("%Y%m%d")
+
+pixel_create_url = f"{graph_endpoint}/{GRAPH_ID}"
+
+# new graph config
+post_pixel = {
+    "id": GRAPH_ID,
+    "date": today_formatted,
+    "quantity": "5"
+}
+
+# response = requests.post(headers=headers, url=pixel_create_url, json=post_pixel)
+# print(response.text)
+
+#####################
+# Update Pixel
+#####################
+
+DATE = "20250904"
+pixel_update_url = f"{graph_endpoint}/{GRAPH_ID}/{DATE}"
+
+# new graph config
+update_pixel = {
+    "quantity": "25"
+}
+
+# response = requests.put(headers=headers, url=pixel_update_url, json=update_pixel)
+# print(response.text)
+
+#####################
+# Delete Pixel
+#####################
+
+DATE = "20250904"
+pixel_update_url = f"{graph_endpoint}/{GRAPH_ID}/{DATE}"
+
+# response = requests.delete(headers=headers, url=pixel_update_url, json=update_pixel)
+# print(response.text)
+
+
+#####################
+# Delete User
+#####################
+
+# user endpoint
+pixela_endpoint = f"https://pixe.la/v1/users/{USERNAME}"
+
+user_params = {
+    "token": PIXELA_API,
+}
+
+response = requests.delete(url=pixela_endpoint, json=user_params)
+print(response.text)
+
+
+##############################################################################
+# DAY 38 - Exercise Tracking with Python
+##############################################################################
+
+"""
+Exercise energy tracking with Python
+
+I didnt want to sign up to Sheetly and provide access to Google
+"""
+
+######################
+# Imports
+######################
+
+from dotenv import load_dotenv
+import os
+import requests
+
+######################
+# Load local ENVs
+######################
+
+load_dotenv("../../.env")
+NUTRITIONIX_APP_ID= os.getenv("NUTRITIONIX_APP_ID")
+NUTRITIONIX_API_KEY= os.getenv("NUTRITIONIX_API_KEY")
+
+######################
+# URLs
+######################
+
+exercise_api = "https://trackapi.nutritionix.com/v2/natural/exercise"
+
+######################
+# Exercise Auth Header
+######################
+
+exercise_headers = {
+    "x-app-id": NUTRITIONIX_APP_ID, 
+    "x-app-key": NUTRITIONIX_API_KEY
+}
+
+######################
+# Exercise Query
+######################
+
+exercise_query = str(input("What exercise did you do?: "))
+weight = int(input("What is your weight in kg?: "))
+height = float(input("What is your height in cm?: "))
+age= str(input("How old are you?: "))
+
+exercise_params = {
+    "query": exercise_query,
+    "gender": "male",
+	"weight_kg": weight,
+	"height_cm": height,
+    "age": age	
+}
+
+response = requests.post(headers=exercise_headers, url=exercise_api, json=exercise_params)
+result = response.json()
+print(result)

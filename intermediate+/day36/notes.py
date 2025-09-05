@@ -8,6 +8,7 @@ Skipped Twilio; will use AWS later
 from dotenv import load_dotenv
 import os
 import requests
+import boto3
 
 ###########################
 # Read API Keys
