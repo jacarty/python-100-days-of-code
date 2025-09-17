@@ -11,6 +11,9 @@ Thumbs.db
 # Setup notes
 setup.md
 
+# Chrome
+chrome_py_profile/
+
 # IDE specific files
 .claude/*
 .vscode/
