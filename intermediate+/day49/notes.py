@@ -5,13 +5,11 @@ Selenium to book fake gym classes
 
 import os
 import tempfile
-import textwrap
 from selenium import webdriver
-from selenium.common import NoSuchElementException, ElementNotInteractableException
+from selenium.common import NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 
 LOGIN_URL = "https://appbrewery.github.io/gym/"
 SCHEDULE_URL = "https://appbrewery.github.io/gym/schedule/"
@@ -42,7 +40,7 @@ def login(driver, url, email, password):
     login_button = driver.find_element(By.ID, "login-button")
     login_button.click()
 
-    wait = WebDriverWait(driver, timeout=10)
+    wait = WebDriverWait(driver, timeout=5)
 
     try:
         email_field = wait.until(EC.presence_of_element_located((By.ID, "email-input")))
@@ -65,11 +63,13 @@ def login(driver, url, email, password):
         return False
 
 def find_day_container(driver, day):
+
     selectors = [
         f"div[id*='day-group-today-({day},']",      # Today pattern
         f"div[id*='day-group-tomorrow-({day},']",   # Tomorrow pattern  
         f"div[id*='day-group-{day}']"               # Regular day pattern
     ]
+
     for selector in selectors:
         try:
             return driver.find_element(By.CSS_SELECTOR, selector)
@@ -99,25 +99,29 @@ def book_class(container, day, time):
         if gym_class_button.text == "Booked":
             classes.append(f"Booked: {gym_class_type.text} on {gym_class_date.text} at {time}")
             already_on += 1
+            return True
 
         # Check if you're on the waitlist (button reads "Waitlisted")
         elif gym_class_button.text == "Waitlisted":
             classes.append(f"Waitlisted: {gym_class_type.text} on {gym_class_date.text} at {time}")
             already_on += 1
-
+            return True
+        
         # Join the waitlist if the class is full (button says "Join Waitlist")
         elif gym_class_button.text == "Join Waitlist":
             gym_class_button.click()
             # print(f"✓ Waitlisted: {gym_class_type.text} on {gym_class_date.text} at {time}")
             waitlist +=1
             classes.append(f"Waitlisted: {gym_class_type.text} on {gym_class_date.text} at {time}")
-
+            return True
+        
         else:
             gym_class_button.click()
             # print(f"✓ Booked: {gym_class_type.text} on {gym_class_date.text} at {time}")
             booked += 1
             classes.append(f"New booking: {gym_class_type.text} on {gym_class_date.text} at {time}")
-
+            return True
+        
     except Exception as e:
         print(f"Booking unsuccessful: {e}")
         return False
@@ -126,7 +130,7 @@ def verify_bookings(driver):
     my_bookings = driver.find_element(By.ID, "my-bookings-link")
     my_bookings.click()
 
-    wait = WebDriverWait(driver, timeout=10)
+    wait = WebDriverWait(driver, timeout=5)
     wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".MyBookings_bookingCard__VRdrR")))
 
     try:
@@ -163,14 +167,23 @@ def counters(total_booked):
     {result}
     """
 
+def retry(func, retries=7):
+    
+    for _ in range(retries):
+        if func():
+            return True
+
+    return False
+            
 def main(driver, url, email, password, days, timeslot):
+    
     # login
-    login(driver, url, email, password)
+    retry(lambda: login(driver, url, email, password))
 
     # book classes
     for day in days:
         container = find_day_container(driver, day)
-        booking = book_class(container, day, timeslot)
+        booking = retry(lambda: book_class(container, day, timeslot))
         print(booking)
     
     # verify what is booked
