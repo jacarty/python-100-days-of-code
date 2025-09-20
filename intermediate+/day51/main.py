@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import os
 import tempfile
 import time
+from random import uniform
 from selenium import webdriver
 from selenium.common import NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
@@ -15,8 +16,8 @@ from selenium.webdriver.common.by import By
 # Constants
 load_dotenv("../../.env")
 SPEEDTEST_URL = "https://www.speedtest.net/"
-SLA_DOWN = 500
-SLA_UP = 10
+SLA_DOWN = 2500
+SLA_UP = 250
 TWITTER_URL = "https://twitter.com"
 TWITTER_U = os.getenv("TWITTER_U")
 TWITTER_PW = os.getenv("TWITTER_PW")
@@ -81,11 +82,23 @@ class InternetSpeedTwitterBot:
         except Exception as e:
             return f"Start unsuccessful: {e}"
 
+
+    def human_delay(self, action_type="default"):
+        delays = {
+            "typing": (4.5, 8.5),      # Shorter for typing
+            "clicking": (0.8, 2.2),    # Medium for clicks
+            "loading": (3.0, 6.0),     # Longer for page loads
+        }
+        min_time, max_time = delays.get(action_type, delays["default"])
+        time.sleep(uniform(min_time, max_time))
+
     def tweet_at_provider(self):
         try:
             self.driver.get(TWITTER_URL)
             print("Navigated to Twitter")
             
+            self.human_delay("clicking")
+
             login_button = self.standard_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '[data-testid="loginButton"]')))
             login_button.click()
             print("Login button clicked")
@@ -94,30 +107,32 @@ class InternetSpeedTwitterBot:
             login_modal = self.standard_wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '[role="dialog"]')))
             print("Login modal appeared")
 
+            self.human_delay("loading")
+
             input_area = self.standard_wait.until(EC.presence_of_element_located((By.XPATH, "//span[text()='Phone, email address, or username']")))
             self.driver.execute_script("arguments[0].click();", input_area)
             print("Clicked on input area using JavaScript")
             
             # Wait a moment for the input field to be created
-            time.sleep(1)
+            self.human_delay("typing")
 
             username = self.standard_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'input[autocomplete="username"]')))
             username.send_keys(TWITTER_U)
             print("Username entered")
             
-            time.sleep(1.2)
+            self.human_delay("clicking")
 
             next_button = self.standard_wait.until(EC.element_to_be_clickable((By.XPATH, '//span[text()="Next"]')))
             next_button.click()
             print("Next button clicked")
 
-            time.sleep(0.8)
+            self.human_delay("loading")
 
             password = self.standard_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'input[autocomplete="current-password"]')))
             password.send_keys(TWITTER_PW)  # Fixed: use password, not username
             print("Password entered")
 
-            time.sleep(1.5)
+            self.human_delay("typing")
 
             final_login_button = self.standard_wait.until(EC.element_to_be_clickable((By.XPATH, '//span[text()="Log in"]')))
             final_login_button.click()
@@ -126,13 +141,13 @@ class InternetSpeedTwitterBot:
             # Wait a bit for login to complete
             print("Waiting for login to complete...")
             
-            time.sleep(1.2)
+            self.human_delay("loading")
             
             tweet_box = self.standard_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '[data-testid="tweetTextarea_0"]')))
             tweet_box.send_keys(f"Hey Internet Provider. Why is my internet {self.down}down/{self.up}up when I pay for {SLA_DOWN}down and {SLA_UP}up?")
             print("Tweet text entered")
 
-            time.sleep(5)
+            self.human_delay("typing")
 
             tweet_button = self.standard_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '[data-testid="tweetButtonInline"]')))
             tweet_button.click()
