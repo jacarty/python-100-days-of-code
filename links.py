@@ -34,3 +34,21 @@
 #
 # https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 ##############################################
+
+##############################################
+# Flask Docs
+#
+# https://flask.palletsprojects.com/en/stable/quickstart/
+##############################################
+
+##############################################
+# Python Code Visualiser
+#
+# https://pythontutor.com/visualize.html#mode=edit
+##############################################
+
+##############################################
+# Bootstrap
+#
+# https://getbootstrap.com/
+##############################################

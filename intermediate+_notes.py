@@ -1871,3 +1871,1880 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+##############################################################################
+# DAY 48 - Selenium Webdriver and Game Playing Bot
+##############################################################################
+
+"""
+Selenium Webdriver and Game Playing Bot
+
+https://selenium-python.readthedocs.io/
+
+"""
+
+##############################
+# Example 1 - Amazon
+##############################
+
+GU_BARS_URL = "https://www.amazon.co.uk/GU-Chocolate-Outrage-Flavour-Energy/dp/B000CSCRHY"
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+# keep Chrome Browser open after program finished
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_experimental_option("detach", True)
+
+driver = webdriver.Chrome(options=chrome_options)
+
+driver.get(GU_BARS_URL)
+pound_price = driver.find_element(By.CLASS_NAME, "a-price-whole").text
+pence_price = driver.find_element(By.CLASS_NAME, "a-price-fraction").text
+
+print(f"£{pound_price}.{pence_price}")
+
+# closes the active tab
+# driver.close()
+# closes the entire browser
+driver.quit()
+
+##############################
+# Example 2 - Python.org
+##############################
+
+URL = "https://www.python.org"
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+# keep Chrome Browser open after program finished
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_experimental_option("detach", True)
+
+driver = webdriver.Chrome(options=chrome_options)
+
+driver.get(URL)
+
+# forms typically use name
+search_bar = driver.find_element(By.NAME, value="q")
+print(search_bar.tag_name)
+print(search_bar.get_attribute("placeholder"))
+
+# find by ID
+button = driver.find_element(By.ID, value="submit")
+print(search_bar.size)
+
+# find by CSS Selector
+documentation_link = driver.find_element(By.CSS_SELECTOR, value=".documentation-widget a")
+print(documentation_link.text)
+
+# find by XPATH
+jobs_link = driver.find_element(By.XPATH, value='/html/body/div/div[3]/div/section/div[1]/div[4]/p[2]/a')
+print(jobs_link.text)
+
+# closes the active tab
+# driver.close()
+# closes the entire browser
+driver.quit()
+
+##############################
+# Example 3 - Python.org
+##############################
+
+URL = "https://www.python.org"
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+# keep Chrome Browser open after program finished
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_experimental_option("detach", True)
+
+driver = webdriver.Chrome(options=chrome_options)
+
+driver.get(URL)
+
+# find by CSS Selector
+event_times = driver.find_elements(By.CSS_SELECTOR, value=".event-widget time")
+event_names = driver.find_elements(By.CSS_SELECTOR, value=".event-widget li a")
+
+# dictionary comprehension with index as key, from the two lists
+events = {n: {time.text: name.text} for n, (time, name) in enumerate(zip(event_times, event_names))}
+print(events)
+
+# closes the entire browser
+driver.quit()
+
+##############################
+# Example 4 - Wikipedia
+##############################
+
+URL = "https://en.wikipedia.org/wiki/Main_Page"
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+# keep Chrome Browser open after program finished
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_experimental_option("detach", True)
+
+driver = webdriver.Chrome(options=chrome_options)
+
+driver.get(URL)
+
+# find total articles by CSS Selector
+article_count = driver.find_elements(By.CSS_SELECTOR, "a[href='/wiki/Special:Statistics']")
+print(article_count[1].text)
+
+article_count.click()
+
+# closes the entire browser
+driver.quit()
+
+################################
+# Example 5 - Click By Link Text
+################################
+
+URL = "https://en.wikipedia.org/wiki/Main_Page"
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+# keep Chrome Browser open after program finished
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_experimental_option("detach", True)
+
+driver = webdriver.Chrome(options=chrome_options)
+
+driver.get(URL)
+
+teahouse = driver.find_element(By.LINK_TEXT, value="Teahouse")
+teahouse.click()
+
+# closes the entire browser
+driver.quit()
+
+################################
+# Example 6 - Input Box Example
+################################
+
+URL = "https://en.wikipedia.org/wiki/Main_Page"
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
+# keep Chrome Browser open after program finished
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_experimental_option("detach", True)
+
+driver = webdriver.Chrome(options=chrome_options)
+
+driver.get(URL)
+
+# find search box
+search = driver.find_element(By.NAME, value="search")
+# enter text and retrun
+search.send_keys("Python", Keys.ENTER)
+
+# closes the entire browser
+driver.quit()
+
+################################
+# Example 7 - Webpage Sign Up
+################################
+
+URL = "https://secure-retreat-92358.herokuapp.com/"
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
+# keep Chrome Browser open after program finished
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_experimental_option("detach", True)
+
+driver = webdriver.Chrome(options=chrome_options)
+
+driver.get(URL)
+
+fname = driver.find_element(By.NAME, value="fName")
+lname = driver.find_element(By.NAME, value="lName")
+email = driver.find_element(By.NAME, value="email")
+
+fname.send_keys("Rydon")
+lname.send_keys("Man")
+email.send_keys("rydonman@mailinator.com")
+
+# instructor
+# button = driver.find_element(By.CSS_SELECTOR, value="form button")
+button = driver.find_element(By.CSS_SELECTOR, value="button.btn.btn-lg.btn-primary.btn-block")
+button.click()
+
+# closes the entire browser
+driver.quit()
+
+################################
+# Challenge - Cookie Clicker
+################################
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
+URL = "https://ozh.github.io/cookieclicker/"
+
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_experimental_option("detach", True)
+
+driver = webdriver.Chrome(options=chrome_options)
+driver.get(URL)
+
+cookie = driver.find_element(By.ID, value="bigCookie")
+
+def click_button(duration):
+    round_time = time.time()
+    while time.time() - round_time < duration:
+        cookie.click()
+        time.sleep(0.01)
+
+    upgrades = driver.find_elements(By.CSS_SELECTOR, ".product.unlocked.enabled")
+
+    if upgrades:
+        upgrades[-1].click()
+        print("Purchased an upgrade!")
+
+rounds = 0
+while rounds <= 20:
+    button = click_button(20)
+    rounds -= 1
+    print(f"Round {rounds}/20 completed!")
+
+
+##############################################################################
+# DAY 49 - Selenium Gym Class Booking Bot
+##############################################################################
+
+"""
+Selenium to book fake gym classes
+
+"""
+
+import os
+import tempfile
+from selenium import webdriver
+from selenium.common import NoSuchElementException
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
+LOGIN_URL = "https://appbrewery.github.io/gym/"
+SCHEDULE_URL = "https://appbrewery.github.io/gym/schedule/"
+ACCOUNT_EMAIL = ""
+ACCOUNT_PASSWORD = ""
+
+days = ["tue", "thu"]
+timeslot = "1800"
+already_on = 0
+waitlist = 0
+booked = 0
+classes = []
+
+# Chrome profile data
+user_data_dir = os.path.join(tempfile.gettempdir(), "chrome_py_profile")
+
+# Chrome setup
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_experimental_option("detach", True)
+chrome_options.add_argument(f"--user-data-dir={user_data_dir}")
+chrome_options.add_argument("--no-first-run")
+chrome_options.add_argument("--disable-extensions")
+
+driver = webdriver.Chrome(options=chrome_options)
+
+def login(driver, url, email, password):
+    driver.get(url)
+    login_button = driver.find_element(By.ID, "login-button")
+    login_button.click()
+
+    wait = WebDriverWait(driver, timeout=5)
+
+    try:
+        email_field = wait.until(EC.presence_of_element_located((By.ID, "email-input")))
+        email_field.clear()
+        email_field.send_keys(email)
+
+        password_field = wait.until(EC.presence_of_element_located((By.ID, "password-input")))
+        password_field.clear()
+        password_field.send_keys(password)
+
+        submit_button = wait.until(EC.presence_of_element_located((By.ID, "submit-button")))
+        submit_button.click()
+
+        wait.until(EC.presence_of_element_located((By.ID, "schedule-page")))
+
+        return True
+
+    except Exception as e:
+        print(f"Login unsuccessful: {e}")
+        return False
+
+def find_day_container(driver, day):
+
+    selectors = [
+        f"div[id*='day-group-today-({day},']",      # Today pattern
+        f"div[id*='day-group-tomorrow-({day},']",   # Tomorrow pattern
+        f"div[id*='day-group-{day}']"               # Regular day pattern
+    ]
+
+    for selector in selectors:
+        try:
+            return driver.find_element(By.CSS_SELECTOR, selector)
+        except:
+            continue
+
+    raise Exception(f"Could not find container for day: {day}")
+
+def book_class(container, day, time):
+
+    global already_on
+    global waitlist
+    global booked
+    global classes
+
+    try:
+        # find card for time (e.g. 1800)
+        gym_class = container.find_element(By.CSS_SELECTOR, f"div[id^='class-card-'][id*='{time}']")
+        # find the date (of class)
+        gym_class_date = container.find_element(By.CLASS_NAME, "Schedule_dayTitle__YBybs")
+        # find the class type
+        gym_class_type = container.find_element(By.CSS_SELECTOR, "h3[id^='class-name']")
+        # find the button
+        gym_class_button = gym_class.find_element(By.CSS_SELECTOR, "button")
+
+        # Check if a class is already booked (button reads "Booked")
+        if gym_class_button.text == "Booked":
+            classes.append(f"Booked: {gym_class_type.text} on {gym_class_date.text} at {time}")
+            already_on += 1
+            return True
+
+        # Check if you're on the waitlist (button reads "Waitlisted")
+        elif gym_class_button.text == "Waitlisted":
+            classes.append(f"Waitlisted: {gym_class_type.text} on {gym_class_date.text} at {time}")
+            already_on += 1
+            return True
+
+        # Join the waitlist if the class is full (button says "Join Waitlist")
+        elif gym_class_button.text == "Join Waitlist":
+            gym_class_button.click()
+            # print(f"✓ Waitlisted: {gym_class_type.text} on {gym_class_date.text} at {time}")
+            waitlist +=1
+            classes.append(f"Waitlisted: {gym_class_type.text} on {gym_class_date.text} at {time}")
+            return True
+
+        else:
+            gym_class_button.click()
+            # print(f"✓ Booked: {gym_class_type.text} on {gym_class_date.text} at {time}")
+            booked += 1
+            classes.append(f"New booking: {gym_class_type.text} on {gym_class_date.text} at {time}")
+            return True
+
+    except Exception as e:
+        print(f"Booking unsuccessful: {e}")
+        return False
+
+def verify_bookings(driver):
+    my_bookings = driver.find_element(By.ID, "my-bookings-link")
+    my_bookings.click()
+
+    wait = WebDriverWait(driver, timeout=5)
+    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".MyBookings_bookingCard__VRdrR")))
+
+    try:
+        booked_classes = driver.find_elements(By.CLASS_NAME, "MyBookings_bookingCard__VRdrR")
+        print(booked_classes)
+        booked_total = len(booked_classes)
+
+        return booked_total
+
+    except NoSuchElementException:
+        return 0
+
+def counters(total_booked):
+
+    total_classes = booked + waitlist + already_on
+
+    if total_classes == total_booked:
+        result = "✅ SUCCESS: All bookings verified!"
+    else:
+        result = "❌ MISSING: Booking mismatch!"
+
+    return f"""
+    --- BOOKING SUMMARY ---
+    Classes booked: {booked}
+    Waitlists joined: {waitlist}
+    Already booked/waitlisted: {already_on}
+    Total 6pm classes processed: {total_classes}
+
+    --- DETAILED CLASS LIST ---
+    {'\n    '.join(classes)}
+
+    --- VERIFICATION RESULT ---
+    Found: {total_booked} bookings
+    {result}
+    """
+
+def retry(func, retries=7):
+
+    for _ in range(retries):
+        if func():
+            return True
+
+    return False
+
+def main(driver, url, email, password, days, timeslot):
+
+    # login
+    retry(lambda: login(driver, url, email, password))
+
+    # book classes
+    for day in days:
+        container = find_day_container(driver, day)
+        booking = retry(lambda: book_class(container, day, timeslot))
+        print(booking)
+
+    # verify what is booked
+    total_booked = verify_bookings(driver)
+
+    # return counters
+    summary = counters(total_booked)
+    print(summary)
+
+    #driver.quit()
+
+if __name__ == "__main__":
+    main(driver,
+         LOGIN_URL,
+         ACCOUNT_EMAIL,
+         ACCOUNT_PASSWORD,
+         days,
+         timeslot)
+
+
+##############################################################################
+# DAY 50 - Auto Swipe Bot
+##############################################################################
+
+"""
+Day 50 - Auto Swipe Bot
+Instructor code
+
+Fake photos https://www.thispersondoesnotexist.com/
+
+"""
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
+from time import sleep
+
+FB_EMAIL = YOUR FACEBOOK LOGIN EMAIL
+FB_PASSWORD = YOUR FACEBOOK PASSWORD
+
+driver = webdriver.Chrome()
+
+driver.get("http://www.tinder.com")
+
+sleep(2)
+login_button = driver.find_element(By.XPATH, value='//*[text()="Log in"]')
+login_button.click()
+
+sleep(2)
+fb_login = driver.find_element(By.XPATH, value='//*[@id="modal-manager"]/div/div/div[1]/div/div[3]/span/div[2]/button')
+fb_login.click()
+
+sleep(2)
+base_window = driver.window_handles[0]
+fb_login_window = driver.window_handles[1]
+driver.switch_to.window(fb_login_window)
+print(driver.title)
+
+email = driver.find_element(By.XPATH, value='//*[@id="email"]')
+password = driver.find_element(By.XPATH, value='//*[@id="pass"]')
+email.send_keys(FB_EMAIL)
+password.send_keys(FB_PASSWORD)
+password.send_keys(Keys.ENTER)
+
+driver.switch_to.window(base_window)
+print(driver.title)
+
+sleep(5)
+
+allow_location_button = driver.find_element(By.XPATH, value='//*[@id="modal-manager"]/div/div/div/div/div[3]/button[1]')
+allow_location_button.click()
+
+notifications_button = driver.find_element(By.XPATH, value='//*[@id="modal-manager"]/div/div/div/div/div[3]/button[2]')
+notifications_button.click()
+
+cookies = driver.find_element(By.XPATH, value='//*[@id="content"]/div/div[2]/div/div/div[1]/button')
+cookies.click()
+
+#Tinder free tier only allows 100 "Likes" per day. If you have a premium account, feel free to change to a while loop.
+for n in range(100):
+
+    #Add a 1 second delay between likes.
+    sleep(1)
+
+    try:
+        print("called")
+        like_button = driver.find_element(By.XPATH, value=
+            '//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[2]/div[4]/button')
+        like_button.click()
+
+    #Catches the cases where there is a "Matched" pop-up in front of the "Like" button:
+    except ElementClickInterceptedException:
+        try:
+            match_popup = driver.find_element(By.CSS_SELECTOR, value=".itsAMatch a")
+            match_popup.click()
+
+        #Catches the cases where the "Like" button has not yet loaded, so wait 2 seconds before retrying.
+        except NoSuchElementException:
+            sleep(2)
+
+driver.quit()
+
+
+##############################################################################
+# DAY 51 - Twitter Complaints Bot
+##############################################################################
+
+"""
+Twitter Complaints Bot
+"""
+
+from dotenv import load_dotenv
+import os
+import tempfile
+import time
+from random import uniform
+from selenium import webdriver
+from selenium.common import NoSuchElementException
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
+# Constants
+load_dotenv("../../.env")
+SPEEDTEST_URL = "https://www.speedtest.net/"
+SLA_DOWN = 2500
+SLA_UP = 250
+TWITTER_URL = "https://twitter.com"
+TWITTER_U = os.getenv("TWITTER_U")
+TWITTER_PW = os.getenv("TWITTER_PW")
+
+class InternetSpeedTwitterBot:
+
+    def __init__(self):
+        # Chrome
+        user_data_dir = os.path.join(tempfile.gettempdir(), "chrome_py_profile")
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_experimental_option("detach", True)
+        chrome_options.add_argument(f"--user-data-dir={user_data_dir}")
+        chrome_options.add_argument("--no-first-run")
+        chrome_options.add_argument("--disable-extensions")
+
+        # Selenium
+        self.driver = webdriver.Chrome(options=chrome_options)
+        self.test_wait = WebDriverWait(self.driver, timeout=60)
+        self.standard_wait = WebDriverWait(self.driver, timeout=5)
+
+        # Properties
+        self.up = 0
+        self.down = 0
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        #self.driver.quit()
+        pass
+
+    def get_internet_speed(self):
+        try:
+            self.driver.get(SPEEDTEST_URL)
+            test_button = self.standard_wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "start-button")))
+            test_button.click()
+
+            try:
+                close_popup = self.test_wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "close-btn")))
+                close_popup.click()
+                print("Closed popup")
+            except:
+                print("No popup appeared")
+
+            download = self.standard_wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "span[data-download-status-value].result-data-large")))
+            upload = self.standard_wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "span[data-upload-status-value].result-data-large")))
+
+            self.down = float(download.text)
+            self.up = float(upload.text)
+
+            print(f"Download: {self.down} Mbps")
+            print(f"Upload: {self.up} Mbps")
+            print(f"SLA - Down: {SLA_DOWN} Mbps, Up: {SLA_UP} Mbps")
+
+            if self.down < SLA_DOWN or self.up < SLA_UP:
+                print("⚠️  Speed below SLA! Time to tweet at provider!")
+                return True
+            else:
+                print("✅ Speed meets SLA requirements")
+                return False
+
+        except Exception as e:
+            return f"Start unsuccessful: {e}"
+
+
+    def human_delay(self, action_type="default"):
+        delays = {
+            "typing": (4.5, 8.5),      # Shorter for typing
+            "clicking": (0.8, 2.2),    # Medium for clicks
+            "loading": (3.0, 6.0),     # Longer for page loads
+        }
+        min_time, max_time = delays.get(action_type, delays["default"])
+        time.sleep(uniform(min_time, max_time))
+
+    def tweet_at_provider(self):
+        try:
+            self.driver.get(TWITTER_URL)
+            print("Navigated to Twitter")
+
+            self.human_delay("clicking")
+
+            login_button = self.standard_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '[data-testid="loginButton"]')))
+            login_button.click()
+            print("Login button clicked")
+
+            # Wait for the login modal to appear (no iframe needed)
+            login_modal = self.standard_wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '[role="dialog"]')))
+            print("Login modal appeared")
+
+            self.human_delay("loading")
+
+            input_area = self.standard_wait.until(EC.presence_of_element_located((By.XPATH, "//span[text()='Phone, email address, or username']")))
+            self.driver.execute_script("arguments[0].click();", input_area)
+            print("Clicked on input area using JavaScript")
+
+            # Wait a moment for the input field to be created
+            self.human_delay("typing")
+
+            username = self.standard_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'input[autocomplete="username"]')))
+            username.send_keys(TWITTER_U)
+            print("Username entered")
+
+            self.human_delay("clicking")
+
+            next_button = self.standard_wait.until(EC.element_to_be_clickable((By.XPATH, '//span[text()="Next"]')))
+            next_button.click()
+            print("Next button clicked")
+
+            self.human_delay("loading")
+
+            password = self.standard_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'input[autocomplete="current-password"]')))
+            password.send_keys(TWITTER_PW)  # Fixed: use password, not username
+            print("Password entered")
+
+            self.human_delay("typing")
+
+            final_login_button = self.standard_wait.until(EC.element_to_be_clickable((By.XPATH, '//span[text()="Log in"]')))
+            final_login_button.click()
+            print("Final login button clicked")
+
+            # Wait a bit for login to complete
+            print("Waiting for login to complete...")
+
+            self.human_delay("loading")
+
+            tweet_box = self.standard_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '[data-testid="tweetTextarea_0"]')))
+            tweet_box.send_keys(f"Hey Internet Provider. Why is my internet {self.down}down/{self.up}up when I pay for {SLA_DOWN}down and {SLA_UP}up?")
+            print("Tweet text entered")
+
+            self.human_delay("typing")
+
+            tweet_button = self.standard_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '[data-testid="tweetButtonInline"]')))
+            tweet_button.click()
+            print("Tweet posted!")
+
+            return "Tweet sent successfully"
+
+        except Exception as e:
+            print(f"Twitter automation failed at step: {e}")
+            return f"Failed to tweet: {e}"
+
+if __name__ == "__main__":
+    with InternetSpeedTwitterBot() as app:
+        should_tweet = app.get_internet_speed()
+
+        if should_tweet is True:
+            tweet_result = app.tweet_at_provider()
+            print(f"Tweet result: {tweet_result}")
+
+        elif should_tweet is False:
+            print("No need to complain - speeds are good!")
+
+        else:
+            print(f"Error: {should_tweet}")
+
+
+##############################################################################
+# DAY 52 - Instagram Bot To Follow Accounts
+##############################################################################
+
+"""
+Instagram Bot To Follow Accounts
+"""
+
+from dotenv import load_dotenv
+import os
+import tempfile
+import time
+from random import randint, uniform
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.common import WebDriverException
+
+# Constants
+load_dotenv("../../.env")
+URL = "https://instagram.com"
+INSTAGRAM_U = os.getenv("INSTAGRAM_U")
+INSTAGRAM_PW = os.getenv("INSTAGRAM_PW")
+INSTAGRAM_ACC = ""
+
+class InstaFollower:
+
+    def __init__(self):
+        # Chrome
+        user_data_dir = os.path.join(tempfile.gettempdir(), "chrome_py_profile")
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_experimental_option("detach", True)
+        chrome_options.add_argument(f"--user-data-dir={user_data_dir}")
+        chrome_options.add_argument("--no-first-run")
+        chrome_options.add_argument("--disable-extensions")
+
+        # Selenium
+        self.driver = webdriver.Chrome(options=chrome_options)
+        self.wait = WebDriverWait(self.driver, timeout=10)
+
+        # Insta
+        self.followers_list = []
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        #self.driver.quit()
+        pass
+
+    def human_delay(self, action_type="default"):
+        delays = {
+            "clicking": (0.8, 2.2),
+            "default": (0.9, 3.2),
+            "typing": (2.5, 8.5)
+        }
+        min_time, max_time = delays.get(action_type, delays["default"])
+        time.sleep(uniform(min_time, max_time))
+
+    def login(self):
+        try:
+            # Navigate to Page
+            self.driver.get(URL)
+            print("Navigated to Instagram")
+
+            # Username field
+            try:
+                self.human_delay("clicking")
+                uname_field = self.wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@aria-label='Phone number, username or email address']")))
+                uname_field.clear()
+                self.human_delay("typing")
+                uname_field.send_keys(INSTAGRAM_U)
+                print("Entered Username")
+            except Exception as e:
+                print(f"Failed to find Username field: {e}")
+                return False
+
+            # Password field
+            try:
+                pword_field = self.wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@aria-label='Password']")))
+                pword_field.clear()
+                self.human_delay("typing")
+                pword_field.send_keys(INSTAGRAM_PW)
+                print("Entered Password")
+            except Exception as e:
+                print(f"Failed to find Password field: {e}")
+                return False
+
+            # Login button
+            try:
+                self.human_delay("clicking")
+                login_button = self.wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@type='submit' and not(@disabled)]")))
+                login_button.click()
+                print("Clicked Login")
+            except Exception as e:
+                print(f"Failed to click Login button: {e}")
+                return False
+
+            # Click "Not now" to Save Password
+            try:
+                save_login_prompt = self.wait.until(EC.element_to_be_clickable((By.XPATH, "//div[contains(text(), 'Not now')]")))
+                save_login_prompt.click()
+                print("Dismissed save login prompt")
+            except Exception as e:
+                print(f"Failed to click Login button: {e}")
+                return False
+
+        except WebDriverException as e:
+            print(f"WEBDRIVER ERROR: Browser/connection issue - {e}")
+            return False
+        except Exception as e:
+            print(f"UNEXPECTED ERROR: {type(e).__name__} - {e}")
+            return False
+
+    def find_followers(self):
+        try:
+            # Navigate to Page
+            self.human_delay("default")
+            self.driver.get(f"{URL}/{INSTAGRAM_ACC}")
+            print(f"Navigated to {INSTAGRAM_ACC}'s Page")
+
+            # Open Followers
+            try:
+                followers_link = self.wait.until(EC.element_to_be_clickable((By.XPATH, "//a[contains(@href, '/followers/')]")))
+                self.human_delay("clicking")
+                followers_link.click()
+                print("Clicked followers link")
+            except Exception as e:
+                print(f"Failed to find followers link: {e}")
+                return False
+
+            # List Followers
+            try:
+                print("Waiting for followers modal to load...")
+                self.wait.until(EC.presence_of_element_located((By.XPATH, "//div[@role='heading' and contains(text(), 'Followers')]")))
+                print("Followers modal loaded")
+
+                time.sleep(2)  # Give content time to load
+
+                self.followers_list = self.wait.until(EC.presence_of_all_elements_located((By.XPATH, "//button[.//div[text()='Follow']]")))
+                print(f"Found {len(self.followers_list)} users to follow")
+            except Exception as e:
+                print(f"Failed to create followers list: {e}")
+                return False
+
+        except WebDriverException as e:
+            print(f"WEBDRIVER ERROR: Browser/connection issue - {e}")
+            return False
+        except Exception as e:
+            print(f"UNEXPECTED ERROR: {type(e).__name__} - {e}")
+            return False
+
+    def follow(self):
+        max_follows = randint(4, 12)
+
+        # Click each button with delays
+        for i, button in enumerate(self.followers_list[:max_follows]):
+            try:
+                # Scroll to button if needed
+                self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", button)
+                self.human_delay("clicking")
+                button.click()
+                print(f"Followed user {i+1}")
+
+            except Exception as e:
+                print(f"Failed to follow user {i+1}: {e}")
+
+if __name__ == "__main__":
+    with InstaFollower() as app:
+        login = app.login()
+
+        if login:
+            find_followers = app.find_followers()
+
+            if find_followers:
+                follow = app.follow()
+
+
+##############################################################################
+# DAY 53 - Zillow Web Scraping and Data Entry
+##############################################################################
+
+"""
+Zillow = San Fran, Rent, 3K Max, 1 Bedroom
+Use this - https://appbrewery.github.io/Zillow-Clone/
+
+Beautful Soup to Scrape
+Selenium to Enter Form
+"""
+
+from dotenv import load_dotenv
+import os
+import requests
+from bs4 import BeautifulSoup
+import tempfile
+import time
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.common import WebDriverException
+
+# Constants
+load_dotenv("../../.env")
+ZILLOW_URL = "https://appbrewery.github.io/Zillow-Clone/"
+GFORM_URL = os.getenv("D53_GFROM_URL")
+
+def scrape_data(url):
+    """Get Zillow Reponse"""
+    headers = {
+        "User-Agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+        }
+
+    response = requests.get(url, headers=headers)
+    response.raise_for_status()
+    return response.text
+
+def extract_info(website_html):
+    """Soup List Extraction"""
+
+    soup = BeautifulSoup(website_html, 'html.parser')
+
+    try:
+        data = soup.find_all("div", class_="StyledPropertyCardDataWrapper")
+
+        addresses = [item.select_one("address[data-test='property-card-addr']").get_text(strip=True).replace(" |", ",")
+                for item in data
+                if item.select_one("address[data-test='property-card-addr']")]
+
+        prices = [item.select_one("span[data-test='property-card-price']").get_text(strip=True)[:6]
+                for item in data
+                if item.select_one("span[data-test='property-card-price']")]
+
+        urls = [item.select_one("a[data-test='property-card-link']")['href']
+                for item in data
+                if item.select_one("a[data-test='property-card-link']")]
+
+        properties = list(zip(addresses, prices, urls))
+
+        return properties
+
+    except Exception as e:
+        print(f"Could not create dictionary. Error: {e}")
+        return False
+
+def fill_google_form_by_question_text(driver, question_text, answer):
+    """Fill form field by locating the question text first"""
+    try:
+        # Find the question span
+        question_xpath = f"//span[contains(text(), '{question_text}')]"
+        question_element = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.XPATH, question_xpath)))
+
+        # Find the input container for this question
+        container = question_element.find_element(By.XPATH, "./ancestor::div[@jscontroller]")
+
+        # Look for textarea or input field
+        try:
+            input_field = container.find_element(By.TAG_NAME, "textarea")
+        except:
+            input_field = container.find_element(By.TAG_NAME, "input")
+
+        input_field.clear()
+        input_field.send_keys(answer)
+        return True
+
+    except Exception as e:
+        print(f"Error filling '{question_text}': {e}")
+        return False
+
+def submit_form(url, property_list):
+    """Submit form fields and loop"""
+    # Chrome
+    user_data_dir = os.path.join(tempfile.gettempdir(), "chrome_py_profile")
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_experimental_option("detach", True)
+    chrome_options.add_argument(f"--user-data-dir={user_data_dir}")
+    chrome_options.add_argument("--no-first-run")
+    chrome_options.add_argument("--disable-extensions")
+
+    # Selenium
+    driver = webdriver.Chrome(options=chrome_options)
+    driver.get(url)
+    print("Navigated to Form")
+
+    for address, price, url in property_list:
+        # Fill each question by its text
+        fill_google_form_by_question_text(driver, "address", address)
+        fill_google_form_by_question_text(driver, "price", price)
+        fill_google_form_by_question_text(driver, "URL", url)
+
+        # Submit the form
+        submit_button = driver.find_element(By.CSS_SELECTOR, "div[role='button'][aria-label*='Submit']")
+        submit_button.click()
+
+        time.sleep(1)
+
+        # Wait for success page to load
+        WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.XPATH, "//div[contains(text(), 'Your response has been recorded')]")))
+
+        # Click "Submit another response"
+        submit_another_button = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.LINK_TEXT, "Submit another response")))
+        submit_another_button.click()
+
+        # Wait for form to reload
+        WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.TAG_NAME, "textarea")))
+
+        print(f"Successfully submitted: {address}")
+
+    # Quit browser
+    driver.quit()
+
+if __name__ == "__main__":
+    zillow_data = scrape_data(ZILLOW_URL)
+    soup_list = extract_info(zillow_data)
+    submit_form(GFORM_URL, soup_list)
+
+
+##############################################################################
+# DAY 54 - WebDev with Flask
+##############################################################################
+
+"""
+WebDev with Flask
+
+FE Frameworks = Angular, React
+BE Frameworks = Node, Django/Flask
+FE Languages = HTML, CSS, JS
+BE Languages = JS, Java, Python, Ruby etc
+
+Python BEs = Flask, Django, Bottle, CherryPie, Pyramid
+
+
+https://pythontutor.com/visualize.html#mode=edit
+"""
+
+# run hello.py
+# export FLASK_APP=hello.py
+# flask run
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"
+
+if __name__ == "__main__":
+    app.run()
+
+
+## Functions can have inputs/functionality/output
+def add(n1, n2):
+    return n1 + n2
+
+def subtract(n1, n2):
+    return n1 - n2
+
+def multiply(n1, n2):
+    return n1 * n2
+
+def divide(n1, n2):
+    return n1 / n2
+
+##Functions are first-class objects, can be passed around as arguments e.g. int/string/float etc.
+
+def calculate(calc_function, n1, n2):
+    return calc_function(n1, n2)
+
+result = calculate(add, 2, 3)
+print(result)
+
+##Functions can be nested in other functions
+
+def outer_function():
+    print("I'm outer")
+
+    def nested_function():
+        print("I'm inner")
+
+    nested_function()
+
+outer_function()
+
+## Functions can be returned from other functions
+def outer_function():
+    print("I'm outer")
+
+    def nested_function():
+        print("I'm inner")
+
+    return nested_function
+
+inner_function = outer_function()
+inner_function
+
+
+## Simple Python Decorator Functions
+import time
+
+def delay_decorator(function):
+    def wrapper_function():
+        time.sleep(2)
+        #Do something before
+        function()
+        function()
+        #Do something after
+    return wrapper_function
+
+@delay_decorator
+def say_hello():
+    print("Hello")
+
+#With the @ syntactic sugar
+@delay_decorator
+def say_bye():
+    print("Bye")
+
+#Without the @ syntactic sugar
+def say_greeting():
+    print("How are you?")
+decorated_function = delay_decorator(say_greeting)
+decorated_function()
+
+"""
+Objective Create your own decorator function to measure the amount of seconds that a function takes to execute.
+
+Expected Output:
+    1695050908.1985211
+    fast_function run speed: 0.33974480628967285s
+    slow_function run speed: 2.9590742588043213s
+
+Calculating Time
+
+time.time() will return the current time in seconds since January 1, 1970, 00:00:00.
+
+Try running the starting code to see the current time printed.
+If you run the code after a while, you'll see a new time printed.
+
+e.g. first run:  1598524371.736911
+second run:  1598524436.357875
+
+The time difference = second run - first run  64.62096405029297  (approx 1 minute)
+
+Given the above information, complete the code exercise by printing out the time it takes to run the fast_function() vs the slow_function().
+
+You will need to complete the speed_calc_decorator() function.
+ """
+
+import time
+
+def speed_calc_decorator(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        print(f"{func.__name__} run speed: {end_time - start_time}s")
+        return result
+    return wrapper
+
+@speed_calc_decorator
+def fast_function():
+    for i in range(1000000):
+        i * i
+
+@speed_calc_decorator
+def slow_function():
+    for i in range(10000000):
+        i * i
+
+fast_function()
+slow_function()
+
+# fast_function run speed: 0.030230998992919922s
+# slow_function run speed: 0.3031938076019287s
+
+
+##############################################################################
+# DAY 55 - HTML & URL Parsing in Flask
+##############################################################################
+
+"""
+HTML & URL Parsing in Flask
+Higher / Lower Game
+"""
+
+# Decorator functions can be used for Routing
+
+# https://www.mysite.com/
+# https://www.mysite.com/bye
+
+from flask import Flask
+
+app = Flask(__name__)
+
+# Decorator functions can be used for Routing
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"
+
+@app.route("/bye")
+def bye():
+    return "<p>Thanks for coming, goodbye!</p>"
+
+# Decorator functions with Variables can be used for advanced Routing
+@app.route("/<name>")
+def greet(name):
+    return f"Hello, {name}!"
+
+# Decorator functions using Path
+@app.route("/username/<path:name>/")
+def greeting(name):
+    return f"Hello, {name}!"
+# http://127.0.0.1:5000/username/james/112/
+# Hello, james/112!
+
+# Decorator functions with multiple variables
+@app.route("/username/<name>/<int:number>")
+def age(name, number):
+    return f"Hello, {name}, you are {number} years old!"
+
+# Debug mode autoreloads when file saved
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+"""
+Example Decorators
+"""
+
+from flask import Flask
+
+app = Flask(__name__)
+
+def make_bold(function):
+    def wrapper():
+        bold = function()
+        return f"<b>{bold}</b>"
+    return wrapper
+
+def make_emphasis(function):
+    def wrapper():
+        emphasis = function()
+        return f"<i>{emphasis}</i>"
+    return wrapper
+
+def make_underline(function):
+    def wrapper():
+        italic = function()
+        return f"<u>{italic}</u>"
+    return wrapper
+
+@app.route("/")
+@make_bold
+@make_emphasis
+@make_underline
+def hello_world():
+    return "Hello, World!"
+
+# Debug mode autoreloads when file saved
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+"""
+## Advanced Python Decorator Functions
+"""
+
+class User:
+    def __init__(self, name):
+        self.name = name
+        self.is_logged_in = False
+
+def is_authenticated_decorator(function):
+    def wrapper(*args, **kwargs):
+        if args[0].is_logged_in == True:
+            function(args[0])
+    return wrapper
+
+@is_authenticated_decorator
+def create_blog_post(user):
+    print(f"This is {user.name}'s new blog post.")
+
+new_user = User("James")
+new_user.is_logged_in = True
+create_blog_post(new_user)
+
+"""
+Advanced Decorators
+
+Create a logging_decorator() which is going to print the name of the function that was called,
+the arguments it was given and finally the returned output:
+    You called a_function(1,2,3)
+    It returned: 6
+
+The value 6 is the return value of the function.
+
+Don't change the body of a_function.
+"""
+
+def logging_decorator(func):
+    def wrapper(*args):
+        result = func(*args)
+        print(f"You called {func.__name__}{args}")
+        print(f"It returned: {result}")
+        return result
+    return wrapper
+
+@logging_decorator
+def a_function(*args):
+    return sum(args)
+
+a_function(1,2,3)
+
+"""
+Final Project - Higher or Lower URLs
+
+Now it's time to complete the final project of the day, the higher lower game that we created in Day 14, but now with a real website.
+
+1. Create a new project in PyCharm called higher-lower, add a server.py file.
+2. Create a new Flask application where the home route displays an
+
+<h1> that says "Guess a number between 0 and 9" and display a gif of your choice from giphy.com.
+
+Alternatively use the one I found on Giphy: https://media.giphy.com/media/3o7aCSPqXE5C6T8tBC/giphy.gif
+
+3. Generate a random number between 0 and 9 or any range of numbers of your choice.
+4. Create a route that can detect the number entered by the user e.g "URL/3" or "URL/9"
+and checks that number against the generated random number.
+If the number is too low, tell the user it's too low, same with too high or if they found the correct number.
+Try to make the <h1> text a different colour for each page.  e.g. If the random number was 5:
+
+    3 is too low:
+    7 is too high:
+    and 5 is just right:
+
+Here are the GIF URLs I used, but it's way more fun finding your own on giphy.com
+High: https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif
+Low: https://media.giphy.com/media/jD4DwBtqPXRXa/giphy.gif
+Correct: https://media.giphy.com/media/4T7e4DmcrP9du/giphy.gif
+"""
+
+from flask import Flask
+import random
+
+answer = random.randint(0, 9)
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return """
+        <h1>Guess a number between 0 and 9</h1>
+        <img src='https://media.giphy.com/media/3o7aCSPqXE5C6T8tBC/giphy.gif' alt='Number guessing game'>
+        """
+
+@app.route("/<int:number>")
+def guess(number):
+    if number > answer:
+        return """
+            <h1 style='color: red'>You guessed too high</h1>
+            <img src='https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif' alt='Too high'>
+            """
+    elif number < answer:
+        return """
+            <h1 style='color: blue'>You guessed too low</h1>
+            <img src='https://media.giphy.com/media/jD4DwBtqPXRXa/giphy.gif' alt='Too low'>
+            """
+    else:
+        return """
+            <h1 style='color: green'>You are correct!</h1>
+            <img src='https://media.giphy.com/media/4T7e4DmcrP9du/giphy.gif' alt='Correct'>
+            """
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+##############################################################################
+# DAY 56 - Static Files, HTML/CSS File Rendering
+##############################################################################
+
+"""
+Static Files, HTML/CSS File Rendering
+Project is Personal Namecard Site
+
+HTML files go in the templates folder
+Static files such as media, css etc. go in static folder
+
+In Chrome Dev for real time field editing
+Then save the page
+
+document.body.contentEditable=true
+"""
+
+from flask import Flask
+from flask import render_template
+
+app = Flask(__name__)
+
+@app.route("/")
+def website():
+    return render_template("index.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+##############################################################################
+# DAY 57 - URL building and templating with Jinja in Flask
+##############################################################################
+
+"""
+URL building and templating with Jinja in Flask
+
+Jinja is a templating language
+
+Project is to build a simple blog with posts based on the template
+"""
+
+from flask import Flask
+from flask import render_template
+import random
+import datetime
+
+app = Flask(__name__)
+
+@app.route("/")
+def website():
+    random_number = random.randint(1, 50)
+    current_year = datetime.date.today().strftime("%Y")
+    return render_template("index.html", num=random_number, year=current_year)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+# <!DOCTYPE html>
+# <html lang="en">
+# <head>
+#     <meta charset="UTF-8">
+#     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#     <title>Jinja Ninja</title>
+#     <link rel="stylesheet" href="static/style.css" />
+# </head>
+# <body>
+#     <h1>I am Jinja</h1>
+#     <p>This is using Jinja and Python to calculate 5 * 6 = {{ 5 * 6 }}</p>
+#     <p>Random number between 1 and 50 generated by randint: {{ num }}</p>
+# </body>
+# <footer>
+#     <p>© {{ year }} - built by James. The year is dynamically generated with the timedate module.</p>
+# </footer>
+# </html>
+
+from flask import Flask
+from flask import render_template
+import random
+import datetime
+
+app = Flask(__name__)
+
+@app.route("/")
+def website():
+    random_number = random.randint(1, 50)
+    current_year = datetime.date.today().strftime("%Y")
+    return render_template("index.html", num=random_number, year=current_year)
+
+@app.guess("/guess")
+def guess()
+
+print(f"Hi James")
+gender = "https://api.agify.io?<name>"
+print(f"I think you are {gender}")
+age = "https://api.genderize.io?<name>"
+print(f"And maybe {age} years old")
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+"""
+Guess Example
+"""
+
+from flask import Flask
+from flask import render_template
+import random
+import datetime
+import requests
+
+app = Flask(__name__)
+
+@app.route("/")
+def website():
+    # number
+    random_number = random.randint(1, 50)
+
+    # year
+    current_year = datetime.date.today().strftime("%Y")
+    return render_template("index.html",
+                           num=random_number,
+                           year=current_year
+                           )
+
+@app.route("/guess/<name>")
+def guess(name):
+    # name
+    upper_name = name.title()
+
+    # gender
+    gender_response = requests.get(f"https://api.genderize.io?name={name}")
+    guessed_gender = gender_response.json()["gender"]
+
+    # age
+    age_response = requests.get(f"https://api.agify.io?name={name}")
+    guessed_age = age_response.json()["age"]
+
+    # year
+    random_number = random.randint(1, 50)
+    current_year = datetime.date.today().strftime("%Y")
+
+    return render_template("guess.html",
+                           name = upper_name,
+                           gender = guessed_gender,
+                           age = guessed_age,
+                           year = current_year
+                           )
+
+@app.route("/blog/<num>")
+def get_blog(num):
+    #blogs
+    blogs_response = requests.get("https://api.npoint.io/c790b4d5cab58020d391")
+    all_posts = blogs_response.json()
+    return render_template("blog.html",
+                           posts = all_posts
+                            )
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+# <!DOCTYPE html>
+# <html lang="en">
+# <head>
+#     <meta charset="UTF-8">
+#     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#     <title>Jinja Ninja Blog</title>
+#     <link rel="stylesheet" href="static/style.css" />
+# </head>
+# <body>
+#     <h1>I am Jinja Blog</h1>
+#     {% for blog_post in posts: %}
+#         <h2>{{ blog_post["title"] }}</h1>
+#         <h3>{{ blog_post["subtitle"] }}</h2>
+#     {% endfor %}
+# <a href="{{ url_for('get_blog', num=3) }}">Go To Blog</a>
+# </body>
+# <footer>
+# </footer>
+# </html>
+
+
+##############################################################################
+# DAY 58 - Bootstrap
+##############################################################################
+
+"""
+Bootstrap
+
+############################
+# Bootstrap Columns Overview
+############################
+
+Bootstrap uses a 12-column grid system that's responsive and flexible for creating layouts.
+Basic Structure
+html<div class="container">
+  <div class="row">
+    <div class="col-md-6">Half width</div>
+    <div class="col-md-6">Half width</div>
+  </div>
+</div>
+Key Classes
+
+Container: .container (fixed width) or .container-fluid (full width)
+Row: .row - wraps columns, creates horizontal groups
+Columns: .col-{breakpoint}-{size} where size is 1-12
+
+Breakpoints
+
+xs - Extra small (<576px)
+sm - Small (≥576px)
+md - Medium (≥768px)
+lg - Large (≥992px)
+xl - Extra large (≥1200px)
+
+Common Patterns
+html<!-- Equal width columns -->
+<div class="col">Auto width</div>
+<div class="col">Auto width</div>
+
+<!-- Specific sizes -->
+<div class="col-md-8">8 columns wide</div>
+<div class="col-md-4">4 columns wide</div>
+
+<!-- Responsive -->
+<div class="col-12 col-md-6 col-lg-4">
+  Full on mobile, half on tablet, third on desktop
+</div>
+Utilities
+
+Offset: .offset-md-2 (push column right)
+Order: .order-md-2 (change visual order)
+Gutters: .g-0 (no gaps), .gx-3 (horizontal gaps), .gy-2 (vertical gaps)
+
+Remember: Columns must always be inside a .row, and rows should be in a .container.
+
+############################
+# Bootstrap Buttons Overview
+############################
+
+Basic Button Classes
+html<!-- Primary button -->
+<button type="button" class="btn btn-primary">Primary</button>
+
+<!-- Other color variants -->
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>
+Button Sizes
+html<button class="btn btn-primary btn-lg">Large</button>
+<button class="btn btn-primary">Default</button>
+<button class="btn btn-primary btn-sm">Small</button>
+Button States
+html<!-- Outline buttons -->
+<button class="btn btn-outline-primary">Outline</button>
+
+<!-- Disabled -->
+<button class="btn btn-primary" disabled>Disabled</button>
+
+<!-- Active state -->
+<button class="btn btn-primary active">Active</button>
+Block & Group
+html<!-- Full width -->
+<button class="btn btn-primary d-grid">Block Button</button>
+
+<!-- Button group -->
+<div class="btn-group">
+  <button class="btn btn-primary">Left</button>
+  <button class="btn btn-primary">Middle</button>
+  <button class="btn btn-primary">Right</button>
+</div>
+Works on <button>, <a>, and <input> elements with .btn class.
+
+
+############################
+# Bootstrap Cards Overview
+############################
+
+Basic Card Structure
+html<div class="card">
+  <div class="card-header">
+    Card Header
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Card Title</h5>
+    <p class="card-text">Some quick example text to build on the card title.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-muted">
+    Card Footer
+  </div>
+</div>
+Card with Image
+html<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+Card Grid
+html<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Card 1</h5>
+        <p class="card-text">Content here.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Card 2</h5>
+        <p class="card-text">Content here.</p>
+      </div>
+    </div>
+  </div>
+</div>
+Key Classes
+
+.card - Main container
+.card-body - Main content area
+.card-title - Card title styling
+.card-text - Card text styling
+.card-header / .card-footer - Top/bottom sections
+.card-img-top / .card-img-bottom - Images
+
+Cards are flexible and can contain headers, footers, images, lists, and any content.
+
+
+############################
+# Bootstrap Navs Overview
+############################
+
+Basic Nav (Tabs Style)
+html<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
+Pills Style
+html<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+</ul>
+Vertical Nav
+html<ul class="nav nav-pills flex-column">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+</ul>
+Nav with Dropdown
+html<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Dropdown</a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+    </ul>
+  </li>
+</ul>
+Nav Alignment
+html<!-- Centered -->
+<ul class="nav nav-tabs justify-content-center">
+  <!-- nav items -->
+</ul>
+
+<!-- Right aligned -->
+<ul class="nav nav-tabs justify-content-end">
+  <!-- nav items -->
+</ul>
+Key Classes
+
+.nav - Base nav class
+.nav-tabs - Tab style
+.nav-pills - Pill style
+.nav-item - Nav item wrapper
+.nav-link - Nav link styling
+.active - Active state
+.disabled - Disabled state
+
+############################
+# Bootstrap Spacing Overview
+############################
+
+Spacing Classes Format
+.{property}{sides}-{size} or .{property}{sides}-{breakpoint}-{size}
+Properties
+
+m - margin
+p - padding
+
+Sides
+
+t - top
+b - bottom
+s - start (left in LTR)
+e - end (right in LTR)
+x - horizontal (left & right)
+y - vertical (top & bottom)
+(no letter) - all sides
+
+Sizes
+
+0 - 0
+1 - 0.25rem
+2 - 0.5rem
+3 - 1rem
+4 - 1.5rem
+5 - 3rem
+auto - auto
+
+Examples
+html<!-- Margins -->
+<div class="m-3">Margin all sides</div>
+<div class="mt-2">Margin top</div>
+<div class="mx-auto">Margin horizontal auto (center)</div>
+<div class="ms-4">Margin start (left)</div>
+
+<!-- Padding -->
+<div class="p-3">Padding all sides</div>
+<div class="px-2">Padding horizontal</div>
+<div class="py-4">Padding vertical</div>
+
+<!-- Responsive -->
+<div class="m-2 m-md-4">Small margin on mobile, larger on medium+</div>
+
+<!-- Remove spacing -->
+<div class="m-0">No margin</div>
+<div class="p-0">No padding</div>
+Common Patterns
+
+mx-auto - Center horizontally
+mb-3 - Bottom margin
+px-4 py-2 - Horizontal and vertical padding
+me-2 - Right margin (between elements)
+
+"""
