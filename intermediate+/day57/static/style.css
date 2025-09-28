@@ -1,0 +1,9 @@
+body {
+    background-color: lab(0% 0 0);
+}
+
+body {
+    color: #b06500;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
