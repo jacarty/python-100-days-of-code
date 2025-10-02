@@ -43,3 +43,135 @@ def show_post(index):
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+##############################################################################
+# DAY 60 - Capturing Input
+##############################################################################
+
+"""
+Flask - Capturing Input; e.g. Contact Forms
+"""
+
+############################################################
+# Website Template
+# https://startbootstrap.com/previews/clean-blog
+############################################################
+
+from flask import Flask, render_template, request
+import requests
+from notification_manager import NotificationManager
+
+blogs_api = "https://api.npoint.io/e9d9c46c7277cb7135c7"
+blog_data = requests.get(blogs_api).json()
+
+app = Flask(__name__)
+notifications = NotificationManager()
+
+@app.route('/')
+@app.route('/index.html')
+def home():
+    return render_template("index.html", all_posts = blog_data)
+
+@app.route('/about.html')
+def about():
+    return render_template("about.html")
+
+@app.route('/contact.html', methods=["GET", "POST"])
+def contact():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        phone = request.form['phone']
+        message = request.form['message']
+        notifications.send_email(name, email, phone, message)
+        return render_template("contact.html", msg_sent=True)    
+    return render_template("contact.html", msg_sent=False)
+
+@app.route('/post/<int:index>')
+def show_post(index):
+    requested_post = next((post for post in blog_data if post['id'] == index), None)
+    return render_template("post.html", post = requested_post)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+##############################################################################
+# DAY 61 - Bootstrap & Flask
+##############################################################################
+
+"""
+Using WTForms for Username & Password.
+
+We're using template inheritance from Base.html to Success.html and Denied.html.
+
+You can override inherited elements by using Super Blocks (super.init()).
+
+Using flask_bootstrap too.
+"""
+
+from flask import Flask, render_template, redirect
+from flask_wtf import FlaskForm
+from wtforms import EmailField, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Length, Email
+import random
+import string
+from flask_bootstrap import Bootstrap5
+
+app = Flask(__name__)
+bootstrap = Bootstrap5(app)
+
+random_string = ''.join(random.choices(string.ascii_letters + string.digits, k=10))
+app.secret_key = random_string
+
+demo_user = ""
+demo_pass = ""
+
+class ContactForm(FlaskForm):
+    email = EmailField(
+        label='Email', 
+        validators=[
+            DataRequired(),
+            Email(message='Please enter a valid email address')
+        ]
+    )
+    password = PasswordField(
+        label='Password', 
+        validators=[
+            DataRequired(),
+            Length(min=8, message='Password must be at least 8 characters long')
+        ]
+    )
+    login = SubmitField('Login')
+
+@app.route("/")
+def home():
+    return render_template('index.html')
+
+@app.route('/login', methods=["GET", "POST"])
+def login():
+    form = ContactForm()
+    if form.validate_on_submit():
+        email = form.email.data
+        password = form.password.data
+        if email == demo_user and password == demo_pass:
+            return redirect('/success')
+        else:
+            return redirect('/denied')
+    return render_template('login.html', form=form)
+
+@app.route('/success', methods=["GET", "POST"])
+def login_success():
+    return render_template('success.html')
+    
+@app.route('/denied', methods=["GET", "POST"])
+def login_denied():
+    return render_template('denied.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+##############################################################################
+# DAY 62 - 
+##############################################################################
