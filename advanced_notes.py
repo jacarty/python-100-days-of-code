@@ -2659,3 +2659,490 @@ class CommentForm(FlaskForm):
 # How to style and customise a line chart to your liking
 ##############################################################################
 
+"""
+Day 73 Goals: what you will make by the end of the day
+
+Analyse the Popularity of Different Programming Languages over Time
+
+The oldest programming language still in use today is FORTRAN, which was developed in 1957. Since then many other programming languages have been developed. But which programming language is the most popular? Which programming language is the Kim Kardashian of programming languages; the one people just can't stop talking about? 
+
+StackOverflow will help us answer this burning question. Each post on Stack OverFlow comes with a Tag. And this Tag can be the name of a programming language.
+
+To figure out which language is the most popular, all we need to do is count the number of posts on Stack Overflow that are tagged with each language. The language with the most posts wins!
+
+Today you will learn:
+
+    How to visualise your data and create charts with Matplotlib
+
+    How to pivot, group and manipulate your data with Pandas to get it into the format you want
+
+    How to work with timestamps and time-series data
+
+    How to style and customise a line chart to your liking
+"""
+
+##############################################################################
+# DAY 74 - Aggregate and Merge Data in Pandas
+#
+##############################################################################
+
+"""
+Day 74 Goals: what you will make by the end of the day
+
+Learn to Aggregate and Merge Data in Pandas while Analysing a Dataset of LEGO Pieces
+
+Today we're going to be diving deep into a dataset all about LEGO, which will help us answer a whole bunch of interesting questions about the history of the company, their product offering, and which LEGO set rules them all:
+
+    What is the most enormous LEGO set ever created and how many parts did it have?
+
+    In which year were the first LEGO sets released and how many sets did the company sell when it first launched?
+
+    Which LEGO theme has the most sets? Is it Harry Potter, Ninjago, Friends or something else?
+
+    When did the LEGO company really take-off based on its product offering? How many themes and sets did it release every year?
+
+    Did LEGO sets grow in size and complexity over time? Do older LEGO sets tend to have more or fewer parts than newer sets?
+
+
+What you'll learn today
+
+    How to combine a Notebook with HTML Markup.
+
+    Apply Python List slicing techniques to Pandas DataFrames.
+
+    How to aggregate data using the .agg() function.
+
+    How to create scatter plots, bar charts, and line charts with two axes in Matplotlib.
+
+    Understand database schemas that are organised by primary and foreign keys.
+
+    How to merge DataFrames that share a common key
+
+    
+## Learning Points & Summary
+
+In this lesson we looked at how to:
+
+    use HTML Markdown in Notebooks, such as section headings # and how to embed images with the <img> tag.
+
+    combine the groupby() and count() functions to aggregate data
+
+    use the .value_counts() function
+
+    slice DataFrames using the square bracket notation e.g., df[:-2] or df[:10]
+
+    use the .agg() function to run an operation on a particular column
+
+    rename() columns of DataFrames
+
+    create a line chart with two separate axes to visualise data that have different scales.
+
+    create a scatter plot in Matplotlib
+
+    work with tables in a relational database by using primary and foreign keys
+
+    .merge() DataFrames along a particular column
+
+    create a bar chart with Matplotlib
+    """
+
+##############################################################################
+# DAY 75 - Time-series Data
+#
+# Matplotlib
+##############################################################################
+
+"""
+What you'll learn today
+
+    How to make time-series data comparable by resampling and converting to the same periodicity (e.g., from daily data to monthly data).
+
+    Fine-tuning the styling of Matplotlib charts by using limits, labels, linestyles, markers, colours, and the chart's resolution.
+
+    Using grids to help visually identify seasonality in a time series.
+
+    Finding the number of missing and NaN values and how to locate NaN values in a DataFrame.
+
+    How to work with Locators to better style the time axis on a chart
+
+    Review the concepts learned in the previous three days and apply them to new datasets
+"""
+
+"""
+
+What do the Search Numbers mean?
+
+We can see from our DataFrames that Google's search interest ranges between 0 and 100. 
+But what does that mean? Google defines the values of search interest as: 
+
+    Numbers represent search interest relative to the highest point on the chart for the given region and time. 
+    A value of 100 is the peak popularity for the term. 
+    A value of 50 means that the term is half as popular. 
+    A score of 0 means there was not enough data for this term. 
+
+Basically, the actual search volume of a term is not publicly available. 
+Google only offers a scaled number. 
+Each data point is divided by the total searches of the geography and time range it represents to compare relative popularity.
+
+For each word in your search, Google finds how much search volume in each region 
+and time period your term had relative to all the searches in that region and time period. 
+It then combines all of these measures into a single measure of popularity, 
+and then it scales the values across your topics, so the largest measure is set to 100. 
+In short: Google Trends doesn’t exactly tell you how many searches occurred for your topic, 
+but it does give you a nice proxy.
+
+Here are the Google Trends Search Parameters that I used to generate the .csv data:
+
+    "Tesla", Worldwide, Web Search
+
+    "Bitcoin", Worldwide, News Search
+
+    "Unemployment Benefits", United States, Web Search
+"""
+
+"""
+In this lesson we looked at how to:
+
+    How to use .describe() to quickly see some descriptive statistics at a glance.
+
+    How to use .resample() to make a time-series data comparable to another by changing the periodicity.
+
+    How to work with matplotlib.dates Locators to better style a timeline (e.g., an axis on a chart).
+
+    How to find the number of NaN values with .isna().values.sum()
+
+    How to change the resolution of a chart using the figure's dpi
+
+    How to create dashed '--' and dotted '-.' lines using linestyles
+
+    How to use different kinds of markers (e.g., 'o' or '^') on charts.
+
+    Fine-tuning the styling of Matplotlib charts by using limits, labels, linewidth and colours (both in the form of named colours and HEX codes).
+
+    Using .grid() to help visually identify seasonality in a time series.
+   
+"""
+
+##############################################################################
+# DAY 76 - Pandas, Handle Duplicate etc.
+#
+# Pie Chart, Donut Chart, Scatter Plots
+##############################################################################
+
+"""
+In this module, we will compare thousands of apps in the Google Play Store so that we can gain insight into:
+
+    How competitive different app categories (e.g., Games, Lifestyle, Weather) are
+
+    Which app category offers compelling opportunities based on its popularity
+
+    How many downloads you would give up by making your app paid vs. free
+
+    How much you can reasonably charge for a paid app
+
+    Which paid apps have had the highest revenue
+
+    How many paid apps will recoup their development costs based on their sales revenue
+
+
+Today you'll learn:
+
+    How to quickly remove duplicates
+
+    How to remove unwanted symbols and convert data into a numeric format
+
+    How to wrangle columns containing nested data with Pandas
+
+    How to create compelling data visualisations with the plotly library
+
+    Create vertical, horizontal and grouped bar charts
+
+    Create pie and donut charts for categorical data
+
+    Use colour scales to make beautiful scatter plots
+"""
+
+"""
+In this lesson we looked at how to:
+
+    Pull a random sample from a DataFrame using .sample()
+
+    How to find duplicate entries with .duplicated() and .drop_duplicates()
+
+    How to convert string and object data types into numbers with .to_numeric()
+
+    How to use plotly to generate beautiful pie, donut, and bar charts as well as box and scatter plots 
+"""
+
+##############################################################################
+# DAY 77 - Numpy
+#
+##############################################################################
+
+"""
+NumPy is a Python library that’s used in almost every field of science and engineering. It’s practically THE standard for working with numerical data in Python. The case studies for how NumPy is being used speak for themselves 😮 
+
+So far, we’ve been using Pandas, which is built on top of NumPy. Think of Pandas as a high-level data manipulation tool that includes functionality for working with time-series or for grouping, joining, merging and finding missing data (i.e., everything we’ve been doing so far). NumPy on the other hand shines with low-level tasks, like doing serious math and calculations.
+
+
+Today you'll learn:
+
+    How to leverage the power 💪 of NumPy's ndarrays.
+
+    How to access individual values and subsets inside an n-dimensional array.
+
+    How broadcasting 📣 works with ndarrays.
+
+    How to do linear algebra with NumPy.
+
+    How to generate points that you can plot on a chart.
+
+    How to manipulate images as ndarrays. 
+"""
+
+"""
+In this lesson we looked at how to:
+
+    Create arrays manually with np.array()
+
+    Generate arrays using  .arange(), .random(), and .linspace()
+
+    Analyse the shape and dimensions of a ndarray
+
+    Slice and subset a ndarray based on its indices
+
+    Do linear algebra like operations with scalars and matrix multiplication
+
+    Use NumPys broadcasting to make ndarray shapes compatible
+
+    Manipulate images in the form of ndarrays
+    """
+
+##############################################################################
+# DAY 78 - scikit-learn, linear regression and seabor
+#
+##############################################################################
+
+"""
+In this lesson, we're going to be looking at movie budget and revenue data. This dataset is perfect for trying out some new tools like scikit-learn to run a linear regression and seaborn, a popular data visualisation library built on top of Matplotlib. 
+
+The question we want to answer today is: Do higher film budgets lead to more revenue in the box office? In other words, should a movie studio spend more on a film to make more? 
+
+
+Today you'll learn:
+
+    How to use a popular data visualisation library called Seaborn
+
+    How to run and interpret a linear regression with scikit-learn
+
+    How to plot a regression a scatter plot to visualise relationships in the data
+
+    How to add a third dimension to a scatter plot to create a bubble chart
+
+    How to cleverly use floor division // to convert your data
+    
+    """
+
+"""
+Learning Points & Summary
+
+Today was a pretty packed lesson where we introduced a lot of new concepts. In this lesson we looked at how to:
+
+    Use nested loops to remove unwanted characters from multiple columns
+
+    Filter Pandas DataFrames based on multiple conditions using both .loc[] and .query()
+
+    Create bubble charts using the Seaborn Library
+
+    Style Seaborn charts using the pre-built styles and by modifying Matplotlib parameters
+
+    Use floor division (i.e., integer division) to convert years to decades
+
+    Use Seaborn to superimpose a linear regressions over our data
+
+    Make a judgement if our regression is good or bad based on how well the model fits our data and the r-squared metric
+
+    Run regressions with scikit-learn and calculate the coefficients. 
+"""
+
+##############################################################################
+# DAY 79 - Choropleth (Maps), Sunburst Charts, Seaborn
+#
+# Donut, Bar Charts
+##############################################################################
+
+"""
+Today we're going to analyse a dataset on the past winners of the Nobel Prize. Let's see what patterns we can uncover in the past Nobel laureates and what can we learn about the Nobel prize and our world more generally.
+
+On November 27, 1895, Alfred Nobel signed his last will in Paris. When it was opened after his death, the will caused a lot of controversy, as Nobel had left much of his wealth for the establishment of a prize. Alfred Nobel dictates that his entire remaining estate should be used to endow “prizes to those who, during the preceding year, have conferred the greatest benefit to humankind”. Every year the Nobel Prize is given to scientists and scholars in the categories chemistry, literature, physics, physiology or medicine, economics, and peace.
+
+
+This project will bring a lot of the tools and techniques that we've covered previously together. While we will review many concepts that we've covered in the previous days, you'll also learn a lot of new things.
+
+
+Today you'll learn:
+
+    Create a Choropleth to display data on a map.
+
+    Create bar charts showing different segments of the data with plotly.
+
+    Create Sunburst charts with plotly.
+
+    Use Seaborn's .lmplot() and show best-fit lines across multiple categories using the row, hue, and lowess parameters.
+
+    Understand how a different picture emerges when looking at the same data in different ways (e.g., box plots vs a time series analysis).
+
+    See the distribution of our data and visualise descriptive statistics with the help of a histogram in Seaborn. 
+    """
+
+"""
+Today was a big and difficult project. Congratulations on making it all the way through! You too deserve a prize 🏅!
+
+
+In this lesson, we reviewed many concepts that we've covered previously, including:
+
+    How to uncover and investigate NaN values.
+
+    How to convert objects and string data types to numbers.
+
+    Creating donut and bar charts with plotly.
+
+    Create a rolling average to smooth out time-series data and show a trend.
+
+    How to use .value_counts(), .groupby(), .merge(), .sort_values() and .agg().
+
+
+In addition, we learned many new things too. We looked at how to:
+
+    Create a Choropleth to display data on a map.
+
+    Create bar charts showing different segments of the data with plotly.
+
+    Create Sunburst charts with plotly.
+
+    Use Seaborn's .lmplot() and show best-fit lines across multiple categories using the row, hue, and lowess parameters.
+
+    Understand how a different picture emerges when looking at the same data in different ways (e.g., box plots vs a time series analysis).
+
+    See the distribution of our data and visualise descriptive statistics with the help of a histogram in Seaborn. 
+"""
+
+##############################################################################
+# DAY 80 - Histograms, Numpy, KDE
+#
+##############################################################################
+
+"""
+Day 80 Goals: what you will make by the end of the day
+
+Your Story
+
+Today you will become a doctor, but not just any doctor. You will become Dr Ignaz Semmelweis, a Hungarian physician born in 1818 who worked in the Vienna General Hospital.
+
+In the past, people didn't know about bacteria, germs, or viruses. People illness was caused by "bad air" or evil spirits. But in the 1800s Doctors started looking more at anatomy, doing autopsies and making arguments based on data. Dr Semmelweis suspected that something was going wrong with the procedures at Vienna General Hospital. Dr Semmelweis wanted to figure out why so many women in maternity wards were dying from childbed fever (i.e., puerperal fever).
+
+
+Today you'll learn:
+
+    How to make a compelling argument using data
+
+    How to superimpose histograms to show differences in distributions
+
+    How to use a Kernel Density Estimate (KDE) to show a graphic estimate of a distribution.
+
+    How to use scipy and test for statistical significance by looking at p-values.
+
+    How to highlight different parts of a time series chart in Matplotib.
+
+    How to add and configure a Legend in Matplotlib.
+
+    Use NumPy's .where() function to process elements depending on a condition.
+    """
+
+
+"""
+
+Today you've learned
+
+    How to use histograms to visualise distributions
+
+    How to superimpose histograms on top of each other even when the data series have different lengths
+
+    How to use a to smooth out kinks in a histogram and visualise a distribution with a Kernel Density Estimate (KDE)
+
+    How to improve a KDE by specifying boundaries on the estimates
+
+    How to use scipy and test for statistical significance by looking at p-values.
+
+    How to highlight different parts of a time series chart in Matplotib.
+
+    How to add and configure a Legend in Matplotlib.
+
+    Use NumPy's .where() function to process elements depending on a condition.
+
+The Tragic Story of Dr Semmelweis
+
+Gather round, gather round. Now I'll tell you how our story ends. Despite the incredible evidence in favour of Dr Semmelweis' theory - that childbed fever was caused by some "substance" (which today we know as bacteria) from autopsy room corpses - was rejected by the medical community at the time. But why?! 
+
+Part of the reason is that Semmelweis was not very tactful. He made it look like doctors were giving childbed fever to women (which they in fact were). This is not something people wanted to hear.
+
+However, he also published his data in the form of long tables without any data visualisations:
+
+The long tables made it very hard to see what's actually going on! Also, at the time statistics and statistical arguments were quite uncommon in the field of medicine.
+
+Eventually, Dr Semmelweis belligerent campaigning made him some powerful and influential enemies. He lost his job at the Vienna hospital, and doctors gave up washing their hands with chlorine. As Dr Semmelweis grew older he got even angrier and eventually quite "strange". This was either the immense frustration or possibly a result of another disease like Alzheimer's or syphilis. In 1965, at the age of 47, Dr Semmelweis was committed to a mental asylum. And at the asylum, he was probably beaten since he eventually died of sepsis, a complication of an infection in the bloodstream. The tragic irony is that sepsis is a similar kind of disease that he fought so hard to prevent in women who died from childbed fever. It wasn't until 20 years later with Louis Pasteur's work on germ theory that Dr Semmelweis' work gained acceptance. RIP Dr Semmelweis. 
+
+"""
+
+##############################################################################
+# DAY 81 - Challenge on Boston House
+#
+##############################################################################
+
+"""
+Day 81 Goals: what you will make by the end of the day
+
+Welcome to Boston Massachusetts in the 1970s! Imagine you're working for a real estate development company. Your company wants to value any residential project before they start. You are tasked with building a model that can provide a price estimate based on a home's characteristics like:
+
+    The number of rooms
+
+    The distance to employment centres
+
+    How rich or poor the area is
+
+    How many students there are per teacher in local schools etc
+
+
+Today you will:
+
+    Analyse and explore the Boston house price data
+
+    Split your data for training and testing
+
+    Run a Multivariable Regression
+
+    Evaluate how your model's coefficients and residuals
+
+    Use data transformation to improve your model performance
+
+    Use your model to estimate a property price
+"""
+
+"""
+Today you've learned
+
+    How to quickly spot relationships in a dataset using Seaborn's .pairplot().
+
+    How to split the data into a training and testing dataset to better evaluate a model's performance.
+
+    How to run a multivariable regression.
+
+    How to evaluate that regression-based on the sign of its coefficients.
+
+    How to analyse and look for patterns in a model's residuals.
+
+    How to improve a regression model using (a log) data transformation.
+
+    How to specify your own values for various features and use your model to make a prediction. 
+    
+"""
