@@ -1,0 +1,1064 @@
+/******************/
+/* Reset and Base Styles */
+/******************/
+* {
+    /* Removes default margin from all elements */
+    margin: 0;
+    /* Removes default padding from all elements */
+    padding: 0;
+    /* Makes padding and border included in element's total width/height */
+    box-sizing: border-box;
+}
+
+body {
+    /* Uses Inter font with fallback to system sans-serif */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    /* Sets spacing between lines of text */
+    line-height: 1.6;
+    /* Sets default text color to dark gray */
+    color: #333;
+    /* Sets default font weight for body text */
+    font-weight: 400;
+}
+
+/******************/
+/* Banner Section */
+/******************/
+
+.banner-section {
+    /* Makes banner a flex container for side-by-side layout */
+    display: flex;
+    /* Sets minimum height to full viewport height */
+    min-height: 100vh;
+    /* Makes banner span full width of screen */
+    width: 100%;
+}
+
+/* Left Content Area */
+.banner-content {
+    /* Takes up equal space with banner-image (50% each) */
+    flex: 1;
+    /* Makes this a flex container for centering content */
+    display: flex;
+    /* Centers content vertically */
+    align-items: center;
+    /* Centers content horizontally */
+    justify-content: center;
+    /* Adds spacing inside the container (top/bottom right/left) */
+    padding: 4rem 2rem;
+    /* Sets background to white */
+    background-color: #ffffff;
+}
+
+.content-wrapper {
+    /* Limits maximum width of content */
+    max-width: 600px;
+    /* Makes wrapper take full available width up to max-width */
+    width: 100%;
+}
+
+.banner-title {
+    /* Sets large font size for title */
+    font-size: 4rem;
+    /* Makes font thinner/lighter weight */
+    font-weight: 300;
+    /* Adds space below title */
+    margin-bottom: 1.5rem;
+    /* Controls spacing between lines in multi-line titles */
+    line-height: 1.1;
+    /* Tightens spacing between letters slightly */
+    letter-spacing: -0.02em;
+}
+
+.banner-subtitle {
+    /* Sets medium font size for subtitle */
+    font-size: 1.25rem;
+    /* Controls spacing between lines */
+    line-height: 1.6;
+    /* Adds space below subtitle */
+    margin-bottom: 1.5rem;
+    /* Sets text color to dark gray */
+    color: #333;
+}
+
+.banner-description {
+    /* Sets base font size for description text */
+    font-size: 1rem;
+    /* Makes lines well-spaced for readability */
+    line-height: 1.8;
+    /* Adds space below description */
+    margin-bottom: 2.5rem;
+    /* Sets text color to medium gray */
+    color: #666;
+}
+
+.underline {
+    /* Adds underline decoration to text */
+    text-decoration: underline;
+    /* Sets thickness of underline */
+    text-decoration-thickness: 1px;
+    /* Adds space between text and underline */
+    text-underline-offset: 3px;
+}
+
+code {
+    /* Sets light gray background for code text */
+    background-color: #f5f5f5;
+    /* Adds spacing inside code element */
+    padding: 2px 6px;
+    /* Rounds corners of code background */
+    border-radius: 3px;
+    /* Uses monospace font for code */
+    font-family: 'Courier New', monospace;
+    /* Makes code text slightly smaller */
+    font-size: 0.9em;
+}
+
+.banner-button {
+    /* Makes button inline instead of full width */
+    display: inline-block;
+    /* Adds spacing inside button (top/bottom left/right) */
+    padding: 1rem 3rem;
+    /* Makes button background transparent */
+    background-color: transparent;
+    /* Sets button text color to dark gray */
+    color: #333;
+    /* Adds solid border around button */
+    border: 2px solid #333;
+    /* Makes button fully rounded */
+    border-radius: 50px;
+    /* Removes underline from link */
+    text-decoration: none;
+    /* Makes text bold */
+    font-weight: 600;
+    /* Adds extra spacing between letters */
+    letter-spacing: 0.1em;
+    /* Sets button text size */
+    font-size: 0.9rem;
+    /* Smoothly animates all property changes */
+    transition: all 0.3s ease;
+    /* Makes text uppercase */
+    text-transform: uppercase;
+}
+
+.banner-button:hover {
+    /* Changes background to dark when hovered */
+    background-color: #333;
+    /* Changes text to white when hovered */
+    color: #ffffff;
+}
+
+/* Right Image Area */
+.banner-image {
+    /* Takes up equal space with banner-content (50% each) */
+    flex: 1;
+    /* Creates positioning context for absolute children */
+    position: relative;
+    /* Hides any image overflow */
+    overflow: hidden;
+}
+
+.banner-image img {
+    /* Makes image take full width of container */
+    width: 100%;
+    /* Makes image take full height of container */
+    height: 100%;
+    /* Scales image to cover container while maintaining aspect ratio */
+    object-fit: cover;
+    /* Removes extra space below image */
+    display: block;
+}
+
+/* Spotlight Section */
+.spotlight-section {
+    /* Makes section a flex container for side-by-side layout */
+    display: flex;
+    /* Makes section span full width */
+    width: 100%;
+    /* Sets minimum height to half of viewport height */
+    min-height: 50vh;
+    /* Adds thin border at top of section */
+    border-top: 1px solid #ddd;
+}
+
+/* Image Area */
+.spotlight-image {
+    /* Takes up 1/4 the section width */
+    flex: 0 0 25%;
+    /* Creates positioning context for absolute children */
+    position: relative;
+    /* Hides any image overflow */
+    overflow: hidden;
+    /* Makes this a flex container */
+    display: flex;
+}
+
+.spotlight-image img {
+    /* Makes image take full width of container */
+    width: 100%;
+    /* Makes image take full height of container */
+    height: 100%;
+    /* Scales image to cover container while maintaining aspect ratio */
+    object-fit: cover;
+    /* Removes extra space below image */
+    display: block;
+}
+
+/******************/
+/* Content Area */
+/******************/
+.spotlight-content {
+    /* Takes up 3/4 the section width */
+    flex: 0 0 75%;
+    /* Adds spacing inside container (top/bottom left/right) */
+    padding: 4rem 6rem;
+    /* Sets background to white */
+    background-color: #ffffff;
+    /* Makes this a flex container for vertical stacking */
+    display: flex;
+    /* Stacks children vertically */
+    flex-direction: column;
+    /* Centers content vertically */
+    justify-content: center;
+}
+
+.spotlight-content h2 {
+    /* Sets large font size for heading */
+    font-size: 2.5rem;
+    /* Makes font lighter weight */
+    font-weight: 300;
+    /* Adds space below heading */
+    margin-bottom: 1.5rem;
+    /* Controls spacing between lines */
+    line-height: 1.2;
+}
+
+.spotlight-content p {
+    /* Sets font size for paragraph text */
+    font-size: 1.1rem;
+    /* Makes lines well-spaced for readability */
+    line-height: 1.8;
+    /* Adds space below paragraph */
+    margin-bottom: 2rem;
+    /* Sets text color to medium gray */
+    color: #666;
+}
+
+.spotlight-button {
+    /* Makes button inline instead of full width */
+    display: inline-block;
+    /* Adds spacing inside button */
+    padding: 0.875rem 2.5rem;
+    /* Makes button background transparent */
+    background-color: transparent;
+    /* Sets button text color */
+    color: #333;
+    /* Adds solid border around button */
+    border: 2px solid #333;
+    /* Slightly rounds button corners */
+    border-radius: 4px;
+    /* Removes underline from link */
+    text-decoration: none;
+    /* Makes text bold */
+    font-weight: 600;
+    /* Adds spacing between letters */
+    letter-spacing: 0.05em;
+    /* Sets button text size */
+    font-size: 0.9rem;
+    /* Smoothly animates all property changes */
+    transition: all 0.3s ease;
+    /* Makes text uppercase */
+    text-transform: uppercase;
+    /* Aligns button to the start (left) of flex container */
+    align-self: flex-start;
+}
+
+.spotlight-button:hover {
+    /* Changes background to dark when hovered */
+    background-color: #333;
+    /* Changes text to white when hovered */
+    color: #ffffff;
+}
+
+/* Image on left, content on right */
+.spotlight-right {
+    /* Arranges children in a row (default, but explicit) */
+    flex-direction: row;
+}
+
+/* Image on right, content on left */
+.spotlight-left {
+    /* Arranges children in a row (default, but explicit) */
+    flex-direction: row;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .banner-section {
+        /* Stacks banner content and image vertically on mobile */
+        flex-direction: column;
+    }
+
+    .banner-content {
+        /* Reduces padding on mobile */
+        padding: 3rem 1.5rem;
+    }
+
+    .banner-title {
+        /* Reduces title size on mobile */
+        font-size: 2.5rem;
+    }
+
+    .banner-subtitle {
+        /* Reduces subtitle size on mobile */
+        font-size: 1.1rem;
+    }
+
+    .banner-description {
+        /* Reduces description size on mobile */
+        font-size: 0.95rem;
+    }
+
+    .banner-image {
+        /* Sets minimum height for image on mobile */
+        min-height: 400px;
+    }
+
+    .spotlight-section,
+    .spotlight-right,
+    .spotlight-left {
+        /* Stacks spotlight sections vertically on mobile, image on bottom */
+        flex-direction: column-reverse;
+    }
+
+    .spotlight-content {
+        /* Reduces padding on mobile */
+        padding: 3rem 2rem;
+    }
+
+    .spotlight-content h2 {
+        /* Reduces heading size on mobile */
+        font-size: 2rem;
+    }
+
+    .spotlight-image {
+        /* Sets minimum height for image on mobile */
+        min-height: 400px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .banner-title {
+        /* Further reduces title size on small mobile */
+        font-size: 2rem;
+    }
+
+    .banner-subtitle {
+        /* Further reduces subtitle size on small mobile */
+        font-size: 1rem;
+    }
+
+    .banner-button {
+        /* Reduces button padding on small mobile */
+        padding: 0.875rem 2.5rem;
+        /* Reduces button text size on small mobile */
+        font-size: 0.85rem;
+    }
+
+    .spotlight-content {
+        /* Further reduces padding on small mobile */
+        padding: 2rem 1.5rem;
+    }
+
+    .spotlight-content h2 {
+        /* Further reduces heading size on small mobile */
+        font-size: 1.75rem;
+    }
+
+    .spotlight-content p {
+        /* Reduces paragraph size on small mobile */
+        font-size: 1rem;
+    }
+}
+
+/******************/
+/* Content Section */
+/******************/
+.content-section {
+    /* Adds spacing inside section (top/bottom left/right) */
+    padding: 6rem 2rem;
+    /* Sets background to white */
+    background-color: #ffffff;
+    /* Centers all text content */
+    text-align: center;
+    /* Adds thin border at top of section */
+    border-top: 1px solid #ddd;
+}
+
+.content-inner {
+    /* Limits maximum width of content */
+    max-width: 800px;
+    /* Centers the container horizontally */
+    margin: 0 auto;
+}
+
+.content-inner h2 {
+    /* Sets large font size for heading */
+    font-size: 2.5rem;
+    /* Makes font lighter weight */
+    font-weight: 300;
+    /* Adds space below heading */
+    margin-bottom: 1.5rem;
+    /* Controls spacing between lines */
+    line-height: 1.2;
+}
+
+.content-inner p {
+    /* Sets font size for paragraph */
+    font-size: 1.1rem;
+    /* Makes lines well-spaced for readability */
+    line-height: 1.8;
+    /* Sets text color to medium gray */
+    color: #666;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .content-section {
+        /* Reduces padding on mobile */
+        padding: 4rem 2rem;
+    }
+
+    .content-inner h2 {
+        /* Reduces heading size on mobile */
+        font-size: 2rem;
+    }
+
+    .content-inner p {
+        /* Reduces paragraph size on mobile */
+        font-size: 1rem;
+    }
+}
+
+/******************/
+/* Horizontal Scroll Gallery */
+/******************/
+.scroll-gallery-section {
+    /* Removes all padding from section */
+    padding: 0;
+    /* Sets background to white */
+    background-color: #ffffff;
+    /* Hides any overflow content */
+    overflow: hidden;
+}
+
+.scroll-gallery {
+    /* Arranges items in a horizontal row */
+    display: flex;
+    /* Allows horizontal scrolling */
+    overflow-x: auto;
+    /* Hides vertical overflow */
+    overflow-y: hidden;
+    /* Makes scrolling smooth */
+    scroll-behavior: smooth;
+    /* Enables momentum scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
+    /* Snaps items into view when scrolling */
+    scroll-snap-type: x mandatory;
+    /* Removes gap between items */
+    gap: 0;
+}
+
+/* Hide scrollbar but keep functionality */
+.scroll-gallery::-webkit-scrollbar {
+    /* Hides scrollbar in Chrome/Safari */
+    display: none;
+}
+
+.scroll-gallery {
+    /* Hides scrollbar in IE/Edge */
+    -ms-overflow-style: none;
+    /* Hides scrollbar in Firefox */
+    scrollbar-width: none;
+}
+
+.scroll-item {
+    /* Makes each item take up 1/3 of container width */
+    flex: 0 0 33.333%;
+    /* Snaps items to start position when scrolling */
+    scroll-snap-align: start;
+    /* Creates positioning context for absolute children */
+    position: relative;
+}
+
+.scroll-link {
+    /* Makes link a block-level element */
+    display: block;
+    /* Makes link take full width of container */
+    width: 100%;
+    /* Makes link take full height of container */
+    height: 100%;
+    /* Creates positioning context for caption overlay */
+    position: relative;
+    /* Removes underline from link */
+    text-decoration: none;
+    /* Sets text color to white */
+    color: #ffffff;
+    /* Hides any overflow content */
+    overflow: hidden;
+}
+
+.scroll-link img {
+    /* Makes image take full width of container */
+    width: 100%;
+    /* Sets fixed height for all gallery images */
+    height: 350px;
+    /* Scales image to cover container while maintaining aspect ratio */
+    object-fit: cover;
+    /* Removes extra space below image */
+    display: block;
+    /* Smoothly animates transform changes */
+    transition: transform 0.3s ease;
+}
+
+.scroll-caption {
+    /* Positions caption absolutely within link */
+    position: absolute;
+    /* Aligns to top edge */
+    top: 0;
+    /* Aligns to left edge */
+    left: 0;
+    /* Aligns to right edge */
+    right: 0;
+    /* Aligns to bottom edge */
+    bottom: 0;
+    /* Creates semi-transparent black overlay */
+    background: rgba(0, 0, 0, 0.7);
+    /* Makes caption a flex container */
+    display: flex;
+    /* Stacks content vertically */
+    flex-direction: column;
+    /* Centers content vertically */
+    justify-content: center;
+    /* Centers content horizontally */
+    align-items: center;
+    /* Adds spacing inside caption */
+    padding: 2rem;
+    /* Hides caption by default */
+    opacity: 0;
+    /* Smoothly animates opacity changes */
+    transition: opacity 0.3s ease;
+    /* Centers text content */
+    text-align: center;
+}
+
+.scroll-link:hover .scroll-caption {
+    /* Shows caption when hovering over link */
+    opacity: 1;
+}
+
+.scroll-link:hover img {
+    /* Slightly zooms image when hovering */
+    transform: scale(1.05);
+}
+
+.scroll-caption h3 {
+    /* Sets font size for caption heading */
+    font-size: 1.5rem;
+    /* Makes font lighter weight */
+    font-weight: 300;
+    /* Adds space below heading */
+    margin-bottom: 0.5rem;
+    /* Sets text color to white */
+    color: #ffffff;
+}
+
+.scroll-caption p {
+    /* Sets font size for caption text */
+    font-size: 0.9rem;
+    /* Controls spacing between lines */
+    line-height: 1.6;
+    /* Adds space below paragraph */
+    margin-bottom: 1rem;
+    /* Sets text color to semi-transparent white */
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.scroll-button {
+    /* Makes button inline instead of full width */
+    display: inline-block;
+    /* Adds spacing inside button */
+    padding: 0.5rem 1.5rem;
+    /* Makes button background transparent */
+    background-color: transparent;
+    /* Sets button text color to white */
+    color: #ffffff;
+    /* Adds white border around button */
+    border: 2px solid #ffffff;
+    /* Slightly rounds button corners */
+    border-radius: 4px;
+    /* Sets button text size */
+    font-size: 0.85rem;
+    /* Makes text bold */
+    font-weight: 600;
+    /* Makes text uppercase */
+    text-transform: uppercase;
+    /* Adds spacing between letters */
+    letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+    .scroll-item {
+        /* Makes each item take up half of container width on tablets */
+        flex: 0 0 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .scroll-item {
+        /* Makes each item take up full width on mobile */
+        flex: 0 0 100%;
+    }
+
+    .scroll-link img {
+        /* Increases image height on mobile */
+        height: 400px;
+    }
+}
+
+/******************/
+/* Features Section */
+/******************/
+.features-section {
+    /* Adds spacing inside section (top/bottom left/right) */
+    padding: 6rem 2rem;
+    /* Sets background to white */
+    background-color: #ffffff;
+    /* Centers all text content */
+    text-align: center;
+}
+
+.features-inner {
+    /* Limits maximum width of content */
+    max-width: 1200px;
+    /* Centers the container horizontally */
+    margin: 0 auto;
+}
+
+.features-inner h2 {
+    /* Sets large font size for heading */
+    font-size: 2.5rem;
+    /* Makes font lighter weight */
+    font-weight: 300;
+    /* Adds space below heading */
+    margin-bottom: 1.5rem;
+    /* Controls spacing between lines */
+    line-height: 1.2;
+}
+
+.features-inner>p {
+    /* Sets font size for intro paragraph */
+    font-size: 1.1rem;
+    /* Makes lines well-spaced for readability */
+    line-height: 1.8;
+    /* Sets text color to medium gray */
+    color: #666;
+    /* Limits width of intro text */
+    max-width: 800px;
+    /* Centers text horizontally and adds space below */
+    margin: 0 auto 4rem auto;
+}
+
+.features-grid {
+    /* Creates a grid layout */
+    display: grid;
+    /* Creates 3 equal columns */
+    grid-template-columns: repeat(3, 1fr);
+    /* Adds space between grid items */
+    gap: 3rem;
+}
+
+.feature-item {
+    /* Centers text content in each feature */
+    text-align: center;
+}
+
+.feature-icon {
+    /* Makes icon a flex container for centering */
+    display: inline-flex;
+    /* Centers icon vertically */
+    align-items: center;
+    /* Centers icon horizontally */
+    justify-content: center;
+    /* Sets icon container width */
+    width: 80px;
+    /* Sets icon container height */
+    height: 80px;
+    /* Makes icon container circular */
+    border-radius: 50%;
+    /* Sets light gray background for icon */
+    background-color: #f8f9fa;
+    /* Sets icon color to dark gray */
+    color: #333;
+    /* Sets icon size */
+    font-size: 2rem;
+    /* Adds space below icon */
+    margin-bottom: 1.5rem;
+}
+
+/* Feature Icon Colour 1 */
+.feature-item:nth-child(1) .feature-icon {
+    background-color: #640D5F;
+    color: #ffffff;
+}
+/* Feature Icon Colour 2 */
+.feature-item:nth-child(2) .feature-icon {
+    background-color: #D91656;
+    color: #ffffff;
+}
+/* Feature Icon Colour 3 */
+.feature-item:nth-child(3) .feature-icon {
+    background-color: #EB5B00;
+    color: #ffffff;
+}
+
+.feature-item h3 {
+    /* Sets font size for feature heading */
+    font-size: 1.5rem;
+    /* Makes font lighter weight */
+    font-weight: 300;
+    /* Adds space below heading */
+    margin-bottom: 1rem;
+}
+
+.feature-item p {
+    /* Sets font size for feature description */
+    font-size: 1rem;
+    /* Makes lines well-spaced for readability */
+    line-height: 1.8;
+    /* Sets text color to medium gray */
+    color: #666;
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+    .features-grid {
+        /* Changes to 2 columns on tablets */
+        grid-template-columns: repeat(2, 1fr);
+        /* Reduces gap between items */
+        gap: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .features-section {
+        /* Reduces padding on mobile */
+        padding: 4rem 2rem;
+    }
+
+    .features-inner h2 {
+        /* Reduces heading size on mobile */
+        font-size: 2rem;
+    }
+
+    .features-inner>p {
+        /* Reduces paragraph size on mobile */
+        font-size: 1rem;
+        /* Reduces space below paragraph on mobile */
+        margin-bottom: 3rem;
+    }
+
+    .features-grid {
+        /* Changes to single column on mobile */
+        grid-template-columns: 1fr;
+        /* Reduces gap between items */
+        gap: 2rem;
+    }
+
+    .feature-icon {
+        /* Reduces icon container size on mobile */
+        width: 70px;
+        /* Reduces icon container size on mobile */
+        height: 70px;
+        /* Reduces icon size on mobile */
+        font-size: 1.75rem;
+    }
+}
+
+/******************/
+/* Contact Form Section */
+/******************/
+.contact-section {
+    /* Adds spacing inside section (top/bottom left/right) */
+    padding: 6rem 2rem;
+    /* Sets background to white */
+    background-color: #ffffff;
+    /* Centers all text content */
+    text-align: center;
+    /* Adds thin border at top of section */
+    border-top: 1px solid #ddd;
+}
+
+.contact-inner {
+    /* Limits maximum width of form */
+    max-width: 800px;
+    /* Centers the container horizontally */
+    margin: 0 auto;
+}
+
+.contact-inner h2 {
+    /* Sets large font size for heading */
+    font-size: 2.5rem;
+    /* Makes font lighter weight */
+    font-weight: 300;
+    /* Adds space below heading */
+    margin-bottom: 3rem;
+    /* Controls spacing between lines */
+    line-height: 1.2;
+}
+
+.form-row {
+    /* Arranges form fields in a row */
+    display: flex;
+    /* Adds space between fields */
+    gap: 1.5rem;
+    /* Adds space below row */
+    margin-bottom: 1.5rem;
+}
+
+.form-field {
+    /* Adds space below form field */
+    margin-bottom: 1.5rem;
+    /* Aligns labels and inputs to left */
+    text-align: left;
+}
+
+.form-field.half {
+    /* Makes field take up equal space in row */
+    flex: 1;
+}
+
+.form-field label {
+    /* Makes label a block element (full width) */
+    display: block;
+    /* Adds space below label */
+    margin-bottom: 0.5rem;
+    /* Makes label text bold */
+    font-weight: 600;
+    /* Sets label text size */
+    font-size: 0.9rem;
+    /* Makes label text uppercase */
+    text-transform: uppercase;
+    /* Adds spacing between letters */
+    letter-spacing: 0.05em;
+}
+
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field textarea {
+    /* Makes input take full width of container */
+    width: 100%;
+    /* Adds spacing inside input */
+    padding: 0.875rem 1rem;
+    /* Adds gray border around input */
+    border: 2px solid #ddd;
+    /* Slightly rounds input corners */
+    border-radius: 4px;
+    /* Sets input text size */
+    font-size: 1rem;
+    /* Uses same font as rest of page */
+    font-family: inherit;
+    /* Smoothly animates border color changes */
+    transition: border-color 0.3s ease;
+}
+
+.form-field input[type="text"]:focus,
+.form-field input[type="email"]:focus,
+.form-field textarea:focus {
+    /* Removes default browser outline */
+    outline: none;
+    /* Changes border to dark when focused */
+    border-color: #333;
+}
+
+.form-field textarea {
+    /* Allows vertical resizing only */
+    resize: vertical;
+}
+
+.form-actions {
+    /* Centers submit button */
+    text-align: center;
+    /* Adds space above submit button */
+    margin-top: 2rem;
+}
+
+.submit-button {
+    /* Makes button inline instead of full width */
+    display: inline-block;
+    /* Adds spacing inside button */
+    padding: 1rem 3rem;
+    /* Sets dark background for button */
+    background-color: #333;
+    /* Sets button text color to white */
+    color: #ffffff;
+    /* Adds border matching background */
+    border: 2px solid #333;
+    /* Slightly rounds button corners */
+    border-radius: 4px;
+    /* Sets button text size */
+    font-size: 0.9rem;
+    /* Makes text bold */
+    font-weight: 600;
+    /* Makes text uppercase */
+    text-transform: uppercase;
+    /* Adds spacing between letters */
+    letter-spacing: 0.1em;
+    /* Shows pointer cursor on hover */
+    cursor: pointer;
+    /* Smoothly animates all property changes */
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    /* Makes background transparent when hovered */
+    background-color: transparent;
+    /* Changes text to dark when hovered */
+    color: #333;
+}
+
+/******************/
+/* Footer Section */
+/******************/
+
+.footer-section {
+    /* Adds spacing inside footer */
+    padding: 4rem 2rem;
+    /* Sets light gray background for footer */
+    background-color: #f8f9fa;
+    /* Centers all footer content */
+    text-align: center;
+}
+
+.footer-inner {
+    /* Limits maximum width of footer content */
+    max-width: 800px;
+    /* Centers the container horizontally */
+    margin: 0 auto;
+}
+
+.social-icons {
+    /* Removes default list bullets */
+    list-style: none;
+    /* Removes default padding */
+    padding: 0;
+    /* Removes side margins, adds space below */
+    margin: 0 0 2rem 0;
+    /* Arranges icons in a row */
+    display: flex;
+    /* Centers icons horizontally */
+    justify-content: center;
+    /* Adds space between icons */
+    gap: 2rem;
+}
+
+.social-icons li {
+    /* Makes list items inline */
+    display: inline-block;
+}
+
+.social-icons a {
+    /* Makes link a flex container for centering */
+    display: flex;
+    /* Centers icon vertically */
+    align-items: center;
+    /* Centers icon horizontally */
+    justify-content: center;
+    /* Sets icon container width */
+    width: 50px;
+    /* Sets icon container height */
+    height: 50px;
+    /* Adds dark border around icon */
+    border: 2px solid #333;
+    /* Makes icon container circular */
+    border-radius: 50%;
+    /* Sets icon color to dark gray */
+    color: #333;
+    /* Removes underline from link */
+    text-decoration: none;
+    /* Sets icon size */
+    font-size: 1.25rem;
+    /* Smoothly animates all property changes */
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    /* Changes background to dark when hovered */
+    background-color: #333;
+    /* Changes icon to white when hovered */
+    color: #ffffff;
+}
+
+.social-icons .label {
+    /* Hides label text visually but keeps it for screen readers */
+    position: absolute;
+    /* Clips text to zero width/height */
+    clip: rect(0, 0, 0, 0);
+    /* Prevents text from wrapping */
+    white-space: nowrap;
+    /* Removes border */
+    border: 0;
+    /* Removes padding */
+    padding: 0;
+    /* Hides overflow */
+    overflow: hidden;
+}
+
+.footer-section p {
+    /* Removes default margins */
+    margin: 0;
+    /* Sets text color to medium gray */
+    color: #666;
+    /* Sets copyright text size */
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .contact-section {
+        /* Reduces padding on mobile */
+        padding: 4rem 2rem;
+    }
+
+    .contact-inner h2 {
+        /* Reduces heading size on mobile */
+        font-size: 2rem;
+    }
+
+    .form-row {
+        /* Stacks form fields vertically on mobile */
+        flex-direction: column;
+        /* Removes gap between stacked fields */
+        gap: 0;
+    }
+
+    .form-field.half {
+        /* Removes flex behavior on mobile */
+        flex: none;
+    }
+
+    .social-icons {
+        /* Reduces gap between icons on mobile */
+        gap: 1.5rem;
+    }
+
+    .social-icons a {
+        /* Reduces icon container size on mobile */
+        width: 45px;
+        /* Reduces icon container size on mobile */
+        height: 45px;
+        /* Reduces icon size on mobile */
+        font-size: 1.1rem;
+    }
+}
