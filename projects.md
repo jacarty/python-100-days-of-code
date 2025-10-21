@@ -9,3 +9,6 @@ Python Scripting Project - Morse Code Converter
 
 ## Day 83
 Website Creation - Built Template To Be Updated Later With All Python Content
+
+## Day 84
+Tic Tac Toe Game on CLI
