@@ -12,3 +12,6 @@ Website Creation - Built Template To Be Updated Later With All Python Content
 
 ## Day 84
 Tic Tac Toe Game on CLI
+
+## Day 85
+Desktop app to watermark an uploaded image
