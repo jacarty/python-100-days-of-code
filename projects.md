@@ -15,3 +15,6 @@ Tic Tac Toe Game on CLI
 
 ## Day 85
 Desktop app to watermark an uploaded image
+
+## Day 86
+Typing speed test - further enhancements planned after 100 days
