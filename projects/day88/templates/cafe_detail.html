@@ -1,0 +1,378 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Cafe Detail -->
+<section class="cafe-detail-section" style="padding: 50px 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <img src="{{ cafe.img_url }}" class="img-fluid cafe-image" alt="{{ cafe.name }}"
+                    style="width: 100%; max-height: 450px; object-fit: cover;"
+                    onerror="this.src='https://via.placeholder.com/800x450/667eea/ffffff?text=Cafe+Image'">
+
+                <h2 class="cafe-title">{{ cafe.name }}</h2>
+                <p class="cafe-location">
+                    <i class="fas fa-map-marker-alt"></i> {{ cafe.location }}
+                </p>
+
+                <div class="amenities-card">
+                    <div class="card-header">
+                        <h5>Amenities & Features</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="amenity-item">
+                                    <i
+                                        class="fas fa-wifi amenity-icon {{ 'available' if cafe.has_wifi else 'unavailable' }}"></i>
+                                    <div>
+                                        <span class="amenity-label">WiFi:</span>
+                                        <span class="amenity-value">{{ 'Available' if cafe.has_wifi else 'Not Available'
+                                            }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="amenity-item">
+                                    <i
+                                        class="fas fa-plug amenity-icon {{ 'available' if cafe.has_sockets else 'unavailable' }}"></i>
+                                    <div>
+                                        <span class="amenity-label">Power Outlets:</span>
+                                        <span class="amenity-value">{{ 'Available' if cafe.has_sockets else 'Not
+                                            Available' }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="amenity-item">
+                                    <i
+                                        class="fas fa-phone-alt amenity-icon {{ 'available' if cafe.can_take_calls else 'unavailable' }}"></i>
+                                    <div>
+                                        <span class="amenity-label">Phone Calls:</span>
+                                        <span class="amenity-value">{{ 'OK to take calls' if cafe.can_take_calls else
+                                            'Please avoid calls' }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="amenity-item">
+                                    <i
+                                        class="fas fa-restroom amenity-icon {{ 'available' if cafe.has_toilet else 'unavailable' }}"></i>
+                                    <div>
+                                        <span class="amenity-label">Restroom:</span>
+                                        <span class="amenity-value">{{ 'Available' if cafe.has_toilet else 'Not
+                                            Available' }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="amenity-item">
+                                    <i class="fas fa-chair amenity-icon available"></i>
+                                    <div>
+                                        <span class="amenity-label">Seating:</span>
+                                        <span class="amenity-value">{{ cafe.seats }} seats</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if cafe.coffee_price %}
+                            <div class="col-md-6">
+                                <div class="amenity-item">
+                                    <i class="fas fa-coffee amenity-icon available"></i>
+                                    <div>
+                                        <span class="amenity-label">Coffee Price:</span>
+                                        <span class="amenity-value">{{ cafe.coffee_price }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="{{ cafe.map_url }}" target="_blank" class="btn btn-primary btn-map">
+                        <i class="fas fa-map-marked-alt"></i> View on Google Maps
+                    </a>
+
+                    <button type="button" class="btn btn-warning btn-edit" data-toggle="modal"
+                        data-target="#editCafeModal">
+                        <i class="fas fa-edit"></i> Edit Cafe
+                    </button>
+
+                    <button type="button" class="btn btn-danger btn-delete" data-toggle="modal"
+                        data-target="#deleteCafeModal">
+                        <i class="fas fa-trash-alt"></i> Delete Cafe
+                    </button>
+
+                    <a href="{{ url_for('cafes') }}" class="btn btn-outline-primary btn-back">
+                        <i class="fas fa-arrow-left"></i> Back to List
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="sidebar-card">
+                    <div class="card-header">
+                        <h5>Quick Info</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-item">
+                            <div class="info-label">Location</div>
+                            <div class="info-value">{{ cafe.location }}</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Capacity</div>
+                            <div class="info-value">{{ cafe.seats }} seats</div>
+                        </div>
+
+                        {% if cafe.coffee_price %}
+                        <div class="info-item">
+                            <div class="info-label">Coffee Price</div>
+                            <div class="price-highlight">{{ cafe.coffee_price }}</div>
+                        </div>
+                        {% endif %}
+
+                        <hr>
+
+                        <h6 class="mb-3" style="font-weight: 600; color: #2c3e50;">Perfect For:</h6>
+                        <ul class="perfect-for-list">
+                            {% if cafe.has_wifi and cafe.has_sockets %}
+                            <li><i class="fas fa-check-circle"></i> Remote Work</li>
+                            {% endif %}
+                            {% if cafe.has_wifi %}
+                            <li><i class="fas fa-check-circle"></i> Studying</li>
+                            {% endif %}
+                            {% if cafe.can_take_calls %}
+                            <li><i class="fas fa-check-circle"></i> Business Meetings</li>
+                            {% endif %}
+                            {% if cafe.seats and cafe.seats != 'N/A' %}
+                            <li><i class="fas fa-check-circle"></i> Group Gatherings</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteCafeModal" tabindex="-1" role="dialog" aria-labelledby="deleteCafeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="deleteCafeModalLabel">
+                    <i class="fas fa-exclamation-triangle"></i> Delete Cafe
+                </h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-0">Are you sure you want to delete <strong>{{ cafe.name }}</strong>?</p>
+                <p class="text-danger mt-2 mb-0"><small><i class="fas fa-exclamation-circle"></i> This action cannot be
+                        undone.</small></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">
+                    <i class="fas fa-trash-alt"></i> Yes, Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Cafe Modal -->
+<div class="modal fade" id="editCafeModal" tabindex="-1" role="dialog" aria-labelledby="editCafeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editCafeModalLabel">
+                    <i class="fas fa-edit"></i> Edit {{ cafe.name }}
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editCafeForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="edit_name">Cafe Name</label>
+                                <input type="text" class="form-control" id="edit_name" name="name"
+                                    value="{{ cafe.name }}" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="edit_location">Location</label>
+                                <input type="text" class="form-control" id="edit_location" name="location"
+                                    value="{{ cafe.location }}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit_map_url">Google Maps URL</label>
+                        <input type="url" class="form-control" id="edit_map_url" name="map_url"
+                            value="{{ cafe.map_url }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit_img_url">Image URL</label>
+                        <input type="url" class="form-control" id="edit_img_url" name="img_url"
+                            value="{{ cafe.img_url }}" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="edit_seats">Seating Capacity</label>
+                                <input type="text" class="form-control" id="edit_seats" name="seats"
+                                    value="{{ cafe.seats }}" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="edit_coffee_price">Coffee Price</label>
+                                <input type="text" class="form-control" id="edit_coffee_price" name="coffee_price"
+                                    value="{{ cafe.coffee_price }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Amenities</label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="custom-control custom-checkbox mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="edit_wifi" name="wifi"
+                                        value="1" {{ 'checked' if cafe.has_wifi else '' }}>
+                                    <label class="custom-control-label" for="edit_wifi">
+                                        <i class="fas fa-wifi"></i> WiFi Available
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="custom-control custom-checkbox mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="edit_sockets" name="sockets"
+                                        value="1" {{ 'checked' if cafe.has_sockets else '' }}>
+                                    <label class="custom-control-label" for="edit_sockets">
+                                        <i class="fas fa-plug"></i> Power Sockets
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="custom-control custom-checkbox mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="edit_toilet" name="toilet"
+                                        value="1" {{ 'checked' if cafe.has_toilet else '' }}>
+                                    <label class="custom-control-label" for="edit_toilet">
+                                        <i class="fas fa-restroom"></i> Restroom
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="custom-control custom-checkbox mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="edit_calls" name="calls"
+                                        value="1" {{ 'checked' if cafe.can_take_calls else '' }}>
+                                    <label class="custom-control-label" for="edit_calls">
+                                        <i class="fas fa-phone-alt"></i> Calls Allowed
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="saveChangesBtn">
+                    <i class="fas fa-save"></i> Save Changes
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Delete Cafe
+    document.getElementById('confirmDeleteBtn').addEventListener('click', function () {
+        fetch('/delete-cafe/{{ cafe.id }}', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.response && data.response.success) {
+                    // Close modal
+                    $('#deleteCafeModal').modal('hide');
+
+                    // Show success message
+                    alert('Cafe deleted successfully!');
+
+                    // Redirect to cafe list
+                    window.location.href = "{{ url_for('cafes') }}";
+                } else if (data.error) {
+                    alert('Error: ' + (data.error['Not Found'] || data.error['Forbidden'] || 'Failed to delete cafe'));
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error deleting the cafe. Please try again.');
+            });
+    });
+
+    // Edit Cafe
+    document.getElementById('saveChangesBtn').addEventListener('click', function () {
+        const form = document.getElementById('editCafeForm');
+        const formData = new FormData(form);
+
+        // Convert FormData to JSON
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        // Handle checkboxes separately (they won't be in formData if unchecked)
+        data.wifi = document.getElementById('edit_wifi').checked ? '1' : '0';
+        data.sockets = document.getElementById('edit_sockets').checked ? '1' : '0';
+        data.toilet = document.getElementById('edit_toilet').checked ? '1' : '0';
+        data.calls = document.getElementById('edit_calls').checked ? '1' : '0';
+
+        // Send update request
+        fetch('/update-cafe/{{ cafe.id }}', {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.response && data.response.success) {
+                    // Close modal
+                    $('#editCafeModal').modal('hide');
+
+                    // Show success message and reload page
+                    alert('Cafe updated successfully!');
+                    location.reload();
+                } else if (data.error) {
+                    alert('Error: ' + (data.error['Not Found'] || 'Failed to update cafe'));
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error updating the cafe. Please try again.');
+            });
+    });
+</script>
+{% endblock %}

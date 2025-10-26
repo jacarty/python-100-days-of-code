@@ -18,3 +18,9 @@ Desktop app to watermark an uploaded image
 
 ## Day 86
 Typing speed test - further enhancements planned after 100 days
+
+## Day 87
+Breakout Game
+
+## Day 88
+Cafe listing website to go over the day 66 API work
