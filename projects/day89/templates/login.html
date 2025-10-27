@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block title %}Login - TaskBoard{% endblock %}
+
+{% block content %}
+<div class="auth-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5 col-lg-4">
+                <div class="auth-card card shadow">
+                    <div class="card-body p-4">
+                        <!-- Header -->
+                        <div class="text-center mb-4">
+                            <h2 class="fw-bold mb-2">Welcome Back</h2>
+                            <p class="text-muted">Login to access your tasks</p>
+                        </div>
+
+                        <!-- Login Form -->
+                        {{ render_form(form, button_map={'submit': 'primary'}) }}
+
+                        <!-- Register Link -->
+                        <div class="text-center mt-4">
+                            <p class="text-muted mb-0">
+                                Don't have an account? 
+                                <a href="{{ url_for('register') }}" class="text-decoration-none fw-500">Get Started</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
