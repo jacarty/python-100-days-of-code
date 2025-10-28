@@ -24,3 +24,9 @@ Breakout Game
 
 ## Day 88
 Cafe listing website to go over the day 66 API work
+
+## Day 89
+Task traking app with Kanban board and email contact
+
+## Day 90
+Disappearing Typing App
