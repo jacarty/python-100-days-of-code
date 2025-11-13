@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Results Header -->
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">Color Analysis Results</h1>
+            <p class="hero-subtitle">Your extracted color palette</p>
+        </div>
+    </div>
+</section>
+
+<!-- Results Section -->
+<section class="results-section">
+    <div class="container">
+        <!-- Uploaded Image Display -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-6">
+                <div class="result-image-container">
+                    <img id="resultImage" src="{{ image_data }}" alt="Analyzed Image" class="result-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Parameters -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-10">
+                <div class="alert alert-info">
+                    <strong>Analysis Parameters:</strong> {{ num_colors }} colors extracted with delta sensitivity of {{ delta }}
+                </div>
+            </div>
+        </div>
+
+        <!-- Color Palette Strip -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-10">
+                <h3 class="text-center mb-3" style="font-size: 1.5rem; font-weight: 700;">Color Palette</h3>
+                <div class="color-palette-strip">
+                    {% for color in results.colors %}
+                    <div class="palette-color" style="background-color: {{ color.hex }};" 
+                         onclick="copyToClipboard('{{ color.hex }}', this)"
+                         title="Click to copy {{ color.hex }}">
+                        <div class="palette-color-tooltip">{{ color.hex }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Color Palette Table -->
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="color-table-card">
+                    <table class="table color-table">
+                        <thead>
+                            <tr>
+                                <th>Color</th>
+                                <th>Hex Code</th>
+                                <th>RGB</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody id="colorTableBody">
+                            {% for color in results.colors %}
+                            <tr>
+                                <td>
+                                    <div class="color-swatch" style="background-color: {{ color.hex }};"></div>
+                                </td>
+                                <td>
+                                    <div class="hex-code-cell">
+                                        <code>{{ color.hex }}</code>
+                                        <button class="copy-button" onclick="copyHexCode('{{ color.hex }}', this)">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td>rgb({{ color.rgb[0] }}, {{ color.rgb[1] }}, {{ color.rgb[2] }})</td>
+                                <td>
+                                    <div class="percentage-bar">
+                                        <div class="percentage-fill" style="width: {{ color.percentage }}%;"></div>
+                                        <span class="percentage-text">{{ color.percentage }}%</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-8 text-center">
+                <a href="/" class="btn btn-primary">
+                    <i class="fas fa-upload"></i> Analyze Another Image
+                </a>
+                <button class="btn btn-secondary btn-download" onclick="downloadPalette()">
+                    <i class="fas fa-download"></i> Download Palette
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Download palette as JSON
+function downloadPalette() {
+    const colors = {{ results.colors | tojson }};
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(colors, null, 2));
+    const downloadAnchor = document.createElement('a');
+    downloadAnchor.setAttribute("href", dataStr);
+    downloadAnchor.setAttribute("download", "color_palette.json");
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    downloadAnchor.remove();
+}
+
+// Copy hex code to clipboard from table
+function copyHexCode(hexCode, button) {
+    navigator.clipboard.writeText(hexCode).then(function() {
+        // Change button text temporarily
+        const originalHTML = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-check"></i>';
+        button.classList.add('copied');
+        
+        setTimeout(function() {
+            button.innerHTML = originalHTML;
+            button.classList.remove('copied');
+        }, 2000);
+    }).catch(function(err) {
+        console.error('Failed to copy: ', err);
+        alert('Failed to copy hex code');
+    });
+}
+
+// Copy hex code from palette strip
+function copyToClipboard(hexCode, element) {
+    navigator.clipboard.writeText(hexCode).then(function() {
+        // Create a temporary "Copied!" message
+        const tooltip = element.querySelector('.palette-color-tooltip');
+        const originalText = tooltip.textContent;
+        tooltip.textContent = 'Copied!';
+        tooltip.style.opacity = '1';
+        
+        setTimeout(function() {
+            tooltip.textContent = originalText;
+            tooltip.style.opacity = '0';
+        }, 1500);
+    }).catch(function(err) {
+        console.error('Failed to copy: ', err);
+    });
+}
+</script>
+{% endblock %}
