@@ -98,3 +98,9 @@
 # https://htmltemplates.co/
 # https://themewagon.com
 ##############################################
+
+##############################################
+# Colour Palette
+#
+# https://flatuicolors.com/palette/gb
+##############################################

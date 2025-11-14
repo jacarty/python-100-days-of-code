@@ -30,3 +30,12 @@ Task traking app with Kanban board and email contact
 
 ## Day 90
 Disappearing Typing App
+
+## Day 91
+Script - Text (PDF) to Audio with Google API
+
+## Day 92
+Image Colour Analysis Website using Numpy
+
+## Day 93
+Webscraping Recipe Links to CSV
