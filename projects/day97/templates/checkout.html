@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block title %}Checkout - My Store{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Checkout</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <h3>Order Summary</h3>
+        <table class="table mb-4">
+            {% for item in items %}
+            <tr>
+                <td>{{ item.product.name }} x {{ item.quantity }}</td>
+                <td class="text-end">${{ "%.2f"|format(item.subtotal) }}</td>
+            </tr>
+            {% endfor %}
+            <tr class="table-dark">
+                <td><strong>Total</strong></td>
+                <td class="text-end"><strong>${{ "%.2f"|format(total) }}</strong></td>
+            </tr>
+        </table>
+
+        <h3>Shipping Address</h3>
+        <form method="POST">
+            {% if addresses %}
+            <div class="mb-3">
+                <label class="form-label">Select Address</label>
+                {% for address in addresses %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="address_id" id="address_{{ address.id }}"
+                        value="{{ address.id }}" {% if default_address and default_address.id==address.id %}checked{%
+                        endif %} onchange="toggleNewAddressForm()">
+                    <label class="form-check-label" for="address_{{ address.id }}">
+                        <strong>{{ address.name }}</strong>
+                        {% if address.is_default %}<span class="badge bg-primary ms-2">Default</span>{% endif %}
+                        <br>
+                        {{ address.street }}, {{ address.city }}, {{ address.state }} {{ address.postal_code }}
+                    </label>
+                </div>
+                {% endfor %}
+
+                <div class="form-check mt-2">
+                    <input class="form-check-input" type="radio" name="address_id" id="address_new" value="new"
+                        onchange="toggleNewAddressForm()">
+                    <label class="form-check-label" for="address_new">
+                        <strong>Use a different address</strong>
+                    </label>
+                </div>
+            </div>
+
+            <p class="text-muted">
+                <a href="{{ url_for('manage_addresses') }}">Manage my addresses</a>
+            </p>
+            {% else %}
+            <input type="hidden" name="address_id" value="new">
+            <p class="text-muted mb-3">You don't have any saved addresses. Add your shipping details below.</p>
+            {% endif %}
+
+            <!-- New Address Form -->
+            <div id="new-address-form" style="display: {% if not addresses %}block{% else %}none{% endif %};">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Shipping Details</h5>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="street" class="form-label">Street Address</label>
+                            <input type="text" class="form-control" id="street" name="street">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="city" class="form-label">City</label>
+                                <input type="text" class="form-control" id="city" name="city">
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="state" class="form-label">State</label>
+                                <input type="text" class="form-control" id="state" name="state">
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="postal_code" class="form-label">Postal Code</label>
+                                <input type="text" class="form-control" id="postal_code" name="postal_code">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text" class="form-control" id="country" name="country" value="United States">
+                        </div>
+
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="save_address" name="save_address">
+                            <label class="form-check-label" for="save_address">
+                                Save this address for future orders
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="is_default" name="is_default">
+                            <label class="form-check-label" for="is_default">
+                                Set as my default shipping address
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <a href="{{ url_for('view_cart') }}" class="btn btn-secondary">Back to Cart</a>
+                <button type="submit" class="btn btn-primary btn-lg">Continue to Payment</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Order Total</h5>
+                <p class="h3 text-primary">${{ "%.2f"|format(total) }}</p>
+                <hr>
+                <p class="text-muted small">Taxes and shipping calculated at checkout</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function toggleNewAddressForm() {
+        const newAddressRadio = document.getElementById('address_new');
+        const newAddressForm = document.getElementById('new-address-form');
+
+        if (newAddressRadio && newAddressRadio.checked) {
+            newAddressForm.style.display = 'block';
+        } else {
+            newAddressForm.style.display = 'none';
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,79 @@
+/* Custom styles for the store */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+}
+
+/* Product cards */
+.card {
+    transition: transform 0.2s;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Cart badge */
+.navbar .badge {
+    position: relative;
+    top: -2px;
+}
+
+/* Checkout button */
+#checkout-button {
+    font-size: 1.1rem;
+    padding: 15px;
+}
+
+/* Order success page */
+.order-success {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.order-success i {
+    font-size: 5rem;
+    color: #28a745;
+}
+
+/* Flash messages */
+.alert {
+    margin-bottom: 20px;
+}
+
+/* Product detail page */
+.product-detail-img {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer spacing */
+footer {
+    margin-top: auto;
+    padding: 20px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+/* Force compact cards on admin order detail page */
+.col-md-4 .card-body {
+    padding: 1rem !important;
+    min-height: 0 !important;
+}
+
+.col-md-4 .card {
+    height: auto !important;
+}

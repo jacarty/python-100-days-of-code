@@ -39,3 +39,15 @@ Image Colour Analysis Website using Numpy
 
 ## Day 93
 Webscraping Recipe Links to CSV
+
+## Day 94
+Google Dinosaur Game Bot
+
+## Day 95
+Space Invaders Game
+
+## Day 96
+Stock Tracking Price Automation with AWS Lambda & SNS
+
+## Day 97
+Demonstraiton eCommerce Store with Stripe Integration

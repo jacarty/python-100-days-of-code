@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Payment - My Store{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Payment</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Order Summary</h5>
+                <table class="table table-sm">
+                    {% for item in items %}
+                    <tr>
+                        <td>{{ item.product.name }} x {{ item.quantity }}</td>
+                        <td class="text-end">${{ "%.2f"|format(item.subtotal) }}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr class="table-dark">
+                        <td><strong>Total</strong></td>
+                        <td class="text-end"><strong>${{ "%.2f"|format(total) }}</strong></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Payment Method</h5>
+                <p class="text-muted">Secure payment powered by Stripe</p>
+                <button id="checkout-button" class="btn btn-success btn-lg w-100">
+                    Pay ${{ "%.2f"|format(total) }}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Secure Checkout</h5>
+                <ul class="list-unstyled">
+                    <li>✓ Encrypted payment processing</li>
+                    <li>✓ Your data is safe</li>
+                    <li>✓ 100% secure transactions</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    const stripe = Stripe('{{ stripe_key }}');
+    const checkoutButton = document.getElementById('checkout-button');
+
+    checkoutButton.addEventListener('click', async () => {
+        checkoutButton.disabled = true;
+        checkoutButton.textContent = 'Processing...';
+
+        const response = await fetch('/create-checkout-session', {
+            method: 'POST',
+        });
+        const session = await response.json();
+
+        if (session.error) {
+            alert(session.error);
+            checkoutButton.disabled = false;
+            checkoutButton.textContent = 'Pay ${{ "%.2f"|format(total) }}';
+            return;
+        }
+
+        const result = await stripe.redirectToCheckout({
+            sessionId: session.id
+        });
+
+        if (result.error) {
+            alert(result.error.message);
+            checkoutButton.disabled = false;
+            checkoutButton.textContent = 'Pay ${{ "%.2f"|format(total) }}';
+        }
+    });
+</script>
+{% endblock %}
