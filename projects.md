@@ -47,7 +47,13 @@ Google Dinosaur Game Bot
 Space Invaders Game
 
 ## Day 96
-Stock Tracking Price Automation with AWS Lambda & SNS
+Stock Tracking Website with Marketstack API
 
 ## Day 97
 Demonstraiton eCommerce Store with Stripe Integration
+
+## Day 98
+Stock Tracking Price Notification Automation with AWS Lambda & SNS
+
+## Day 99
+Space Flight Data Analysis
