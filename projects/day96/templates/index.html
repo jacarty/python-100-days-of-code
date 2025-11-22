@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Lookup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📈 Stock Lookup</h1>
+            <p>Search for real-time stock market data</p>
+        </header>
+
+        <div class="search-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="stockInput" 
+                    placeholder="Enter stock symbol (e.g., AAPL, TSLA, MSFT)"
+                    autocomplete="off"
+                >
+                <button id="searchBtn">Search</button>
+            </div>
+            <p class="hint">Try: AAPL, GOOGL, TSLA, MSFT, AMZN</p>
+        </div>
+
+        <div id="popularStocks" class="popular-stocks">
+            <h3>Popular Stocks</h3>
+            <div id="popularList" class="stock-chips"></div>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading stock data...</p>
+        </div>
+
+        <div id="error" class="error" style="display: none;"></div>
+
+        <div id="stockData" class="stock-data" style="display: none;">
+            <div class="stock-header">
+                <h2 id="stockSymbol"></h2>
+                <div id="stockPrice" class="price"></div>
+                <div id="stockChange" class="change"></div>
+            </div>
+
+            <div class="stock-details">
+                <div class="detail-item">
+                    <span class="label">Open:</span>
+                    <span id="stockOpen" class="value"></span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">High:</span>
+                    <span id="stockHigh" class="value"></span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Low:</span>
+                    <span id="stockLow" class="value"></span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Volume:</span>
+                    <span id="stockVolume" class="value"></span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Date:</span>
+                    <span id="stockDate" class="value"></span>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <h3>Recent History</h3>
+                <div id="stockHistory" class="history-table"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

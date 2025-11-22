@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>All Cafes in London</h2>
+                <p>Found {{ cafes|length }} amazing cafes</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Cafes Grid -->
+<section class="cafes-section">
+    <div class="container">
+        {% if cafes|length > 0 %}
+        <div class="row">
+            {% for cafe in cafes %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card cafe-card">
+                    <img src="{{ cafe.img_url }}" class="card-img-top" alt="{{ cafe.name }}"
+                        onerror="this.src='https://via.placeholder.com/400x220/667eea/ffffff?text=Cafe+Image'">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ cafe.name }}</h5>
+                        <p class="location-badge">
+                            <i class="fas fa-map-marker-alt"></i> {{ cafe.location }}
+                        </p>
+
+                        <!-- Amenities Badges -->
+                        <div class="amenity-badges">
+                            {% if cafe.has_wifi %}
+                            <span class="badge badge-success">
+                                <i class="fas fa-wifi"></i> WiFi
+                            </span>
+                            {% endif %}
+
+                            {% if cafe.has_sockets %}
+                            <span class="badge badge-success">
+                                <i class="fas fa-plug"></i> Sockets
+                            </span>
+                            {% endif %}
+
+                            {% if cafe.can_take_calls %}
+                            <span class="badge badge-success">
+                                <i class="fas fa-phone-alt"></i> Calls OK
+                            </span>
+                            {% endif %}
+
+                            {% if cafe.has_toilet %}
+                            <span class="badge badge-info">
+                                <i class="fas fa-restroom"></i> Restroom
+                            </span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="cafe-info">
+                            <span class="seats-info">
+                                <i class="fas fa-chair"></i> {{ cafe.seats }} seats
+                            </span>
+                            {% if cafe.coffee_price %}
+                            <span class="price-tag">{{ cafe.coffee_price }}</span>
+                            {% endif %}
+                        </div>
+                        <a href="{{ url_for('cafe_detail', cafe_id=cafe.id) }}"
+                            class="btn btn-primary btn-view-details btn-block">
+                            View Details <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <i class="fas fa-search"></i>
+            <h3>No cafes found</h3>
+            <p class="text-muted mb-4">Try adjusting your search criteria</p>
+            <a href="{{ url_for('cafes') }}" class="btn btn-primary btn-lg">View All Cafes</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

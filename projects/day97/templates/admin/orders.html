@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}All Orders - Admin{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>All Orders</h1>
+    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Back to Dashboard</a>
+</div>
+
+{% if orders %}
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Order #</th>
+                <th>Customer</th>
+                <th>Email</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td><strong>#{{ order.id }}</strong></td>
+                <td>{{ order.user.name }}</td>
+                <td>{{ order.user.email }}</td>
+                <td>${{ "%.2f"|format(order.total_amount) }}</td>
+                <td>
+                    {% if order.status == 'paid' %}
+                    <span class="badge bg-success">{{ order.status }}</span>
+                    {% elif order.status == 'shipped' %}
+                    <span class="badge bg-info">{{ order.status }}</span>
+                    {% elif order.status == 'delivered' %}
+                    <span class="badge bg-primary">{{ order.status }}</span>
+                    {% elif order.status == 'cancelled' %}
+                    <span class="badge bg-danger">{{ order.status }}</span>
+                    {% else %}
+                    <span class="badge bg-warning">{{ order.status }}</span>
+                    {% endif %}
+                </td>
+                <td>{{ order.created_at.strftime('%b %d, %Y %I:%M %p') }}</td>
+                <td>
+                    <a href="{{ url_for('admin_order_detail', order_id=order.id) }}" class="btn btn-sm btn-primary">View
+                        Details</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="alert alert-info">No orders yet.</div>
+{% endif %}
+{% endblock %}

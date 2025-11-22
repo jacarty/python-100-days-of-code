@@ -1,0 +1,355 @@
+Category: Global Kitchen
+Title: Essential Ingredients in the Indian Pantry
+URL: https://www.allrecipes.com/article/essential-indian-pantry-ingredients/
+--------------------------------------------------
+
+Category: Indian
+Title: 15 Essential North Indian Recipes
+URL: https://www.allrecipes.com/gallery/north-indian-recipes/
+--------------------------------------------------
+
+Category: Main Dishes
+Title: 15 Best Indian Recipes for the Instant Pot
+URL: https://www.allrecipes.com/gallery/indian-instant-pot-recipes/
+--------------------------------------------------
+
+Category: Indian
+Title: 10 Best Slow Cooker Indian Recipes
+URL: https://www.allrecipes.com/gallery/slow-cooker-indian-recipes/
+--------------------------------------------------
+
+Category: Thighs
+Title: Tailgate Tandoori Chicken
+URL: https://www.allrecipes.com/tailgate-tandoori-chicken-recipe-11827792
+--------------------------------------------------
+
+Category: Curries
+Title: Sweet Lamb Curry
+URL: https://www.allrecipes.com/recipe/174437/sweet-lamb-curry/
+--------------------------------------------------
+
+Category: Turmeric Recipes
+Title: Turmeric Golden Milk with Turmeric Paste
+URL: https://www.allrecipes.com/recipe/258801/turmeric-golden-milk-with-turmeric-paste/
+--------------------------------------------------
+
+Category: Curry
+Title: Chana Masala (Indian Chickpea Curry)
+URL: https://www.allrecipes.com/recipe/236564/chana-masala-savory-indian-chick-peas/
+--------------------------------------------------
+
+Category: Curry
+Title: Paneer Tikka Masala
+URL: https://www.allrecipes.com/recipe/240652/paneer-tikka-masala/
+--------------------------------------------------
+
+Category: Chicken
+Title: Indian Chicken Curry (Murgh Kari)
+URL: https://www.allrecipes.com/recipe/212721/indian-chicken-curry-murgh-kari/
+--------------------------------------------------
+
+Category: Rice
+Title: Lamb (Gosht) Biryani
+URL: https://www.allrecipes.com/recipe/212487/lamb-gosht-biryani/
+--------------------------------------------------
+
+Category: Vegetarian
+Title: Mixed Vegetable Curry
+URL: https://www.allrecipes.com/mixed-vegetable-curry-recipe-8737107
+--------------------------------------------------
+
+Category: Desserts
+Title: Carrot Halwa
+URL: https://www.allrecipes.com/carrot-halwa-recipe-8720976
+--------------------------------------------------
+
+Category: Chicken
+Title: One Pot Turmeric Chicken and Rice
+URL: https://www.allrecipes.com/one-pot-turmeric-chicken-and-rice-recipe-8716130
+--------------------------------------------------
+
+Category: Curry
+Title: Slow Cooker Butter Chicken
+URL: https://www.allrecipes.com/recipe/174543/slow-cooker-butter-chicken/
+--------------------------------------------------
+
+Category: Chicken
+Title: Roscoe's Chicken 65
+URL: https://www.allrecipes.com/roscoes-chicken-65-recipe-8707302
+--------------------------------------------------
+
+Category: Main Dishes
+Title: Shrimp Biryani
+URL: https://www.allrecipes.com/shrimp-biryani-recipe-8679342
+--------------------------------------------------
+
+Category: Rice Side Dish Recipes
+Title: Golden Butter Rice
+URL: https://www.allrecipes.com/golden-butter-rice-recipe-8599188
+--------------------------------------------------
+
+Category: Cheese Recipes
+Title: Paneer
+URL: https://www.allrecipes.com/recipe/73715/paneer/
+--------------------------------------------------
+
+Category: Drinks
+Title: My Mango Lassi
+URL: https://www.allrecipes.com/recipe/264349/my-mango-lassi/
+--------------------------------------------------
+
+Category: Vegetarian
+Title: Chickpea Tikka Masala
+URL: https://www.allrecipes.com/chickpea-tikka-masala-recipe-7497387
+--------------------------------------------------
+
+Category: Samosas
+Title: Air Fryer Samosas
+URL: https://www.allrecipes.com/air-fryer-samosas-recipe-7510128
+--------------------------------------------------
+
+Category: Chicken
+Title: Chicken Bhuna
+URL: https://www.allrecipes.com/chicken-bhuna-recipe-7485475
+--------------------------------------------------
+
+Category: Curry
+Title: Keema Aloo (Ground Beef and Potatoes)
+URL: https://www.allrecipes.com/recipe/231026/keema-aloo-ground-beef-and-potatoes/
+--------------------------------------------------
+
+Category: Chicken
+Title: Tandoori Chicken
+URL: https://www.allrecipes.com/recipe/50347/indian-tandoori-chicken/
+--------------------------------------------------
+
+Category: Bread
+Title: Green Onion Garlic Naan Bread
+URL: https://www.allrecipes.com/recipe/8467738/green-onion-garlic-naan-bread/
+--------------------------------------------------
+
+Category: Chicken Soup Recipes
+Title: Chef John's Mulligatawny Soup
+URL: https://www.allrecipes.com/recipe/8466000/chef-johns-mulligatawny-soup/
+--------------------------------------------------
+
+Category: Indian
+Title: Butter Chicken (Murgh Makhani)
+URL: https://www.allrecipes.com/recipe/246717/indian-butter-chicken-chicken-makhani/
+--------------------------------------------------
+
+Category: Quick Bread Recipes
+Title: Quick Whole Wheat Chapati
+URL: https://www.allrecipes.com/recipe/233531/quick-whole-wheat-chapati/
+--------------------------------------------------
+
+Category: Desserts
+Title: Gajar Ka Halwa (Carrot Halwa)
+URL: https://www.allrecipes.com/recipe/282238/gajar-ka-halwa-carrot-halwa/
+--------------------------------------------------
+
+Category: Homemade Spice Blend Recipes
+Title: Easy Garam Masala
+URL: https://www.allrecipes.com/recipe/142967/easy-garam-masala/
+--------------------------------------------------
+
+Category: Bread
+Title: Indian Chapati Bread
+URL: https://www.allrecipes.com/recipe/85469/indian-chapati-bread/
+--------------------------------------------------
+
+Category: Desserts
+Title: Kheer (Rice Pudding)
+URL: https://www.allrecipes.com/recipe/74203/kheer-rice-pudding/
+--------------------------------------------------
+
+Category: Rice Side Dish Recipes
+Title: Indian Style Basmati Rice
+URL: https://www.allrecipes.com/recipe/72349/indian-style-basmati-rice/
+--------------------------------------------------
+
+Category: Chicken
+Title: Easy Indian Butter Chicken
+URL: https://www.allrecipes.com/recipe/141169/easy-indian-butter-chicken/
+--------------------------------------------------
+
+Category: Bread
+Title: Naan
+URL: https://www.allrecipes.com/recipe/14565/naan/
+--------------------------------------------------
+
+Category: Chicken
+Title: Indian Chicken Curry
+URL: https://www.allrecipes.com/recipe/46822/indian-chicken-curry-ii/
+--------------------------------------------------
+
+Category: Sauces
+Title: Easy Curry Sauce
+URL: https://www.allrecipes.com/recipe/25881/basic-curry-sauce/
+--------------------------------------------------
+
+Category: Chicken and Rice Soup Recipes
+Title: Mulligatawny Soup
+URL: https://www.allrecipes.com/recipe/13087/mulligatawny-soup-i/
+--------------------------------------------------
+
+Category: Indian
+Title: Chili Garlic (Homemade) Paneer
+URL: https://www.allrecipes.com/chili-garlic-homemade-paneer-recipe-7483649
+--------------------------------------------------
+
+Category: Chicken
+Title: Chicken Makhani (Indian Butter Chicken)
+URL: https://www.allrecipes.com/recipe/45957/chicken-makhani-indian-butter-chicken/
+--------------------------------------------------
+
+Category: Indian
+Title: Chicken Tikka Masala
+URL: https://www.allrecipes.com/recipe/45736/chicken-tikka-masala/
+--------------------------------------------------
+
+Category: Indian
+Title: Authentic Saag Paneer
+URL: https://www.allrecipes.com/recipe/228957/authentic-saag-paneer/
+--------------------------------------------------
+
+Category: Chicken
+Title: Curry Stand Chicken Tikka Masala Sauce
+URL: https://www.allrecipes.com/recipe/228293/curry-stand-chicken-tikka-masala-sauce/
+--------------------------------------------------
+
+Category: Lentils
+Title: Red Lentil Curry
+URL: https://www.allrecipes.com/recipe/16641/red-lentil-curry/
+--------------------------------------------------
+
+Category: Indian
+Title: Tandoori Masala Spice Mix
+URL: https://www.allrecipes.com/recipe/241875/tandoori-masala-spice-mix/
+--------------------------------------------------
+
+Category: Greens
+Title: Indian Saag
+URL: https://www.allrecipes.com/recipe/64066/indian-saag/
+--------------------------------------------------
+
+Category: Samosas
+Title: Beef Samosas
+URL: https://www.allrecipes.com/recipe/24871/beef-samosas/
+--------------------------------------------------
+
+Category: Indian
+Title: Vegan Sweet Potato Chickpea Curry
+URL: https://www.allrecipes.com/recipe/265472/vegan-sweet-potato-chickpea-curry/
+--------------------------------------------------
+
+Category: Indian
+Title: Haldi Ka Doodh (Hot Turmeric Milk)
+URL: https://www.allrecipes.com/recipe/236294/haldi-ka-doodh-hot-turmeric-milk/
+--------------------------------------------------
+
+Category: Chicken
+Title: Chicken Biryani
+URL: https://www.allrecipes.com/recipe/16102/chicken-biryani/
+--------------------------------------------------
+
+Category: Indian
+Title: Chai Tea Latte
+URL: https://www.allrecipes.com/recipe/222513/chai-tea-latte/
+--------------------------------------------------
+
+Category: Indian
+Title: Vegetarian Korma
+URL: https://www.allrecipes.com/recipe/60598/vegetarian-korma/
+--------------------------------------------------
+
+Category: Indian
+Title: Chef John's Chicken Tikka Masala
+URL: https://www.allrecipes.com/recipe/239867/chef-johns-chicken-tikka-masala/
+--------------------------------------------------
+
+Category: Spicy
+Title: Indian Spiced Onions
+URL: https://www.allrecipes.com/recipe/84965/indian-spiced-onions/
+--------------------------------------------------
+
+Category: Indian
+Title: Indian Shrimp Curry
+URL: https://www.allrecipes.com/recipe/205544/indian-shrimp-curry/
+--------------------------------------------------
+
+Category: Indian
+Title: Chicken Saag
+URL: https://www.allrecipes.com/recipe/215021/chicken-saag/
+--------------------------------------------------
+
+Category: Indian
+Title: Indian-Style Seekh Kebab
+URL: https://www.allrecipes.com/recipe/33252/indian-style-sheekh-kabab/
+--------------------------------------------------
+
+Category: Quick Bread Recipes
+Title: Easy Two-Ingredient Naan
+URL: https://www.allrecipes.com/recipe/280310/two-ingredient-naan/
+--------------------------------------------------
+
+Category: Green Beans
+Title: Spicy Indian Green Beans, Gujarati Style
+URL: https://www.allrecipes.com/recipe/75087/spicy-indian-gujarati-green-beans/
+--------------------------------------------------
+
+Category: Indian
+Title: Chicken Madras
+URL: https://www.allrecipes.com/recipe/262542/authentic-chicken-madras/
+--------------------------------------------------
+
+Category: Curry
+Title: Paneer Butter Masala
+URL: https://www.allrecipes.com/recipe/232203/paneer-butter-masala/
+--------------------------------------------------
+
+Category: Indian
+Title: Authentic Chicken Tikka Masala
+URL: https://www.allrecipes.com/recipe/228446/authentic-chicken-tikka-masala/
+--------------------------------------------------
+
+Category: Bangladeshi
+Title: Indian Fish Curry
+URL: https://www.allrecipes.com/recipe/213238/indian-fish-curry/
+--------------------------------------------------
+
+Category: Indian
+Title: Punjabi Chicken in Thick Gravy
+URL: https://www.allrecipes.com/recipe/150340/punjabi-chicken-in-thick-gravy/
+--------------------------------------------------
+
+Category: Indian
+Title: Goan Pork Vindaloo
+URL: https://www.allrecipes.com/recipe/217331/goan-pork-vindaloo/
+--------------------------------------------------
+
+Category: Spicy
+Title: Crispy Vegetable Pakoras
+URL: https://www.allrecipes.com/recipe/23595/crispy-vegetable-pakoras/
+--------------------------------------------------
+
+Category: Indian
+Title: Easy Chicken Curry
+URL: https://www.allrecipes.com/recipe/15156/easy-chicken-curry/
+--------------------------------------------------
+
+Category: Indian
+Title: Gujarati Kadhi
+URL: https://www.allrecipes.com/recipe/212449/gujarati-kadhi/
+--------------------------------------------------
+
+Category: Indian
+Title: Indian Lassi
+URL: https://www.allrecipes.com/recipe/20435/indian-lassi/
+--------------------------------------------------
+
+Category: Appetizers and Snacks
+Title: Air Fryer Pakoras
+URL: https://www.allrecipes.com/recipe/270817/air-fryer-pakoras/
+--------------------------------------------------
+
